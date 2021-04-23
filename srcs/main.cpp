@@ -68,7 +68,7 @@ public:
 
 	void collapse_targets() {
 		for (auto& i: targets_) {
-			for (auto& j: targets_) {
+			for (auto& j: targets_) { /// j == i;
 					j->collapse(i, j);
 			}
 		}
