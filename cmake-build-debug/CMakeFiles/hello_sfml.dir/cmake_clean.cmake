@@ -1,7 +1,13 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/hello_sfml.dir/srcs/classes/I_target.cpp.o"
+  "CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o"
+  "CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o"
+  "CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o"
+  "CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/main.cpp.o"
+  "CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o"
   "hello_sfml"
   "hello_sfml.pdb"
 )

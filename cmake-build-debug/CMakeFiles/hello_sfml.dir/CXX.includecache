@@ -676,19 +676,35 @@ SFML/Config.hpp
 
 ../include/SFML/Window/WindowStyle.hpp
 
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.cpp
-canonball_t.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.hpp
+../shooting_range.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
+../shooting_range.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
+scope_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
 ../shooting_range.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
-
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.cpp
-scope_t.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
+iostream
+-
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
+../shooting_range.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
+I_target.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
+I_target.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
 ../shooting_range.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 
@@ -697,8 +713,14 @@ iostream
 -
 classes/canonball_t.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
-classes/scope_t.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
+classes/cannon_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
+classes/wrap_window.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
+classes/target_c1.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
+classes/target_c2.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
 array
 -
 list
@@ -708,5 +730,7 @@ list
 SFML/Graphics.hpp
 -
 cmath
+-
+iostream
 -
 

@@ -193,7 +193,7 @@ public:
     const FloatRect& getViewport() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Move the view relatively to its current position
+    /// \brief cannonbal_move the view relatively to its current position
     ///
     /// \param offsetX X coordinate of the move offset
     /// \param offsetY Y coordinate of the move offset
@@ -204,9 +204,9 @@ public:
     void move(float offsetX, float offsetY);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Move the view relatively to its current position
+    /// \brief cannonbal_move the view relatively to its current position
     ///
-    /// \param offset Move offset
+    /// \param offset cannonbal_move offset
     ///
     /// \see setCenter, rotate, zoom
     ///

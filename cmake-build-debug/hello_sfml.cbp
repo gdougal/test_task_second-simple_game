@@ -82,6 +82,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.cpp">
 			<Option target="hello_sfml"/>
 		</Unit>
@@ -94,10 +106,31 @@
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp">
 			<Option target="hello_sfml"/>
 		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/main.cpp">
 			<Option target="hello_sfml"/>
 		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/utils.cpp">
 			<Option target="hello_sfml"/>
 		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/CMakeLists.txt">

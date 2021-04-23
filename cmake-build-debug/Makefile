@@ -142,6 +142,60 @@ hello_sfml/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/build
 .PHONY : hello_sfml/fast
 
+srcs/classes/I_target.o: srcs/classes/I_target.cpp.o
+
+.PHONY : srcs/classes/I_target.o
+
+# target to build an object file
+srcs/classes/I_target.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/I_target.cpp.o
+.PHONY : srcs/classes/I_target.cpp.o
+
+srcs/classes/I_target.i: srcs/classes/I_target.cpp.i
+
+.PHONY : srcs/classes/I_target.i
+
+# target to preprocess a source file
+srcs/classes/I_target.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/I_target.cpp.i
+.PHONY : srcs/classes/I_target.cpp.i
+
+srcs/classes/I_target.s: srcs/classes/I_target.cpp.s
+
+.PHONY : srcs/classes/I_target.s
+
+# target to generate assembly for a file
+srcs/classes/I_target.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/I_target.cpp.s
+.PHONY : srcs/classes/I_target.cpp.s
+
+srcs/classes/cannon_t.o: srcs/classes/cannon_t.cpp.o
+
+.PHONY : srcs/classes/cannon_t.o
+
+# target to build an object file
+srcs/classes/cannon_t.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o
+.PHONY : srcs/classes/cannon_t.cpp.o
+
+srcs/classes/cannon_t.i: srcs/classes/cannon_t.cpp.i
+
+.PHONY : srcs/classes/cannon_t.i
+
+# target to preprocess a source file
+srcs/classes/cannon_t.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.i
+.PHONY : srcs/classes/cannon_t.cpp.i
+
+srcs/classes/cannon_t.s: srcs/classes/cannon_t.cpp.s
+
+.PHONY : srcs/classes/cannon_t.s
+
+# target to generate assembly for a file
+srcs/classes/cannon_t.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.s
+.PHONY : srcs/classes/cannon_t.cpp.s
+
 srcs/classes/canonball_t.o: srcs/classes/canonball_t.cpp.o
 
 .PHONY : srcs/classes/canonball_t.o
@@ -196,6 +250,87 @@ srcs/classes/scope_t.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.s
 .PHONY : srcs/classes/scope_t.cpp.s
 
+srcs/classes/target_c1.o: srcs/classes/target_c1.cpp.o
+
+.PHONY : srcs/classes/target_c1.o
+
+# target to build an object file
+srcs/classes/target_c1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o
+.PHONY : srcs/classes/target_c1.cpp.o
+
+srcs/classes/target_c1.i: srcs/classes/target_c1.cpp.i
+
+.PHONY : srcs/classes/target_c1.i
+
+# target to preprocess a source file
+srcs/classes/target_c1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.i
+.PHONY : srcs/classes/target_c1.cpp.i
+
+srcs/classes/target_c1.s: srcs/classes/target_c1.cpp.s
+
+.PHONY : srcs/classes/target_c1.s
+
+# target to generate assembly for a file
+srcs/classes/target_c1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.s
+.PHONY : srcs/classes/target_c1.cpp.s
+
+srcs/classes/target_c2.o: srcs/classes/target_c2.cpp.o
+
+.PHONY : srcs/classes/target_c2.o
+
+# target to build an object file
+srcs/classes/target_c2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o
+.PHONY : srcs/classes/target_c2.cpp.o
+
+srcs/classes/target_c2.i: srcs/classes/target_c2.cpp.i
+
+.PHONY : srcs/classes/target_c2.i
+
+# target to preprocess a source file
+srcs/classes/target_c2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.i
+.PHONY : srcs/classes/target_c2.cpp.i
+
+srcs/classes/target_c2.s: srcs/classes/target_c2.cpp.s
+
+.PHONY : srcs/classes/target_c2.s
+
+# target to generate assembly for a file
+srcs/classes/target_c2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.s
+.PHONY : srcs/classes/target_c2.cpp.s
+
+srcs/classes/wrap_window.o: srcs/classes/wrap_window.cpp.o
+
+.PHONY : srcs/classes/wrap_window.o
+
+# target to build an object file
+srcs/classes/wrap_window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o
+.PHONY : srcs/classes/wrap_window.cpp.o
+
+srcs/classes/wrap_window.i: srcs/classes/wrap_window.cpp.i
+
+.PHONY : srcs/classes/wrap_window.i
+
+# target to preprocess a source file
+srcs/classes/wrap_window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.i
+.PHONY : srcs/classes/wrap_window.cpp.i
+
+srcs/classes/wrap_window.s: srcs/classes/wrap_window.cpp.s
+
+.PHONY : srcs/classes/wrap_window.s
+
+# target to generate assembly for a file
+srcs/classes/wrap_window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.s
+.PHONY : srcs/classes/wrap_window.cpp.s
+
 srcs/main.o: srcs/main.cpp.o
 
 .PHONY : srcs/main.o
@@ -223,6 +358,33 @@ srcs/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/main.cpp.s
 .PHONY : srcs/main.cpp.s
 
+srcs/utils.o: srcs/utils.cpp.o
+
+.PHONY : srcs/utils.o
+
+# target to build an object file
+srcs/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o
+.PHONY : srcs/utils.cpp.o
+
+srcs/utils.i: srcs/utils.cpp.i
+
+.PHONY : srcs/utils.i
+
+# target to preprocess a source file
+srcs/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/utils.cpp.i
+.PHONY : srcs/utils.cpp.i
+
+srcs/utils.s: srcs/utils.cpp.s
+
+.PHONY : srcs/utils.s
+
+# target to generate assembly for a file
+srcs/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/utils.cpp.s
+.PHONY : srcs/utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,15 +394,33 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hello_sfml"
+	@echo "... srcs/classes/I_target.o"
+	@echo "... srcs/classes/I_target.i"
+	@echo "... srcs/classes/I_target.s"
+	@echo "... srcs/classes/cannon_t.o"
+	@echo "... srcs/classes/cannon_t.i"
+	@echo "... srcs/classes/cannon_t.s"
 	@echo "... srcs/classes/canonball_t.o"
 	@echo "... srcs/classes/canonball_t.i"
 	@echo "... srcs/classes/canonball_t.s"
 	@echo "... srcs/classes/scope_t.o"
 	@echo "... srcs/classes/scope_t.i"
 	@echo "... srcs/classes/scope_t.s"
+	@echo "... srcs/classes/target_c1.o"
+	@echo "... srcs/classes/target_c1.i"
+	@echo "... srcs/classes/target_c1.s"
+	@echo "... srcs/classes/target_c2.o"
+	@echo "... srcs/classes/target_c2.i"
+	@echo "... srcs/classes/target_c2.s"
+	@echo "... srcs/classes/wrap_window.o"
+	@echo "... srcs/classes/wrap_window.i"
+	@echo "... srcs/classes/wrap_window.s"
 	@echo "... srcs/main.o"
 	@echo "... srcs/main.i"
 	@echo "... srcs/main.s"
+	@echo "... srcs/utils.o"
+	@echo "... srcs/utils.i"
+	@echo "... srcs/utils.s"
 .PHONY : help
 
 

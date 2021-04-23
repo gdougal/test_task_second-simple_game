@@ -1,158 +1,169 @@
 #include <iostream>
 #include "classes/canonball_t.hpp"
-#include "classes/scope_t.hpp"
+#include "classes/cannon_t.hpp"
+#include "classes/wrap_window.hpp"
+#include "classes/target_c1.hpp"
+#include "classes/target_c2.hpp"
 #include <array>
 #include <list>
 
 
-
-typedef struct				s_Time_mangment {
-	sf::Clock						clock_;
-	sf::Time						cur_time_;
-	sf::Time						prev_ball_;
-	bool								pressed_;
-
-
-	bool								next_ball() const		{return prev_ball_.asSeconds() + 0.5f < cur_time_.asSeconds();}
-	void								set_start_mv_ball()	{prev_ball_ = cur_time_;}
-	void								saw_at_clock()			{cur_time_ = clock_.getElapsedTime();}
-	void								set_true_press()		{pressed_ = true;}
-	void								set_false_press()		{pressed_ = false;}
-	bool								is_pressed() const	{return pressed_;}
-}											game_mangment;
-
-
-float angele(vector2f v0, vector2f v1)
-{
-	return static_cast<float >(1.f - std::atan((v1.x - v0.x)/(v1.y - v0.y)) * DEGREE_TO_RAD);
+float random_float(float min, float max) {
+	return  (max - min) * ((((float) rand()) / (float) RAND_MAX)) + min ;
 }
-
-class cannon_t: public sf::Sprite {
-private:
-	scope_t										scope_;
-	sf::Texture								cannon_texture_;
-public:
-	cannon_t() {
-		if (!cannon_texture_.loadFromFile(TEXTURE_CANNON))
-			throw(std::exception()); /// Is this right?
-		setTexture(cannon_texture_);
-		setScale(vector2f(0.5f,0.5f));
-		setOrigin(static_cast<float>(getTexture()->getSize().x)/2.f, static_cast<float>(getTexture()->getSize().y));
-		setPosition(g_win_width/2.f, g_win_height);
-	}
-
-	void	rotate_canon(const win_t& window) {
-		scope_.set_scope_pos(window);
-		setRotation(angele(scope_.getPosition(), getPosition()));
-	}
-
-	direction	top_dot() {
-		vector2f	curent;
-		auto			tex_y = static_cast<float>(cannon_texture_.getSize().y)*getScale().y;
-		auto			rotation = static_cast<float>((getRotation() + 90.f)*RAD_TO_DEGREE);
-		vector2f	r_cos_sin(std::cosf(rotation), std::sinf(rotation));
-
-		curent = getPosition() - vector2f(tex_y*r_cos_sin.x, tex_y*r_cos_sin.y);
-		return (direction(curent, r_cos_sin));
-	}
-
-//	const cannonball_t&	getCannonball() const {return cannonball_;}
-	const scope_t&			getScope() const {return scope_;}
-
-	virtual ~cannon_t() {}
-};
-
-
 
 class	logic {
 private:
-//	bool																							pressed_;
+	typedef	std::list<cannonball_t>										t_balls_lst;
+	typedef	std::list<I_target*>												t_target_lst;
+	sf::RenderWindow																	*session_window;
 	game_mangment																			manager_;
 	cannon_t																					cannon_;
-	std::array<cannonball_t, NUMBER_BALLS>						balls_;
-	std::array<cannonball_t, NUMBER_BALLS>::iterator	cur_ball_;
+	t_balls_lst																				balls_;
+	t_target_lst																			targets_;
 
 public:
-	sf::RenderWindow	pub_window;
 
-	logic() : pub_window(sf::VideoMode(g_win_width, g_win_height), "Hello SFML (its me)") {
-		pub_window.setFramerateLimit(g_framerate);
-		pub_window.setMouseCursorVisible(false);
-		pub_window.setMouseCursorGrabbed(true);
-		pub_window.setKeyRepeatEnabled(false);
-		cur_ball_ = balls_.begin();
+	void	generate_targets() {
+		for (int i = 0; i < 6; ++i) {
+			targets_.push_back(target_c1().clone());
+		}
+		for (int i = 0; i < 4; ++i) {
+			targets_.push_back(target_c2().clone());
+		}
+	}
 
+	logic() {
 		manager_.set_false_press();
-
-//		pressed_ = false;
+		generate_targets();
 	}
 	virtual ~logic() {}
 
-	void		start_sqreen() {/*Display main menu*/
-	};
-
-//	sf::Mouse::isButtonPressed(sf::Mouse::Left)
-//	pub_window.setMouseCursorGrabbed(true);
-//		scope_.setScale((float )g_win_width/pub_window.getSize().x, (float)g_win_height/pub_window.getSize().y);
-	void		draw() {
+	void		update_game_logic() {
+		cannon_.rotate_canon(*session_window);
 		manager_.saw_at_clock();
-		cannon_.rotate_canon(pub_window);
-		pub_window.draw(cannon_.getScope());
-		pub_window.draw(cannon_);
+		shooting();
+		moving_cannonballs();
+		collapse_targets();
+		moving_targets();
+	}
+
+	void		draw_game_objects() {
+		session_window->draw(cannon_.getScope());
+		session_window->draw(cannon_);
+		draw_targets();
+		draw_cannonballs();
+	}
+
+	void	shooting() {
 		if (!LEFT_MOUSE) {
 			manager_.set_false_press();
-//			pressed_ = false;
 		}
-		if (LEFT_MOUSE && cur_ball_ != balls_.end() /*&& manager_.next_ball()*/ && !manager_.is_pressed()) {
+		else if (LEFT_MOUSE && !manager_.is_pressed()) {
 			manager_.set_true_press();
-//			pressed_ = true;
-			cur_ball_->setStartMv(cannon_.top_dot());
-			cur_ball_->Move();
-			manager_.set_start_mv_ball();
-			cur_ball_++;
-		}
-		for (auto& i: balls_) {
-			if (i.getStartMv().x == 0)
-				break ;
-			i.Move();
-			pub_window.draw(i);
+			balls_.emplace_back(cannon_.top_dot());
 		}
 	}
 
 
+	void collapse_targets() {
+		for (auto& i: targets_) {
+			for (auto& j: targets_) {
+					j->collapse(i, j);
+			}
+		}
+	}
 
+	void	moving_targets() {
+		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
+			(*it)->target_move();
+		}
+	}
+
+	void	draw_targets() {
+		for (auto& i: targets_) {
+			session_window->draw(*i);
+		}
+	}
+
+	void	moving_cannonballs() {
+		for (auto it = balls_.begin(); it != balls_.end(); ) {
+			it->cannonbal_move();
+			if (it->getPosition().x < 0 || it->getPosition().y < 0)
+				balls_.erase(it++);
+			else
+				++it;
+		}
+	}
+	void	draw_cannonballs() {
+		for (auto& i: balls_) {
+			session_window->draw(i);
+		}
+	}
+	void	setPubWindow(sf::RenderWindow *pubWindow) {session_window = pubWindow;}
 };
 
-
-
-
 int	drwning() {
+	wrap_window window;
 	logic game;
+	game.setPubWindow(window.getPubWindow().get());
 
-	while (game.pub_window.isOpen()) {
+	while (window.getPubWindow()->isOpen()) {
 		sf::Event e;
-		while (game.pub_window.pollEvent(e)) {
+		while (window.getPubWindow()->pollEvent(e)) {
 
 			switch (e.type) {
 				case sf::Event::EventType::Closed:
-					game.pub_window.close();
+					window.getPubWindow()->close();
 					break;
 			}
 		}
-		game.pub_window.clear();
-		game.draw();
-		game.pub_window.display();
+		game.update_game_logic();
+		window.getPubWindow()->clear();
+		game.draw_game_objects();
+		window.getPubWindow()->display();
 	}
 	return 0;
 }
 
 
 int main() {
+	srand(time(nullptr));
 	drwning();
 	std::cout << "Hello, World!" << std::endl;
 	return 0;
 }
 
+
+//game current_session;
+//current_session.cannon->balls
+//
+//update_logic(game )
+//{
+//	foreach(cannonball in current_session->cannon->balls)
+//	{
+//		cannonball->position += cannonball->sinus * CANNONBALL_SPEED;
+//	}
+//}
+//
+//draw(game)
+//{
+//	foreach(cannonball in current_session->cannon->balls)
+//	{
+//		sf::draw(cannonball->sprite, cannonball->position);
+//	}
+//}
+//
+//while (1)
+//{
+//
+//	update_logic()
+//	{
+//
+//	}
+//
+//	draw();
+//}
 
 //int main()
 //{

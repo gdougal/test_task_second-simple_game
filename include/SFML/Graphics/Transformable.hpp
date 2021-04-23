@@ -204,7 +204,7 @@ public:
     const Vector2f& getOrigin() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Move the object by a given offset
+    /// \brief cannonbal_move the object by a given offset
     ///
     /// This function adds to the current position of the object,
     /// unlike setPosition which overwrites it.
@@ -223,7 +223,7 @@ public:
     void move(float offsetX, float offsetY);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Move the object by a given offset
+    /// \brief cannonbal_move the object by a given offset
     ///
     /// This function adds to the current position of the object,
     /// unlike setPosition which overwrites it.
