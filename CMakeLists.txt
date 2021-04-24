@@ -19,7 +19,7 @@ add_executable(${EXECUTABLE_NAME}
         srcs/classes/target_c1.cpp
         srcs/classes/target_c1.hpp
         srcs/classes/I_target.cpp
-        srcs/classes/I_target.hpp srcs/classes/target_c2.cpp srcs/classes/target_c2.hpp)
+        srcs/classes/I_target.hpp srcs/classes/target_c2.cpp srcs/classes/target_c2.hpp srcs/classes/interaction.cpp srcs/classes/interaction.hpp)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/.)
 
 link_directories(${CMAKE_CURRENT_SOURCE_DIR})

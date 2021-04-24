@@ -689,8 +689,14 @@ scope_t.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
 ../shooting_range.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
+I_target.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.hpp
 iostream
 -
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
+canonball_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
 ../shooting_range.hpp
@@ -707,6 +713,8 @@ I_target.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
 ../shooting_range.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
+memory
+-
 
 /Users/gdougal/Desktop/hello_sfml/srcs/main.cpp
 iostream
@@ -721,6 +729,8 @@ classes/target_c1.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
 classes/target_c2.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
+classes/interaction.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
 array
 -
 list

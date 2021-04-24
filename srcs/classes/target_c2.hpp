@@ -8,7 +8,7 @@
 
 class target_c2: public I_target {
 private:
-	static constexpr float	multiply_scale_ = 0.075f;
+	static constexpr float	multiply_scale_ = 0.05f;
 public:
 	target_c2() {
 		if (!target_texture_.loadFromFile(TEXTURE_TARGET2))
@@ -19,13 +19,13 @@ public:
 		radius_ = static_cast<float>(getTexture()->getSize().x) * getScale().x * 0.5f;
 		setPosition(random_float(radius_, g_win_width - radius_), random_float(radius_, g_win_height * 0.7f - radius_));
 		directions_ = normalize(getPosition(), vector2f(random_float(0, g_win_width), random_float(0, g_win_width)));
-		multiply_ = 120.f;
-		swaped_ = nullptr;
+		multiply_ = 85.f;
+		hp_ = 3;
 	};
 	target_c2(const target_c2 &ref) = default;
 	target_c2 &operator=(const target_c2 &ref) = default;
 
-	virtual void target_move() override {
+	virtual void move() override {
 		if (getPosition().x <= radius_ || getPosition().x >= g_win_width - radius_) {
 			directions_.x *= -1;
 		}

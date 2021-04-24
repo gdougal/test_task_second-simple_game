@@ -4,6 +4,7 @@
 #include "classes/wrap_window.hpp"
 #include "classes/target_c1.hpp"
 #include "classes/target_c2.hpp"
+#include "classes/interaction.hpp"
 #include <array>
 #include <list>
 
@@ -15,20 +16,20 @@ float random_float(float min, float max) {
 class	logic {
 private:
 	typedef	std::list<cannonball_t>	t_balls_lst;
-	typedef	std::list<I_target*>	t_target_lst;
-	sf::RenderWindow				*session_window;
-	game_mangment					manager_;
-	cannon_t						cannon_;
-	t_balls_lst						balls_;
-	t_target_lst					targets_;
+	typedef	std::list<I_target*>		t_target_lst;
+	sf::RenderWindow								*session_window;
+	game_mangment										manager_;
+	cannon_t												cannon_;
+	t_balls_lst											balls_;
+	t_target_lst										targets_;
 
 public:
 
 	void	generate_targets() {
-		for (int i = 0; i < 6; ++i) {
+		for (int i = 0; i < 50; ++i) {
 			targets_.push_back(target_c1().clone());
 		}
-		for (int i = 0; i < 4; ++i) {
+		for (int i = 0; i < 10; ++i) {
 			targets_.push_back(target_c2().clone());
 		}
 	}
@@ -43,8 +44,9 @@ public:
 		cannon_.rotate_canon(*session_window);
 		manager_.saw_at_clock();
 		shooting();
-		moving_cannonballs();
 		collapse_targets();
+		collapse_cannonbals();
+		moving_cannonballs();
 		moving_targets();
 	}
 
@@ -69,22 +71,28 @@ public:
 	void collapse_targets() {
 		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
 			for (auto it_i = it; it_i != targets_.end(); ++it_i) { /// j == i;
-					(*it)->collapse(*it, *it_i);
+					interaction::collapse_targets(*it, *it_i);
+			}
+		}
+	}
+	void collapse_cannonbals() {
+		for (auto it = balls_.begin(); it != balls_.end(); ++it) {
+			for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) { /// j == i;
+				if (interaction::collapse_target_with_ball(*it_t, *it)) {
+					balls_.erase(it++);
+					if ((*it_t)->getHp() == 0)
+						targets_.erase(it_t++);
+				}
 			}
 		}
 	}
 
 	void	moving_targets() {
 		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
-			(*it)->target_move();
+			(*it)->move();
 		}
 	}
 
-	void	draw_targets() {
-		for (auto& i: targets_) {
-			session_window->draw(*i);
-		}
-	}
 
 	void	moving_cannonballs() {
 		for (auto it = balls_.begin(); it != balls_.end(); ) {
@@ -95,6 +103,13 @@ public:
 				++it;
 		}
 	}
+
+	void	draw_targets() {
+		for (auto& i: targets_) {
+			session_window->draw(*i);
+		}
+	}
+
 	void	draw_cannonballs() {
 		for (auto& i: balls_) {
 			session_window->draw(i);

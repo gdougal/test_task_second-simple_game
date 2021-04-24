@@ -11,7 +11,7 @@ class cannon_t: public sf::Sprite {
 private:
 	scope_t			scope_;
 	sf::Texture		cannon_texture_;
-	static constexpr float	multiply_scale_ = 0.2f;
+	static constexpr float	multiply_scale_ = 0.15f;
 public:
 	cannon_t() {
 		if (!cannon_texture_.loadFromFile(TEXTURE_CANNON))
@@ -36,6 +36,7 @@ public:
 		curent = getPosition() - vector2f(tex_y*r_cos_sin.x, tex_y*r_cos_sin.y);
 		return (direction(curent, r_cos_sin));
 	}
+
 	const scope_t&			getScope()	const {return scope_;}
 	virtual ~cannon_t() {}
 };
