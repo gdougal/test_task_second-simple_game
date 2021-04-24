@@ -4,7 +4,7 @@
 
 #ifndef HELLO_SFML_WRAP_WINDOW_HPP
 #define HELLO_SFML_WRAP_WINDOW_HPP
-#include "../shooting_range.hpp"
+#include "interaction_objects.hpp"
 #include <memory>
 
 class wrap_window {

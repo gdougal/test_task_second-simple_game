@@ -4,22 +4,18 @@
 
 #ifndef HELLO_SFML_CANNON_T_HPP
 #define HELLO_SFML_CANNON_T_HPP
-#include "../shooting_range.hpp"
+#include "interaction_objects.hpp"
 #include "scope_t.hpp"
 
 class cannon_t: public sf::Sprite {
 private:
-	scope_t			scope_;
-	sf::Texture		cannon_texture_;
-	static constexpr float	multiply_scale_ = 0.15f;
+	scope_t									scope_;
 public:
 	cannon_t() {
-		if (!cannon_texture_.loadFromFile(TEXTURE_CANNON))
-			throw(std::exception()); /// Is this right?
-		setTexture(cannon_texture_);
-		setScale(vector2f(SCALE(multiply_scale_),SCALE(multiply_scale_)));
-		setOrigin(static_cast<float>(getTexture()->getSize().x)/2.f, static_cast<float>(getTexture()->getSize().y));
-		setPosition(g_win_width/2.f, g_win_height);
+		setTexture(g_resourses.cannon.texture);
+		setScale(vector2f(g_resourses.cannon.texture_scale,g_resourses.cannon.texture_scale));
+		setOrigin(g_resourses.cannon.origin);
+		setPosition(g_win_width * HALF, g_win_height);
 	}
 
 	void	rotate_canon(const win_t& window) {
@@ -29,7 +25,7 @@ public:
 
 	direction	top_dot() {
 		vector2f	curent;
-		auto			tex_y = static_cast<float>(cannon_texture_.getSize().y)*getScale().y;
+		auto			tex_y = static_cast<float>(getTexture()->getSize().y)*getScale().y;
 		auto			rotation = static_cast<float>((getRotation() + 90.f)*RAD_TO_DEGREE);
 		vector2f	r_cos_sin(cosf(rotation), sinf(rotation));
 

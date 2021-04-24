@@ -1,22 +1,16 @@
 #include <iostream>
-#include "classes/canonball_t.hpp"
-#include "classes/cannon_t.hpp"
 #include "classes/wrap_window.hpp"
-#include "classes/target_c1.hpp"
+#include "classes/cannon_t.hpp"
 #include "classes/target_c2.hpp"
 #include "classes/interaction.hpp"
-#include <array>
+#include "classes/target_c1.hpp"
+#include "classes/canonball_t.hpp"
 #include <list>
-
-
-float random_float(float min, float max) {
-	return  (max - min) * ((((float) rand()) / (float) RAND_MAX)) + min ;
-}
 
 class	logic {
 private:
-	typedef	std::list<cannonball_t>	t_balls_lst;
-	typedef	std::list<I_target*>		t_target_lst;
+	typedef	std::list<cannonball_t>				t_balls_lst;
+	typedef	std::list<interacion_obj*>		t_target_lst;
 	sf::RenderWindow								*session_window;
 	game_mangment										manager_;
 	cannon_t												cannon_;
@@ -51,10 +45,10 @@ public:
 	}
 
 	void		draw_game_objects() {
-		session_window->draw(cannon_.getScope());
-		session_window->draw(cannon_);
 		draw_targets();
 		draw_cannonballs();
+		session_window->draw(cannon_);
+		session_window->draw(cannon_.getScope());
 	}
 
 	void	shooting() {
@@ -70,14 +64,14 @@ public:
 
 	void collapse_targets() {
 		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
-			for (auto it_i = it; it_i != targets_.end(); ++it_i) { /// j == i;
+			for (auto it_i = it; it_i != targets_.end(); ++it_i) {
 					interaction::collapse_targets(*it, *it_i);
 			}
 		}
 	}
 	void collapse_cannonbals() {
 		for (auto it = balls_.begin(); it != balls_.end(); ++it) {
-			for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) { /// j == i;
+			for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
 				if (interaction::collapse_target_with_ball(*it_t, *it)) {
 					balls_.erase(it++);
 					if ((*it_t)->getHp() == 0)
@@ -96,7 +90,7 @@ public:
 
 	void	moving_cannonballs() {
 		for (auto it = balls_.begin(); it != balls_.end(); ) {
-			it->cannonbal_move();
+			it->move();
 			if (it->getPosition().x < 0 || it->getPosition().y < 0)
 				balls_.erase(it++);
 			else
@@ -119,8 +113,8 @@ public:
 };
 
 int	drwning() {
-	wrap_window window;
-	logic game;
+	wrap_window	window;
+	logic				game;
 	game.setPubWindow(window.getPubWindow().get());
 
 	while (window.getPubWindow()->isOpen()) {

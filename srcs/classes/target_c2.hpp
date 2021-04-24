@@ -4,42 +4,37 @@
 
 #ifndef HELLO_SFML_TARGET_C2_HPP
 #define HELLO_SFML_TARGET_C2_HPP
-#include "I_target.hpp"
+#include "interaction_objects.hpp"
 
-class target_c2: public I_target {
-private:
-	static constexpr float	multiply_scale_ = 0.05f;
+class target_c2: public interacion_obj {
 public:
 	target_c2() {
-		if (!target_texture_.loadFromFile(TEXTURE_TARGET2))
-			throw(std::exception());
-		setTexture(target_texture_);
-		setScale(vector2f(SCALE(multiply_scale_), SCALE(multiply_scale_)));
-		setOrigin(static_cast<float>(getTexture()->getSize().x) / 2, static_cast<float>(getTexture()->getSize().y) / 2);
-		radius_ = static_cast<float>(getTexture()->getSize().x) * getScale().x * 0.5f;
-		setPosition(random_float(radius_, g_win_width - radius_), random_float(radius_, g_win_height * 0.7f - radius_));
+		float	x = random_float(g_resourses.target1.left_border, g_resourses.target1.right_border);
+		float	y = random_float(g_resourses.target1.top_border, g_resourses.target1.bot_border);
+		setTexture(g_resourses.target2.texture);
+		setScale(g_resourses.target2.texture_scale, g_resourses.target2.texture_scale);
+		setOrigin(g_resourses.target2.origin);
+		radius_ = g_resourses.target2.radius;
+		setPosition(x, y);
 		directions_ = normalize(getPosition(), vector2f(random_float(0, g_win_width), random_float(0, g_win_width)));
-		multiply_ = 85.f;
-		hp_ = 3;
+		hp_ = g_resourses.target2.hp;
 	};
+
 	target_c2(const target_c2 &ref) = default;
 	target_c2 &operator=(const target_c2 &ref) = default;
 
-	virtual void move() override {
-		if (getPosition().x <= radius_ || getPosition().x >= g_win_width - radius_) {
+	void move() override {
+		if (getPosition().x <= g_resourses.target1.left_border || getPosition().x >= g_resourses.target1.right_border) {
 			directions_.x *= -1;
 		}
-		if (getPosition().y <= radius_ || getPosition().y >= g_win_height*0.7f) {
+		if (getPosition().y <= g_resourses.target1.top_border || getPosition().y >= g_resourses.target1.bot_border) {
 			directions_.y *= -1;
 		}
-		vector2f a(TARGET_SPEED(multiply_)*directions_.x, TARGET_SPEED(multiply_)*directions_.y);
-		setPosition(getPosition() + a);
+		vector2f step(g_resourses.target2.speed*directions_.x, g_resourses.target2.speed*directions_.y);
+		setPosition(getPosition() + step);
 	}
 
-//	virtual void	collapse(I_target*& target1, I_target*& target2) override {
-//
-//	}
-	target_c2* clone() const override {return new target_c2;}
+	target_c2* clone() const override {return new target_c2();}
 	virtual ~target_c2() override {};
 };
 

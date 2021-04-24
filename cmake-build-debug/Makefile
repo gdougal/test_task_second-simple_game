@@ -143,32 +143,32 @@ hello_sfml/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/build
 .PHONY : hello_sfml/fast
 
-srcs/classes/I_target.o: srcs/classes/I_target.cpp.o
+srcs/classes/A_projectile.o: srcs/classes/A_projectile.cpp.o
 
-.PHONY : srcs/classes/I_target.o
+.PHONY : srcs/classes/A_projectile.o
 
 # target to build an object file
-srcs/classes/I_target.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/I_target.cpp.o
-.PHONY : srcs/classes/I_target.cpp.o
+srcs/classes/A_projectile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/A_projectile.cpp.o
+.PHONY : srcs/classes/A_projectile.cpp.o
 
-srcs/classes/I_target.i: srcs/classes/I_target.cpp.i
+srcs/classes/A_projectile.i: srcs/classes/A_projectile.cpp.i
 
-.PHONY : srcs/classes/I_target.i
+.PHONY : srcs/classes/A_projectile.i
 
 # target to preprocess a source file
-srcs/classes/I_target.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/I_target.cpp.i
-.PHONY : srcs/classes/I_target.cpp.i
+srcs/classes/A_projectile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/A_projectile.cpp.i
+.PHONY : srcs/classes/A_projectile.cpp.i
 
-srcs/classes/I_target.s: srcs/classes/I_target.cpp.s
+srcs/classes/A_projectile.s: srcs/classes/A_projectile.cpp.s
 
-.PHONY : srcs/classes/I_target.s
+.PHONY : srcs/classes/A_projectile.s
 
 # target to generate assembly for a file
-srcs/classes/I_target.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/I_target.cpp.s
-.PHONY : srcs/classes/I_target.cpp.s
+srcs/classes/A_projectile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/A_projectile.cpp.s
+.PHONY : srcs/classes/A_projectile.cpp.s
 
 srcs/classes/cannon_t.o: srcs/classes/cannon_t.cpp.o
 
@@ -250,6 +250,33 @@ srcs/classes/interaction.s: srcs/classes/interaction.cpp.s
 srcs/classes/interaction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.s
 .PHONY : srcs/classes/interaction.cpp.s
+
+srcs/classes/interaction_objects.o: srcs/classes/interaction_objects.cpp.o
+
+.PHONY : srcs/classes/interaction_objects.o
+
+# target to build an object file
+srcs/classes/interaction_objects.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o
+.PHONY : srcs/classes/interaction_objects.cpp.o
+
+srcs/classes/interaction_objects.i: srcs/classes/interaction_objects.cpp.i
+
+.PHONY : srcs/classes/interaction_objects.i
+
+# target to preprocess a source file
+srcs/classes/interaction_objects.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.i
+.PHONY : srcs/classes/interaction_objects.cpp.i
+
+srcs/classes/interaction_objects.s: srcs/classes/interaction_objects.cpp.s
+
+.PHONY : srcs/classes/interaction_objects.s
+
+# target to generate assembly for a file
+srcs/classes/interaction_objects.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.s
+.PHONY : srcs/classes/interaction_objects.cpp.s
 
 srcs/classes/scope_t.o: srcs/classes/scope_t.cpp.o
 
@@ -422,9 +449,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hello_sfml"
-	@echo "... srcs/classes/I_target.o"
-	@echo "... srcs/classes/I_target.i"
-	@echo "... srcs/classes/I_target.s"
+	@echo "... srcs/classes/A_projectile.o"
+	@echo "... srcs/classes/A_projectile.i"
+	@echo "... srcs/classes/A_projectile.s"
 	@echo "... srcs/classes/cannon_t.o"
 	@echo "... srcs/classes/cannon_t.i"
 	@echo "... srcs/classes/cannon_t.s"
@@ -434,6 +461,9 @@ help:
 	@echo "... srcs/classes/interaction.o"
 	@echo "... srcs/classes/interaction.i"
 	@echo "... srcs/classes/interaction.s"
+	@echo "... srcs/classes/interaction_objects.o"
+	@echo "... srcs/classes/interaction_objects.i"
+	@echo "... srcs/classes/interaction_objects.s"
 	@echo "... srcs/classes/scope_t.o"
 	@echo "... srcs/classes/scope_t.i"
 	@echo "... srcs/classes/scope_t.s"

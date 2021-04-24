@@ -16,3 +16,7 @@ vector2f	normalize(vector2f v, vector2f v1) {
 	float len = lenght(v, v1);
 	return {(v1.x - v.x)/len, (v1.y - v.y)/len};
 }
+
+float random_float(float min, float max) {
+	return  (max - min) * ((((float) rand()) / (float) RAND_MAX)) + min ;
+}

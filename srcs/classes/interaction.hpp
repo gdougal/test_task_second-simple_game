@@ -8,8 +8,6 @@
 
 
 class interaction {
-private:
-
 public:
 	interaction() = default;
 	interaction(const interaction &ref) = default;
@@ -30,15 +28,15 @@ public:
 		return (length_btwn_centre <= sum_radius);
 	}
 
-	static void	collapse_targets(I_target*& target1, I_target*& target2) {
+	static void	collapse_targets(interacion_obj*& target1, interacion_obj*& target2) {
 		if (&target1 == &target2)
 			return;
 		else if(co_orientation(*target1, *target2) && is_collapse(*target1, *target2)) {
-				I_target::swap_directions(target1, target2);
+			interacion_obj::swap_directions(target1, target2);
 		}
 	};
 
-	static bool	collapse_target_with_ball(I_target*& target, cannonball_t& ball) {
+	static bool	collapse_target_with_ball(interacion_obj*& target, cannonball_t& ball) {
 		if(is_collapse(*target, ball)) {
 			target->minus_hp();
 			if (target->getHp()) {

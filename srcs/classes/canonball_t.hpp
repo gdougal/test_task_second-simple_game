@@ -4,35 +4,26 @@
 
 #ifndef HELLO_SFML_CANONBALL_T_HPP
 #define HELLO_SFML_CANONBALL_T_HPP
-#include "../shooting_range.hpp"
-#include "I_target.hpp"
+#include "A_projectile.hpp"
 #include <iostream>
 
 class	cannonball_t: public sf::Sprite {
 private:
-	sf::Texture							canonball_texture_;
 	vector2f								directions_;
-	float										radius_;
-	static constexpr float	multiply_scale_ = 0.04f;
-
+	const float							radius_ = g_resourses.cannonball.radius;
 public:
-	cannonball_t() = default;
+	cannonball_t() = delete;
 	explicit	cannonball_t(const direction &startMv):
 	directions_(startMv.second)
 	{
-		if (!canonball_texture_.loadFromFile(TEXTURE_CANNONBALL))
-			throw(std::exception()); /// Is this right?
-		setTexture(canonball_texture_);
-		setScale(vector2f (SCALE(multiply_scale_), SCALE(multiply_scale_)));
-		setOrigin(static_cast<float>(getTexture()->getSize().x)/2, static_cast<float>(getTexture()->getSize().y)/2);
+		setTexture(g_resourses.cannonball.texture);
+		setScale(vector2f (g_resourses.cannonball.texture_scale, g_resourses.cannonball.texture_scale));
+		setOrigin(g_resourses.cannonball.origin);
 		setPosition(startMv.first);
-		radius_ = static_cast<float >(getTexture()->getSize().x) * getScale().x * 0.5;
-		std::cout << radius_ << std::endl;
 	}
 
-
-	void	cannonbal_move() {
-		vector2f a(BALL_SPEED*directions_.x, BALL_SPEED*directions_.y);
+	void	move() {
+		vector2f a(g_resourses.cannonball.speed*directions_.x, g_resourses.cannonball.speed*directions_.y);
 		setPosition(getPosition() - a);
 	}
 

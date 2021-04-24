@@ -7,19 +7,24 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/Frameworks)
 add_executable(${EXECUTABLE_NAME}
         srcs/main.cpp
         srcs/classes/canonball_t.cpp
-        srcs/classes/canonball_t.hpp
         srcs/classes/scope_t.cpp
-        srcs/classes/scope_t.hpp
-        srcs/shooting_range.hpp
         srcs/classes/cannon_t.cpp
-        srcs/classes/cannon_t.hpp
         srcs/utils.cpp
         srcs/classes/wrap_window.cpp
-        srcs/classes/wrap_window.hpp
         srcs/classes/target_c1.cpp
+        srcs/classes/interaction_objects.cpp
+        srcs/classes/target_c2.cpp
+        srcs/classes/interaction.cpp
+
+        srcs/classes/canonball_t.hpp
+        srcs/classes/scope_t.hpp
+        srcs/shooting_range.hpp
+        srcs/classes/cannon_t.hpp
+        srcs/classes/wrap_window.hpp
         srcs/classes/target_c1.hpp
-        srcs/classes/I_target.cpp
-        srcs/classes/I_target.hpp srcs/classes/target_c2.cpp srcs/classes/target_c2.hpp srcs/classes/interaction.cpp srcs/classes/interaction.hpp)
+        srcs/classes/interaction_objects.hpp
+        srcs/classes/target_c2.hpp
+        srcs/classes/interaction.hpp srcs/classes/A_projectile.cpp srcs/classes/A_projectile.hpp)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/.)
 
 link_directories(${CMAKE_CURRENT_SOURCE_DIR})

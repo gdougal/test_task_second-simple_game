@@ -82,10 +82,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.cpp">
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/A_projectile.cpp">
 			<Option target="hello_sfml"/>
 		</Unit>
-		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/I_target.hpp">
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/A_projectile.hpp">
 			<Option target="hello_sfml"/>
 		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.cpp">
@@ -104,6 +104,12 @@
 			<Option target="hello_sfml"/>
 		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp">
 			<Option target="hello_sfml"/>
 		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.cpp">
