@@ -9,11 +9,10 @@
 
 class	logic {
 private:
-	typedef	std::shared_ptr<interacion_obj>	ptr_ball;
-	typedef	std::list<interacion_obj*>			t_balls_lst;
-	typedef	std::list<interacion_obj*>			t_target_lst;
+	typedef	std::shared_ptr<interacion_obj>	ptr_;
+	typedef	std::list<ptr_>							t_balls_lst;
+	typedef	std::list<ptr_>					t_target_lst;
 	sf::RenderWindow								*session_window;
-	game_mangment										manager_;
 	cannon_t												cannon_;
 	t_balls_lst											balls_;
 	t_target_lst										targets_;
@@ -22,23 +21,20 @@ public:
 
 	void	generate_targets() {
 		for (int i = 0; i < 50; ++i) {
-			targets_.push_back(target_c1().clone(random_pos_dir_generator()));
+			targets_.emplace_back(target_c1().clone(random_pos_dir_generator()));
 		}
 		for (int i = 0; i < 10; ++i) {
-			targets_.push_back(target_c2().clone(random_pos_dir_generator()));
+			targets_.emplace_back(target_c2().clone(random_pos_dir_generator()));
 		}
 	}
 
 	logic() {
-		manager_.set_false_press();
 		generate_targets();
 	}
 	virtual ~logic() {}
 
 	void		update_game_logic() {
 		cannon_.rotate_canon(*session_window);
-		manager_.saw_at_clock();
-		shooting();
 		collapse_targets();
 		collapse_cannonbals();
 		moving_cannonballs();
@@ -47,37 +43,31 @@ public:
 
 	void		draw_game_objects() {
 		draw_targets();
-		draw_cannonballs();
 		session_window->draw(cannon_);
+		draw_cannonballs();
 		session_window->draw(cannon_.getScope());
 	}
 
 	void	shooting() {
-		if (!LEFT_MOUSE) {
-			manager_.set_false_press();
-		}
-		else if (LEFT_MOUSE && !manager_.is_pressed()) {
-			manager_.set_true_press();
-			balls_.emplace_back(cannonball_t().clone(cannon_.top_dot()));
-		}
+		balls_.emplace_back(cannonball_t().clone(cannon_.top_dot()));
 	}
 
 
 	void collapse_targets() {
 		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
 			for (auto it_i = it; it_i != targets_.end(); ++it_i) {
-					interaction::collapse_targets(*it, *it_i);
+					interaction::collapse_targets(it->get(), it_i->get());
 			}
 		}
 	}
 	void collapse_cannonbals() {
 		for (auto it = balls_.begin(); it != balls_.end(); ++it) {
 			for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
-				if (*it && *it_t && interaction::collapse_target_with_ball(*it_t, *it)) {
-					delete *it;
+				if (*it && *it_t && interaction::collapse_target_with_ball(it_t->get(), it->get())) {
 					balls_.erase(it++);
+					if (it == balls_.end())
+						break;
 					if ((*it_t)->getHp() == 0) {
-						delete *it_t;
 						targets_.erase(it_t++);
 					}
 				}
@@ -96,7 +86,6 @@ public:
 		for (auto it = balls_.begin(); it != balls_.end(); ) {
 			(*it)->move();
 			if ((*it)->getPosition().x < 0 || (*it)->getPosition().y < 0) {
-				delete *it;
 				balls_.erase(it++);
 			}
 			else
@@ -130,6 +119,9 @@ int	drwning() {
 			switch (e.type) {
 				case sf::Event::EventType::Closed:
 					window.getPubWindow()->close();
+					break;
+				case e.KeyPressed:
+					game.shooting();
 					break;
 			}
 		}

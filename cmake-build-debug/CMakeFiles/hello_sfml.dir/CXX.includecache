@@ -686,10 +686,6 @@ scope_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp
-interaction.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
-
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
 canonball_t.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp

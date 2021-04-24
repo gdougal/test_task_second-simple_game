@@ -37,12 +37,8 @@ direction	random_pos_dir_generator();
 typedef struct				s_Time_mangment {
 	sf::Clock						clock_;
 	sf::Time						cur_time_;
-	bool								pressed_;
 
 	void								saw_at_clock()			{ cur_time_ = clock_.getElapsedTime(); }
-	void								set_true_press()		{ pressed_ = true; }
-	void								set_false_press()		{ pressed_ = false; }
-	bool								is_pressed() const	{ return pressed_; }
 }											game_mangment;
 
 typedef	struct	s_resource {
