@@ -82,12 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/A_projectile.cpp">
-			<Option target="hello_sfml"/>
-		</Unit>
-		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/A_projectile.hpp">
-			<Option target="hello_sfml"/>
-		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.cpp">
 			<Option target="hello_sfml"/>
 		</Unit>

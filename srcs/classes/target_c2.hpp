@@ -8,17 +8,28 @@
 
 class target_c2: public interacion_obj {
 public:
-	target_c2() {
-		float	x = random_float(g_resourses.target1.left_border, g_resourses.target1.right_border);
-		float	y = random_float(g_resourses.target1.top_border, g_resourses.target1.bot_border);
+
+	target_c2(const direction& startMv) {
 		setTexture(g_resourses.target2.texture);
 		setScale(g_resourses.target2.texture_scale, g_resourses.target2.texture_scale);
 		setOrigin(g_resourses.target2.origin);
 		radius_ = g_resourses.target2.radius;
-		setPosition(x, y);
-		directions_ = normalize(getPosition(), vector2f(random_float(0, g_win_width), random_float(0, g_win_width)));
 		hp_ = g_resourses.target2.hp;
-	};
+		setPosition(startMv.first);
+		directions_ = startMv.second;
+	}
+	target_c2() = default;
+//	{
+//		float	x = random_float(g_resourses.target1.left_border, g_resourses.target1.right_border);
+//		float	y = random_float(g_resourses.target1.top_border, g_resourses.target1.bot_border);
+//		setTexture(g_resourses.target2.texture);
+//		setScale(g_resourses.target2.texture_scale, g_resourses.target2.texture_scale);
+//		setOrigin(g_resourses.target2.origin);
+//		radius_ = g_resourses.target2.radius;
+//		setPosition(x, y);
+//		directions_ = normalize(getPosition(), vector2f(random_float(0, g_win_width), random_float(0, g_win_width)));
+//		hp_ = g_resourses.target2.hp;
+//	};
 
 	target_c2(const target_c2 &ref) = default;
 	target_c2 &operator=(const target_c2 &ref) = default;
@@ -34,7 +45,7 @@ public:
 		setPosition(getPosition() + step);
 	}
 
-	target_c2* clone() const override {return new target_c2();}
+	target_c2* clone(const direction& pos_and_dir) const override {return new target_c2(pos_and_dir);}
 	virtual ~target_c2() override {};
 };
 

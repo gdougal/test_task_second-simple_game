@@ -14,15 +14,13 @@ public:
 	interaction &operator=(const interaction &ref) = default;
 	virtual ~interaction() = default;
 
-	template<class T, class T1>
-	static const bool	co_orientation(T& object1, T1& object2) {
+	static const bool	co_orientation(interacion_obj& object1, interacion_obj& object2) {
 		float	length_btwn_centre	= lenght(object1.getPosition(), object2.getPosition());
 		float	length_in_move			= lenght(object1.getPosition() + object1.getDirections(), object2.getPosition() + object2.getDirections());
 		return (length_btwn_centre >= length_in_move);
 	}
 
-	template<class T, class T1>
-	static const bool	is_collapse(T& object1, T1& object2) {
+	static const bool	is_collapse(interacion_obj& object1, interacion_obj& object2) {
 		float	length_btwn_centre	= lenght(object1.getPosition(), object2.getPosition());
 		float	sum_radius					= object1.getRadius() + object2.getRadius();
 		return (length_btwn_centre <= sum_radius);
@@ -36,13 +34,10 @@ public:
 		}
 	};
 
-	static bool	collapse_target_with_ball(interacion_obj*& target, cannonball_t& ball) {
-		if(is_collapse(*target, ball)) {
+	static bool	collapse_target_with_ball(interacion_obj*& target, interacion_obj*& ball) {
+		if(is_collapse(*target, *ball)) {
 			target->minus_hp();
-			if (target->getHp()) {
-				vector2f	new_direction(target->getDirections().x * -1, target->getDirections().y * -1);
-				target->setDirections(new_direction);
-			}
+			interacion_obj::swap_directions(target, ball);
 			return true;
 		}
 		return false;

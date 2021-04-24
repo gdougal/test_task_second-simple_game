@@ -4,7 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/gdougal/Desktop/hello_sfml/srcs/classes/A_projectile.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/A_projectile.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o"

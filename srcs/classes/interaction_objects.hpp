@@ -8,13 +8,13 @@
 
 class interacion_obj : public sf::Sprite {
 protected:
-	float				radius_;
 	vector2f		directions_;
+	float				radius_;
 	int8_t			hp_;
 public:
 	virtual					~interacion_obj() {};
 	virtual void		move() = 0;
-	virtual					interacion_obj* clone() const = 0;
+	virtual					interacion_obj* clone(const direction& pos_and_dir) const = 0;
 	static void			swap_directions(interacion_obj*& target1, interacion_obj*& target2) { std::swap(target1->directions_, target2->directions_); }
 
 	void						setDirections(const vector2f &directions)			{ directions_ = directions; }

@@ -9,8 +9,9 @@
 
 class	logic {
 private:
-	typedef	std::list<cannonball_t>				t_balls_lst;
-	typedef	std::list<interacion_obj*>		t_target_lst;
+	typedef	std::shared_ptr<interacion_obj>	ptr_ball;
+	typedef	std::list<interacion_obj*>			t_balls_lst;
+	typedef	std::list<interacion_obj*>			t_target_lst;
 	sf::RenderWindow								*session_window;
 	game_mangment										manager_;
 	cannon_t												cannon_;
@@ -21,10 +22,10 @@ public:
 
 	void	generate_targets() {
 		for (int i = 0; i < 50; ++i) {
-			targets_.push_back(target_c1().clone());
+			targets_.push_back(target_c1().clone(random_pos_dir_generator()));
 		}
 		for (int i = 0; i < 10; ++i) {
-			targets_.push_back(target_c2().clone());
+			targets_.push_back(target_c2().clone(random_pos_dir_generator()));
 		}
 	}
 
@@ -57,7 +58,7 @@ public:
 		}
 		else if (LEFT_MOUSE && !manager_.is_pressed()) {
 			manager_.set_true_press();
-			balls_.emplace_back(cannon_.top_dot());
+			balls_.emplace_back(cannonball_t().clone(cannon_.top_dot()));
 		}
 	}
 
@@ -72,10 +73,13 @@ public:
 	void collapse_cannonbals() {
 		for (auto it = balls_.begin(); it != balls_.end(); ++it) {
 			for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
-				if (interaction::collapse_target_with_ball(*it_t, *it)) {
+				if (*it && *it_t && interaction::collapse_target_with_ball(*it_t, *it)) {
+					delete *it;
 					balls_.erase(it++);
-					if ((*it_t)->getHp() == 0)
+					if ((*it_t)->getHp() == 0) {
+						delete *it_t;
 						targets_.erase(it_t++);
+					}
 				}
 			}
 		}
@@ -90,9 +94,11 @@ public:
 
 	void	moving_cannonballs() {
 		for (auto it = balls_.begin(); it != balls_.end(); ) {
-			it->move();
-			if (it->getPosition().x < 0 || it->getPosition().y < 0)
+			(*it)->move();
+			if ((*it)->getPosition().x < 0 || (*it)->getPosition().y < 0) {
+				delete *it;
 				balls_.erase(it++);
+			}
 			else
 				++it;
 		}
@@ -106,7 +112,7 @@ public:
 
 	void	draw_cannonballs() {
 		for (auto& i: balls_) {
-			session_window->draw(i);
+			session_window->draw(*i);
 		}
 	}
 	void	setPubWindow(sf::RenderWindow *pubWindow) {session_window = pubWindow;}

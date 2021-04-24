@@ -10,7 +10,7 @@
 
 static const float						g_win_height = 2560;
 static const float						g_win_width = g_win_height/16*9;
-static const float						g_framerate = 200.f;
+static const float						g_framerate = 60.f;
 
 typedef	sf::RenderWindow							win_t;
 typedef	sf::Vector2<float>						vector2f;
@@ -26,12 +26,13 @@ typedef	std::pair<vector2f, vector2f>	direction;
 #define	TEXTURE_CANNONBALL						"Tir_objects_png/cut_cannonball.png"
 #define	TEXTURE_TARGET1								"Tir_objects_png/cut_target1.png"
 #define	TEXTURE_TARGET2								"Tir_objects_png/cut_target2.png"
-#define LEFT_MOUSE										sf::Mouse::isButtonPressed(sf::Mouse::Left)
+#define LEFT_MOUSE										sf::Keyboard::isKeyPressed(sf::Keyboard::Space)
 
 float			angele(vector2f v0, vector2f v1);
 float			random_float(float min, float max);
 vector2f	normalize(vector2f v, vector2f v1);
 float			lenght(vector2f v0, vector2f v1);
+direction	random_pos_dir_generator();
 
 typedef struct				s_Time_mangment {
 	sf::Clock						clock_;
@@ -93,9 +94,9 @@ private:
 	static constexpr float	target1_texture_scale = 0.03f;
 	static constexpr float	target2_texture_scale = 0.05f;
 
-	static constexpr float	cannonball_multiply_speed = 140.f;
-	static constexpr float	target1_multiply_speed = 60.f;
-	static constexpr float	target2_multiply_speed = 85.f;
+	static constexpr float	cannonball_multiply_speed = 800.f;
+	static constexpr float	target1_multiply_speed = 600.f;
+	static constexpr float	target2_multiply_speed = 550.f;
 
 	static constexpr float	canon_denominator_origin_y = 1.f;
 	static constexpr float	scope_denominator_origin_y = 2.f;

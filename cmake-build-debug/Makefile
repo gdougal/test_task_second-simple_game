@@ -143,33 +143,6 @@ hello_sfml/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/build
 .PHONY : hello_sfml/fast
 
-srcs/classes/A_projectile.o: srcs/classes/A_projectile.cpp.o
-
-.PHONY : srcs/classes/A_projectile.o
-
-# target to build an object file
-srcs/classes/A_projectile.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/A_projectile.cpp.o
-.PHONY : srcs/classes/A_projectile.cpp.o
-
-srcs/classes/A_projectile.i: srcs/classes/A_projectile.cpp.i
-
-.PHONY : srcs/classes/A_projectile.i
-
-# target to preprocess a source file
-srcs/classes/A_projectile.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/A_projectile.cpp.i
-.PHONY : srcs/classes/A_projectile.cpp.i
-
-srcs/classes/A_projectile.s: srcs/classes/A_projectile.cpp.s
-
-.PHONY : srcs/classes/A_projectile.s
-
-# target to generate assembly for a file
-srcs/classes/A_projectile.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/A_projectile.cpp.s
-.PHONY : srcs/classes/A_projectile.cpp.s
-
 srcs/classes/cannon_t.o: srcs/classes/cannon_t.cpp.o
 
 .PHONY : srcs/classes/cannon_t.o
@@ -449,9 +422,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hello_sfml"
-	@echo "... srcs/classes/A_projectile.o"
-	@echo "... srcs/classes/A_projectile.i"
-	@echo "... srcs/classes/A_projectile.s"
 	@echo "... srcs/classes/cannon_t.o"
 	@echo "... srcs/classes/cannon_t.i"
 	@echo "... srcs/classes/cannon_t.s"
