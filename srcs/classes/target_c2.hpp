@@ -20,6 +20,7 @@ public:
 		setPosition(random_float(radius_, g_win_width - radius_), random_float(radius_, g_win_height * 0.7f - radius_));
 		directions_ = normalize(getPosition(), vector2f(random_float(0, g_win_width), random_float(0, g_win_width)));
 		multiply_ = 120.f;
+		swaped_ = nullptr;
 	};
 	target_c2(const target_c2 &ref) = default;
 	target_c2 &operator=(const target_c2 &ref) = default;

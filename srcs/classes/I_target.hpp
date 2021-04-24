@@ -13,7 +13,7 @@ protected:
 	float					multiply_;
 	float					radius_;
 	vector2f				directions_;
-	bool					swapped_;
+	I_target				**swaped_;
 public:
 	virtual				~I_target() {};
 	virtual void	target_move() = 0;
@@ -22,23 +22,23 @@ public:
 	virtual void	collapse(I_target*& target1, I_target*& target2) {
 		if (&target1 == &target2)
 			return;
-		if (lenght(target1->getPosition(), target2->getPosition()) > (target1->radius_ + target2->radius_)) {
-			target1->swapped_ = false;
-			target2->swapped_ = false;
+		if (lenght(target1->getPosition(), target2->getPosition()) > (target1->radius_ + target2->radius_)
+			&& target1->swaped_ == &target2 && target2->swaped_ == &target1) {
+			target1->swaped_ = nullptr;
+			target2->swaped_ = nullptr;
 		}
 		if(lenght(target1->getPosition(), target2->getPosition()) <= (target1->radius_ + target2->radius_)) {
-			if (!target1->swapped_ && !target2->swapped_) {
+			if (target1->swaped_ != &target2 && target2->swaped_ != &target1)
+			{
 				swap_directions(target1, target2);
-				target1->swapped_ = true;
-				target2->swapped_ = true;
+				target1->swaped_ = &target2;
+				target2->swaped_ = &target1;
 			}
-			target1->target_move();
-			target2->target_move();
+//			target1->target_move();
+//			target2->target_move();
 		}
 	};
 	float					getRadius() const { return radius_; }
-	void					swapped_true() { swapped_ = true;}
-	void					swapped_false() { swapped_ = false;}
 };
 
 
