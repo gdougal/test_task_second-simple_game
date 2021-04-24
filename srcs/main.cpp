@@ -14,13 +14,13 @@ float random_float(float min, float max) {
 
 class	logic {
 private:
-	typedef	std::list<cannonball_t>										t_balls_lst;
-	typedef	std::list<I_target*>												t_target_lst;
-	sf::RenderWindow																	*session_window;
-	game_mangment																			manager_;
-	cannon_t																					cannon_;
-	t_balls_lst																				balls_;
-	t_target_lst																			targets_;
+	typedef	std::list<cannonball_t>	t_balls_lst;
+	typedef	std::list<I_target*>	t_target_lst;
+	sf::RenderWindow				*session_window;
+	game_mangment					manager_;
+	cannon_t						cannon_;
+	t_balls_lst						balls_;
+	t_target_lst					targets_;
 
 public:
 
@@ -67,9 +67,9 @@ public:
 
 
 	void collapse_targets() {
-		for (auto& i: targets_) {
-			for (auto& j: targets_) { /// j == i;
-					j->collapse(i, j);
+		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
+			for (auto it_i = it; it_i != targets_.end(); ++it_i) { /// j == i;
+					(*it)->collapse(*it, *it_i);
 			}
 		}
 	}

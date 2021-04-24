@@ -9,7 +9,7 @@ float angele(vector2f v0, vector2f v1)
 }
 
 float lenght(vector2f v0, vector2f v1) {
-	return std::sqrtf(std::powf((v1.x - v0.x), 2) + std::powf((v1.y - v0.y), 2));
+	return sqrtf(powf((v1.x - v0.x), 2) + powf((v1.y - v0.y), 2));
 }
 
 vector2f	normalize(vector2f v, vector2f v1) {

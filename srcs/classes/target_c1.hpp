@@ -8,18 +8,18 @@
 
 
 class target_c1: public I_target {
-	static constexpr float scale_ = 0.5f;
+	static constexpr float	multiply_scale_ = 0.05f;
 public:
 	target_c1() {
 		if (!target_texture_.loadFromFile(TEXTURE_TARGET1))
 			throw(std::exception());
 		setTexture(target_texture_);
-		setScale(sf::Vector2<float>(scale_,scale_));
+		setScale(sf::Vector2<float>(SCALE(multiply_scale_), SCALE(multiply_scale_)));
 		setOrigin(static_cast<float>(getTexture()->getSize().x) / 2.f, static_cast<float>(getTexture()->getSize().y) / 2.f);
 		radius_ = static_cast<float>(getTexture()->getSize().x) * getScale().x * 0.5f;
 		setPosition(random_float(radius_, g_win_width - radius_), random_float(radius_, g_win_height * 0.7f));
 		directions_ = normalize(getPosition(), vector2f(random_float(0, g_win_width), random_float(0, g_win_width)));
-		multiply_ = 50.f;
+		multiply_ = 100.f;
 	};
 	target_c1(const target_c1 &ref) = default;
 	target_c1 &operator=(const target_c1 &ref) = default;
