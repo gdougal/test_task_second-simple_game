@@ -676,6 +676,10 @@ SFML/Config.hpp
 
 ../include/SFML/Window/WindowStyle.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
+interaction_objects.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
@@ -727,6 +731,8 @@ classes/target_c1.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
 classes/canonball_t.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+classes/bomb.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
 list
 -
 

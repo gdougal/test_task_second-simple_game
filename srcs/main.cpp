@@ -5,6 +5,7 @@
 #include "classes/interaction.hpp"
 #include "classes/target_c1.hpp"
 #include "classes/canonball_t.hpp"
+#include "classes/bomb.hpp"
 #include <list>
 
 class	logic {
@@ -65,10 +66,10 @@ public:
 			for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
 				if (*it && *it_t && interaction::collapse_target_with_ball(it_t->get(), it->get())) {
 					balls_.erase(it++);
-					if (it == balls_.end())
-						break;
 					if ((*it_t)->getHp() == 0) {
 						targets_.erase(it_t++);
+					if (it == balls_.end())
+						break;
 					}
 				}
 			}
