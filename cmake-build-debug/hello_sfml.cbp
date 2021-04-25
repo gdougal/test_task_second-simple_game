@@ -106,10 +106,13 @@
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp">
 			<Option target="hello_sfml"/>
 		</Unit>
-		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.cpp">
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp">
 			<Option target="hello_sfml"/>
 		</Unit>
-		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp">
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.hpp">
 			<Option target="hello_sfml"/>
 		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.cpp">

@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o"
-  "CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o"
+  "CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o"
   "CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o"

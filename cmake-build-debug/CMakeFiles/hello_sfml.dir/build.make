@@ -167,22 +167,9 @@ CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.cpp -o CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.s
 
-CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o: CMakeFiles/hello_sfml.dir/flags.make
-CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o: ../srcs/classes/interaction_objects.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o -c /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.cpp
-
-CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.cpp > CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.i
-
-CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.cpp -o CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.s
-
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: CMakeFiles/hello_sfml.dir/flags.make
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../srcs/classes/target_c2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o -c /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.cpp
 
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.i: cmake_force
@@ -195,7 +182,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.s: cmake_force
 
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: CMakeFiles/hello_sfml.dir/flags.make
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../srcs/classes/interaction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o -c /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp
 
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.i: cmake_force
@@ -208,7 +195,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.s: cmake_force
 
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: CMakeFiles/hello_sfml.dir/flags.make
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../srcs/classes/bomb.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o -c /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.cpp
 
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.i: cmake_force
@@ -219,6 +206,19 @@ CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.cpp -o CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.s
 
+CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: CMakeFiles/hello_sfml.dir/flags.make
+CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/logic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o -c /Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.cpp
+
+CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.cpp > CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.i
+
+CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.cpp -o CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.s
+
 # Object files for target hello_sfml
 hello_sfml_OBJECTS = \
 "CMakeFiles/hello_sfml.dir/srcs/main.cpp.o" \
@@ -228,10 +228,10 @@ hello_sfml_OBJECTS = \
 "CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o" \
 "CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o" \
 "CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o" \
-"CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o" \
 "CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o" \
 "CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o" \
-"CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o"
+"CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o" \
+"CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o"
 
 # External object files for target hello_sfml
 hello_sfml_EXTERNAL_OBJECTS =
@@ -243,10 +243,10 @@ hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o
 hello_sfml: CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o
 hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o
 hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o
-hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o
 hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o
 hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o
 hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o
+hello_sfml: CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o
 hello_sfml: CMakeFiles/hello_sfml.dir/build.make
 hello_sfml: ../lib/libsfml-audio.dylib
 hello_sfml: ../lib/libsfml-graphics.dylib

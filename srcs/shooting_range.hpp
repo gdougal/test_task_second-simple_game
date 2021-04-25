@@ -13,7 +13,7 @@ static const float						g_win_height = 2560;
 static const float						g_win_width = g_win_height/16*9;
 static const float						g_framerate = 60.f;
 
-static const int							g_targets_small_num = 40;
+static const int							g_targets_small_num = 300;
 static const int							g_targets_big_num = 10;
 
 typedef	sf::RenderWindow							win_t;
@@ -47,13 +47,6 @@ bool is_object(T* ref) {
 	else
 		return false;
 }
-
-typedef struct				s_Time_mangment {
-	sf::Clock						clock_;
-	sf::Time						cur_time_;
-
-	void								saw_at_clock()			{ cur_time_ = clock_.getElapsedTime(); }
-}											game_mangment;
 
 typedef	struct	s_resource {
 	sf::Texture						texture;
@@ -105,8 +98,8 @@ private:
 	static constexpr float	target1_texture_scale = 0.03f;
 	static constexpr float	target2_texture_scale = 0.05f;
 
-	static constexpr float	cannonball_multiply_speed = 1000.f;
-	static constexpr float	target1_multiply_speed = 600.f;
+	static constexpr float	cannonball_multiply_speed = 1200.f;
+	static constexpr float	target1_multiply_speed = 700.f;
 	static constexpr float	target2_multiply_speed = 550.f;
 
 	static constexpr float	canon_denominator_origin_y = 1.f;

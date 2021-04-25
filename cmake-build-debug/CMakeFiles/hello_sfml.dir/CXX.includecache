@@ -684,15 +684,27 @@ bomb.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.cpp
+cannon_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 scope_t.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.cpp
+canonball_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp
+interaction.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
 interaction_objects.hpp
@@ -702,17 +714,55 @@ interaction_objects.hpp
 ../shooting_range.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.cpp
+logic.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.hpp
+wrap_window.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
+cannon_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
+target_c2.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
+interaction.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
+target_c1.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
+canonball_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+bomb.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
+list
+-
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.cpp
+scope_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.cpp
+target_c1.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.cpp
+target_c2.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
+
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.cpp
+wrap_window.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
 interaction_objects.hpp
@@ -723,22 +773,8 @@ memory
 /Users/gdougal/Desktop/hello_sfml/srcs/main.cpp
 iostream
 -
-classes/wrap_window.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
-classes/cannon_t.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
-classes/target_c2.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
-classes/interaction.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
-classes/target_c1.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
-classes/canonball_t.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
-classes/bomb.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
-list
--
+classes/logic.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 SFML/Graphics.hpp
@@ -749,4 +785,8 @@ iostream
 -
 exception
 -
+
+/Users/gdougal/Desktop/hello_sfml/srcs/utils.cpp
+shooting_range.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 

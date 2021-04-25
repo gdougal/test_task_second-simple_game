@@ -250,32 +250,32 @@ srcs/classes/interaction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.s
 .PHONY : srcs/classes/interaction.cpp.s
 
-srcs/classes/interaction_objects.o: srcs/classes/interaction_objects.cpp.o
+srcs/classes/logic.o: srcs/classes/logic.cpp.o
 
-.PHONY : srcs/classes/interaction_objects.o
+.PHONY : srcs/classes/logic.o
 
 # target to build an object file
-srcs/classes/interaction_objects.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o
-.PHONY : srcs/classes/interaction_objects.cpp.o
+srcs/classes/logic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o
+.PHONY : srcs/classes/logic.cpp.o
 
-srcs/classes/interaction_objects.i: srcs/classes/interaction_objects.cpp.i
+srcs/classes/logic.i: srcs/classes/logic.cpp.i
 
-.PHONY : srcs/classes/interaction_objects.i
+.PHONY : srcs/classes/logic.i
 
 # target to preprocess a source file
-srcs/classes/interaction_objects.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.i
-.PHONY : srcs/classes/interaction_objects.cpp.i
+srcs/classes/logic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.i
+.PHONY : srcs/classes/logic.cpp.i
 
-srcs/classes/interaction_objects.s: srcs/classes/interaction_objects.cpp.s
+srcs/classes/logic.s: srcs/classes/logic.cpp.s
 
-.PHONY : srcs/classes/interaction_objects.s
+.PHONY : srcs/classes/logic.s
 
 # target to generate assembly for a file
-srcs/classes/interaction_objects.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.s
-.PHONY : srcs/classes/interaction_objects.cpp.s
+srcs/classes/logic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.s
+.PHONY : srcs/classes/logic.cpp.s
 
 srcs/classes/scope_t.o: srcs/classes/scope_t.cpp.o
 
@@ -460,9 +460,9 @@ help:
 	@echo "... srcs/classes/interaction.o"
 	@echo "... srcs/classes/interaction.i"
 	@echo "... srcs/classes/interaction.s"
-	@echo "... srcs/classes/interaction_objects.o"
-	@echo "... srcs/classes/interaction_objects.i"
-	@echo "... srcs/classes/interaction_objects.s"
+	@echo "... srcs/classes/logic.o"
+	@echo "... srcs/classes/logic.i"
+	@echo "... srcs/classes/logic.s"
 	@echo "... srcs/classes/scope_t.o"
 	@echo "... srcs/classes/scope_t.i"
 	@echo "... srcs/classes/scope_t.s"

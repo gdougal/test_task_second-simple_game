@@ -318,7 +318,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
-CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o
+CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o
  ../include/SFML/Config.hpp
  ../include/SFML/Graphics.hpp
  ../include/SFML/Graphics/BlendMode.hpp
@@ -393,8 +393,17 @@ CMakeFiles/hello_sfml.dir/srcs/classes/interaction_objects.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
- /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.cpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.cpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o
  ../include/SFML/Config.hpp
@@ -792,6 +801,7 @@ CMakeFiles/hello_sfml.dir/srcs/main.cpp.o
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
