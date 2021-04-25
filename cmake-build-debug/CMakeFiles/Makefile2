@@ -93,12 +93,12 @@ clean: CMakeFiles/hello_sfml.dir/clean
 CMakeFiles/hello_sfml.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target hello_sfml"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target hello_sfml"
 .PHONY : CMakeFiles/hello_sfml.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hello_sfml.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hello_sfml.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/hello_sfml.dir/rule

@@ -13,8 +13,8 @@ static const float						g_win_height = 2560;
 static const float						g_win_width = g_win_height/16*9;
 static const float						g_framerate = 60.f;
 
-static const int							g_targets_small_num = 300;
-static const int							g_targets_big_num = 10;
+static const int							g_targets_small_num = 50;
+static const int							g_targets_big_num = 20;
 
 typedef	sf::RenderWindow							win_t;
 typedef	sf::Vector2<float>						vector2f;
@@ -98,9 +98,9 @@ private:
 	static constexpr float	target1_texture_scale = 0.03f;
 	static constexpr float	target2_texture_scale = 0.05f;
 
-	static constexpr float	cannonball_multiply_speed = 1200.f;
-	static constexpr float	target1_multiply_speed = 700.f;
-	static constexpr float	target2_multiply_speed = 550.f;
+	static constexpr float	cannonball_multiply_speed = 1500.f;
+	static constexpr float	target1_multiply_speed = 800.f;
+	static constexpr float	target2_multiply_speed = 600.f;
 
 	static constexpr float	canon_denominator_origin_y = 1.f;
 	static constexpr float	scope_denominator_origin_y = 0.5;

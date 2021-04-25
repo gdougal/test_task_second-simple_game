@@ -24,7 +24,7 @@ add_executable(${EXECUTABLE_NAME}
         srcs/classes/interaction_objects.hpp
         srcs/classes/target_c2.hpp
         srcs/classes/interaction.hpp
-        srcs/classes/bomb.cpp srcs/classes/bomb.hpp srcs/classes/logic.cpp srcs/classes/logic.hpp)
+        srcs/classes/bomb.cpp srcs/classes/bomb.hpp srcs/classes/logic.cpp srcs/classes/logic.hpp srcs/classes/gui.cpp srcs/classes/gui.hpp)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/.)
 
 link_directories(${CMAKE_CURRENT_SOURCE_DIR})

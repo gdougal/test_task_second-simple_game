@@ -223,6 +223,33 @@ srcs/classes/canonball_t.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.s
 .PHONY : srcs/classes/canonball_t.cpp.s
 
+srcs/classes/gui.o: srcs/classes/gui.cpp.o
+
+.PHONY : srcs/classes/gui.o
+
+# target to build an object file
+srcs/classes/gui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o
+.PHONY : srcs/classes/gui.cpp.o
+
+srcs/classes/gui.i: srcs/classes/gui.cpp.i
+
+.PHONY : srcs/classes/gui.i
+
+# target to preprocess a source file
+srcs/classes/gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.i
+.PHONY : srcs/classes/gui.cpp.i
+
+srcs/classes/gui.s: srcs/classes/gui.cpp.s
+
+.PHONY : srcs/classes/gui.s
+
+# target to generate assembly for a file
+srcs/classes/gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.s
+.PHONY : srcs/classes/gui.cpp.s
+
 srcs/classes/interaction.o: srcs/classes/interaction.cpp.o
 
 .PHONY : srcs/classes/interaction.o
@@ -457,6 +484,9 @@ help:
 	@echo "... srcs/classes/canonball_t.o"
 	@echo "... srcs/classes/canonball_t.i"
 	@echo "... srcs/classes/canonball_t.s"
+	@echo "... srcs/classes/gui.o"
+	@echo "... srcs/classes/gui.i"
+	@echo "... srcs/classes/gui.s"
 	@echo "... srcs/classes/interaction.o"
 	@echo "... srcs/classes/interaction.i"
 	@echo "... srcs/classes/interaction.s"

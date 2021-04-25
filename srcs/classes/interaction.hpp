@@ -5,6 +5,7 @@
 #ifndef HELLO_SFML_INTERACTION_HPP
 #define HELLO_SFML_INTERACTION_HPP
 #include "interaction_objects.hpp"
+#include "gui.hpp"
 
 typedef	std::shared_ptr<interacion_obj>	ptr_interact;
 

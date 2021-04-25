@@ -12,17 +12,10 @@
 #include "canonball_t.hpp"
 #include "bomb.hpp"
 #include <list>
+#include "gui.hpp"
 
 
 class	logic {
-private:
-	typedef	std::shared_ptr<interacion_obj>	ptr_interact;
-	typedef	std::list<ptr_interact>					t_balls_lst;
-	typedef	std::list<ptr_interact>					t_target_lst;
-	sf::RenderWindow												*session_window;
-	cannon_t																cannon_;
-	t_balls_lst															balls_;
-	t_target_lst														targets_;
 public:
 
 	logic() = delete;
@@ -47,6 +40,15 @@ private:
 	void	collapse_cannonbals();
 	void	draw_cannonballs();
 	void	draw_targets();
+
+
+	typedef	std::shared_ptr<interacion_obj>	ptr_interact;
+	typedef	std::list<ptr_interact>					t_balls_lst;
+	typedef	std::list<ptr_interact>					t_target_lst;
+	sf::RenderWindow												*session_window;
+	cannon_t																cannon_;
+	t_balls_lst															balls_;
+	t_target_lst														targets_;
 };
 
 
