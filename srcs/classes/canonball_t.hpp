@@ -8,23 +8,30 @@
 
 class	cannonball_t: public interacion_obj {
 public:
-	cannonball_t() = default;
-	explicit	cannonball_t(const direction &startMv) {
+	cannonball_t() {
+		interactable_ = true;
 		radius_ = g_resourses.cannonball.radius;
 		setTexture(g_resourses.cannonball.texture);
 		setScale(vector2f (g_resourses.cannonball.texture_scale, g_resourses.cannonball.texture_scale));
 		setOrigin(g_resourses.cannonball.origin);
-		setPosition(startMv.first);
-		directions_ = startMv.second;
 		hp_ = 0;
+		speed_ = g_resourses.cannonball.speed;
 	}
 
 	void	move() override {
-		vector2f a(g_resourses.cannonball.speed*getDirections().x, g_resourses.cannonball.speed*getDirections().y);
+		vector2f a(speed_*getDirections().x, speed_*getDirections().y);
 		setPosition(getPosition() - a);
 	}
 
-	cannonball_t* clone(const direction &pos_and_dir) const override { return new cannonball_t(pos_and_dir); }
+	cannonball_t* clone(const direction &pos_and_dir) const override {
+	auto cannonball = new cannonball_t();
+	cannonball->set_start(pos_and_dir);
+	return cannonball; }
+
+	void					set_start(const direction &startMv) override {
+		setPosition(startMv.first);
+		directions_ = startMv.second;
+	}
 
 	virtual ~cannonball_t() {}
 };

@@ -32,7 +32,7 @@ public:
 		curent = getPosition() - vector2f(tex_y*r_cos_sin.x, tex_y*r_cos_sin.y);
 		return (direction(curent, r_cos_sin));
 	}
-
+	static cannon_t*						clone() 					{ return  new cannon_t(); }
 	const scope_t&			getScope()	const {return scope_;}
 	virtual ~cannon_t() {}
 };

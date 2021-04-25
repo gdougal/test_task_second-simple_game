@@ -15,8 +15,8 @@ public:
 		setOrigin(g_resourses.scope.origin);
 	}
 	virtual ~scope_t() {}
-	sf::Vector2<float>	get_pos_scope(const win_t& window)	{return static_cast<sf::Vector2<float> >(sf::Mouse::getPosition(window));}
-	void								set_scope_pos(const win_t& window)	{setPosition(get_pos_scope(window));}
+	const sf::Vector2<float>	get_pos_scope(const win_t& window)	const {return static_cast<sf::Vector2<float> >(sf::Mouse::getPosition(window));}
+	void											set_scope_pos(const win_t& window)	{setPosition(get_pos_scope(window));}
 };
 
 

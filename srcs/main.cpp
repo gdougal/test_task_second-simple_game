@@ -11,33 +11,24 @@
 class	logic {
 private:
 	typedef	std::shared_ptr<interacion_obj>	ptr_;
-	typedef	std::list<ptr_>							t_balls_lst;
-	typedef	std::list<ptr_>					t_target_lst;
-	sf::RenderWindow								*session_window;
-	cannon_t												cannon_;
-	t_balls_lst											balls_;
-	t_target_lst										targets_;
+	typedef	std::list<ptr_>									t_balls_lst;
+	typedef	std::list<ptr_>									t_target_lst;
+	sf::RenderWindow												*session_window;
+	cannon_t																cannon_;
+	t_balls_lst															balls_;
+	t_target_lst														targets_;
 
 public:
 
-	void	generate_targets() {
-		for (int i = 0; i < 50; ++i) {
-			targets_.emplace_back(target_c1().clone(random_pos_dir_generator()));
-		}
-		for (int i = 0; i < 10; ++i) {
-			targets_.emplace_back(target_c2().clone(random_pos_dir_generator()));
-		}
-	}
-
-	logic() {
-		generate_targets();
-	}
+	logic() { generate_targets(); }
 	virtual ~logic() {}
+
+	void		setPubWindow(sf::RenderWindow *pubWindow) {session_window = pubWindow;}
 
 	void		update_game_logic() {
 		cannon_.rotate_canon(*session_window);
-		collapse_targets();
 		collapse_cannonbals();
+		collapse_targets();
 		moving_cannonballs();
 		moving_targets();
 	}
@@ -49,30 +40,38 @@ public:
 		session_window->draw(cannon_.getScope());
 	}
 
-	void	shooting() {
-		balls_.emplace_back(cannonball_t().clone(cannon_.top_dot()));
+	void		shooting() {
+			balls_.emplace_back(cannonball_t().clone(cannon_.top_dot()));
 	}
 
+	void		bomb_shooting() {
+		if  (cannon_.getScope().get_pos_scope(*session_window).y < g_resourses.target1.bot_border)
+			balls_.emplace_back(bomb().clone_fo_bomb(cannon_.top_dot(), cannon_.getScope().get_pos_scope(*session_window)));
+	}
 
-	void collapse_targets() {
-		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
-			for (auto it_i = it; it_i != targets_.end(); ++it_i) {
-					interaction::collapse_targets(it->get(), it_i->get());
-			}
+	void		stop() {
+
+	}
+
+private:
+	void	generate_targets() {
+		for (int i = 0; i < g_targets_small_num; ++i) {
+			targets_.emplace_back(target_c1().clone(random_pos_dir_generator()));
+		}
+		for (int i = 0; i < g_targets_big_num; ++i) {
+			targets_.emplace_back(target_c2().clone(random_pos_dir_generator()));
 		}
 	}
-	void collapse_cannonbals() {
-		for (auto it = balls_.begin(); it != balls_.end(); ++it) {
-			for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
-				if (*it && *it_t && interaction::collapse_target_with_ball(it_t->get(), it->get())) {
-					balls_.erase(it++);
-					if ((*it_t)->getHp() == 0) {
-						targets_.erase(it_t++);
-					if (it == balls_.end())
-						break;
-					}
-				}
+
+	void	moving_cannonballs() {
+		for (auto it = balls_.begin(); it != balls_.end(); ) {
+			(*it)->move();
+			if ((*it)->getPosition().x < 0 || (*it)->getPosition().y < 0 ||
+					(*it)->getPosition().x > g_win_width || (*it)->getPosition().y > g_win_height) {
+				balls_.erase(it++);
 			}
+			else
+				++it;
 		}
 	}
 
@@ -82,21 +81,38 @@ public:
 		}
 	}
 
-
-	void	moving_cannonballs() {
-		for (auto it = balls_.begin(); it != balls_.end(); ) {
-			(*it)->move();
-			if ((*it)->getPosition().x < 0 || (*it)->getPosition().y < 0) {
-				balls_.erase(it++);
+	void collapse_targets() {
+		for (auto it = targets_.begin(); it != targets_.end(); ++it) {
+			for (auto it_i = it; it_i != targets_.end(); ++it_i) {
+				interaction::collapse_targets(*it, *it_i);
 			}
-			else
-				++it;
 		}
 	}
 
-	void	draw_targets() {
-		for (auto& i: targets_) {
-			session_window->draw(*i);
+	void collapse_cannonbals() {
+		for (auto it = balls_.begin(); !balls_.empty() && it != balls_.end(); ++it) {
+			for (auto it_t = targets_.begin(); !targets_.empty() && it_t != targets_.end(); ++it_t) {
+				if (is_object<interacion_obj, cannonball_t>(it->get()) && interaction::collapse_target_with_ball(*it_t, *it)) {
+					if ((*it_t)->getHp() <= 0) {
+						it_t = targets_.erase(it_t);
+					}
+					it = balls_.erase(it);
+					if (balls_.empty() || it == balls_.end() || !is_object<interacion_obj, cannonball_t>(it->get()))
+						break;
+				}
+				if (is_object<interacion_obj, bomb>(it->get()) && interaction::collapse_target_with_bomb(*it_t, *it)) {
+					for (auto it_bomb_zone = targets_.begin(); !targets_.empty() && it_bomb_zone != targets_.end(); ++it_bomb_zone) {
+						interaction::bomb_detonate(*it_bomb_zone, *it);
+						if ((*it_bomb_zone)->getHp() <= 0) {
+							it_bomb_zone = targets_.erase(it_bomb_zone);
+						}
+					}
+					it_t = targets_.begin();
+					it = balls_.erase(it);
+					if (balls_.empty() || it == balls_.end() || !is_object<interacion_obj, cannonball_t>(it->get()))
+						break;
+				}
+			}
 		}
 	}
 
@@ -105,7 +121,12 @@ public:
 			session_window->draw(*i);
 		}
 	}
-	void	setPubWindow(sf::RenderWindow *pubWindow) {session_window = pubWindow;}
+
+	void	draw_targets() {
+		for (auto& i: targets_) {
+			session_window->draw(*i);
+		}
+	}
 };
 
 int	drwning() {
@@ -122,8 +143,16 @@ int	drwning() {
 					window.getPubWindow()->close();
 					break;
 				case e.KeyPressed:
-					game.shooting();
-					break;
+					if (e.key.code == sf::Keyboard::Q) {
+						game.shooting();
+					}
+					else if (e.key.code == sf::Keyboard::W) {
+						game.bomb_shooting();
+					}
+					else if (e.key.code == sf::Keyboard::Escape) {
+						game.stop();
+						window.getPubWindow()->clear();
+					}
 			}
 		}
 		game.update_game_logic();
@@ -131,6 +160,7 @@ int	drwning() {
 		game.draw_game_objects();
 		window.getPubWindow()->display();
 	}
+
 	return 0;
 }
 

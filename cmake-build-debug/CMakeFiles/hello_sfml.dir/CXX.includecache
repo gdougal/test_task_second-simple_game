@@ -676,6 +676,10 @@ SFML/Config.hpp
 
 ../include/SFML/Window/WindowStyle.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.cpp
+bomb.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
@@ -691,8 +695,8 @@ interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
-canonball_t.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+interaction_objects.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 ../shooting_range.hpp
@@ -742,5 +746,7 @@ SFML/Graphics.hpp
 cmath
 -
 iostream
+-
+exception
 -
 
