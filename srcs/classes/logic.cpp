@@ -6,12 +6,10 @@
 
 
 
-logic::logic(sf::RenderWindow *pubWindow) {
+logic::logic(sf::RenderWindow *pubWindow, const std::string& config_path): configs_(config_path) {
 	generate_targets();
 	session_window = pubWindow;
 }
-
-void logic::setPubWindow(sf::RenderWindow *pubWindow) { session_window = pubWindow; }
 
 void logic::update_game_logic() {
 	cannon_.rotate_canon(*session_window);
@@ -22,9 +20,9 @@ void logic::update_game_logic() {
 }
 
 void logic::draw_game_objects() {
-	draw_targets();
+	draw_cycle(targets_);
 	session_window->draw(cannon_);
-	draw_cannonballs();
+	draw_cycle(balls_);
 	session_window->draw(cannon_.getScope());
 }
 
@@ -51,7 +49,7 @@ void logic::moving_cannonballs() {
 		(*it)->move();
 		if ((*it)->getPosition().x < 0 || (*it)->getPosition().y < 0 ||
 				(*it)->getPosition().x > g_win_width || (*it)->getPosition().y > g_win_height) {
-			balls_.erase(it++);
+			it = balls_.erase(it);
 		}
 		else
 			++it;
@@ -101,17 +99,5 @@ void logic::collapse_cannonbals() {
 					break;
 			}
 		}
-	}
-}
-
-void logic::draw_cannonballs() {
-	for (auto& i: balls_) {
-		session_window->draw(*i);
-	}
-}
-
-void logic::draw_targets() {
-	for (auto& i: targets_) {
-		session_window->draw(*i);
 	}
 }

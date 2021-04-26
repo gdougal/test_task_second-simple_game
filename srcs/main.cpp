@@ -3,7 +3,7 @@
 
 int	game_cycle() {
 	wrap_window			window;
-	logic				game(window.getPubWindow().get());
+	logic						game(window.getPubWindow().get(), "srcs/config.txt");
 
 	while (window.getPubWindow()->isOpen()) {
 		sf::Event e;
@@ -18,6 +18,7 @@ int	game_cycle() {
 						game.shooting();
 					}
 					else if (e.key.code == sf::Keyboard::W) {
+						std::cout << e.key.code << std::endl;
 						game.bomb_shooting();
 					}
 					else if (e.key.code == sf::Keyboard::Escape) {

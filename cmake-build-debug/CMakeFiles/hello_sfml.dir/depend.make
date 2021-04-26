@@ -77,6 +77,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../include/SFML/Window/Window
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../include/SFML/Window/WindowStyle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../srcs/classes/bomb.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../srcs/classes/bomb.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../srcs/classes/interaction_objects.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o: ../srcs/shooting_range.hpp
 
@@ -156,6 +157,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../include/SFML/Window/Wi
 CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../include/SFML/Window/WindowStyle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../srcs/classes/cannon_t.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../srcs/classes/cannon_t.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../srcs/classes/interaction_objects.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../srcs/classes/scope_t.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o: ../srcs/shooting_range.hpp
@@ -236,8 +238,12 @@ CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o: ../include/SFML/Window
 CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o: ../include/SFML/Window/WindowStyle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o: ../srcs/classes/canonball_t.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o: ../srcs/classes/canonball_t.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o: ../srcs/classes/interaction_objects.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o: ../srcs/shooting_range.hpp
+
+CMakeFiles/hello_sfml.dir/srcs/classes/config/Config.cpp.o: ../srcs/classes/config/Config.cpp
+CMakeFiles/hello_sfml.dir/srcs/classes/config/Config.cpp.o: ../srcs/classes/config/Config.hpp
 
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../include/SFML/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../include/SFML/Graphics.hpp
@@ -313,6 +319,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../include/SFML/Window/VideoMo
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../include/SFML/Window/Window.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../include/SFML/Window/WindowHandle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../include/SFML/Window/WindowStyle.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../srcs/classes/gui.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../srcs/classes/gui.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o: ../srcs/shooting_range.hpp
@@ -391,6 +398,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../include/SFML/Window
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../include/SFML/Window/Window.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../include/SFML/Window/WindowHandle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../include/SFML/Window/WindowStyle.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../srcs/classes/gui.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../srcs/classes/interaction.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o: ../srcs/classes/interaction.hpp
@@ -474,6 +482,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../include/SFML/Window/Windo
 CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/bomb.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/cannon_t.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/canonball_t.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/gui.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/interaction.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o: ../srcs/classes/interaction_objects.hpp
@@ -559,6 +568,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../include/SFML/Window/Vid
 CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../include/SFML/Window/Window.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../include/SFML/Window/WindowHandle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../include/SFML/Window/WindowStyle.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../srcs/classes/interaction_objects.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../srcs/classes/scope_t.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o: ../srcs/classes/scope_t.hpp
@@ -638,6 +648,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../include/SFML/Window/V
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../include/SFML/Window/Window.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../include/SFML/Window/WindowHandle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../include/SFML/Window/WindowStyle.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../srcs/classes/interaction_objects.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../srcs/classes/target_c1.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o: ../srcs/classes/target_c1.hpp
@@ -717,6 +728,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../include/SFML/Window/V
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../include/SFML/Window/Window.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../include/SFML/Window/WindowHandle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../include/SFML/Window/WindowStyle.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../srcs/classes/interaction_objects.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../srcs/classes/target_c2.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o: ../srcs/classes/target_c2.hpp
@@ -796,6 +808,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../include/SFML/Window
 CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../include/SFML/Window/Window.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../include/SFML/Window/WindowHandle.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../include/SFML/Window/WindowStyle.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../srcs/classes/interaction_objects.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../srcs/classes/wrap_window.cpp
 CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o: ../srcs/classes/wrap_window.hpp
@@ -878,6 +891,7 @@ CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../include/SFML/Window/WindowStyle.hp
 CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../srcs/classes/bomb.hpp
 CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../srcs/classes/cannon_t.hpp
 CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../srcs/classes/canonball_t.hpp
+CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../srcs/classes/gui.hpp
 CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../srcs/classes/interaction.hpp
 CMakeFiles/hello_sfml.dir/srcs/main.cpp.o: ../srcs/classes/interaction_objects.hpp
@@ -963,6 +977,7 @@ CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o: ../include/SFML/Window/VideoMode.hpp
 CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o: ../include/SFML/Window/Window.hpp
 CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o: ../include/SFML/Window/WindowHandle.hpp
 CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o: ../include/SFML/Window/WindowStyle.hpp
+CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o: ../srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o: ../srcs/shooting_range.hpp
 CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o: ../srcs/utils.cpp
 

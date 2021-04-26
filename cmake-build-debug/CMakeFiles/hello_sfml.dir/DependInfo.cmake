@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o"
+  "/Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/config/Config.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o"
   "/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.cpp" "/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o"

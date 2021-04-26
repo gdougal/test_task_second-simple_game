@@ -100,6 +100,12 @@
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp">
 			<Option target="hello_sfml"/>
 		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.cpp">
+			<Option target="hello_sfml"/>
+		</Unit>
+		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp">
+			<Option target="hello_sfml"/>
+		</Unit>
 		<Unit filename="/Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.cpp">
 			<Option target="hello_sfml"/>
 		</Unit>

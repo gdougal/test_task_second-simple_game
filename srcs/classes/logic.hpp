@@ -19,9 +19,8 @@ class	logic {
 public:
 
 	logic() = delete;
-	logic(sf::RenderWindow *pubWindow);
+	logic(sf::RenderWindow *pubWindow, const std::string& config_path);
 	~logic() = default;
-	void		setPubWindow(sf::RenderWindow *pubWindow);
 
 	void		update_game_logic();
 	void		draw_game_objects();
@@ -38,8 +37,12 @@ private:
 	void	moving_targets();
 	void	collapse_targets();
 	void	collapse_cannonbals();
-	void	draw_cannonballs();
-	void	draw_targets();
+	template	<class T_Container>
+	void draw_cycle(T_Container& pool) {
+		for (auto& item: pool) {
+			session_window->draw(*item);
+		}
+	}
 
 
 	typedef	std::shared_ptr<interacion_obj>	ptr_interact;
@@ -49,6 +52,7 @@ private:
 	cannon_t																cannon_;
 	t_balls_lst															balls_;
 	t_target_lst														targets_;
+	Config																	configs_;
 };
 
 

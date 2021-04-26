@@ -223,6 +223,33 @@ srcs/classes/canonball_t.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.s
 .PHONY : srcs/classes/canonball_t.cpp.s
 
+srcs/classes/config/Config.o: srcs/classes/config/Config.cpp.o
+
+.PHONY : srcs/classes/config/Config.o
+
+# target to build an object file
+srcs/classes/config/Config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/config/Config.cpp.o
+.PHONY : srcs/classes/config/Config.cpp.o
+
+srcs/classes/config/Config.i: srcs/classes/config/Config.cpp.i
+
+.PHONY : srcs/classes/config/Config.i
+
+# target to preprocess a source file
+srcs/classes/config/Config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/config/Config.cpp.i
+.PHONY : srcs/classes/config/Config.cpp.i
+
+srcs/classes/config/Config.s: srcs/classes/config/Config.cpp.s
+
+.PHONY : srcs/classes/config/Config.s
+
+# target to generate assembly for a file
+srcs/classes/config/Config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_sfml.dir/build.make CMakeFiles/hello_sfml.dir/srcs/classes/config/Config.cpp.s
+.PHONY : srcs/classes/config/Config.cpp.s
+
 srcs/classes/gui.o: srcs/classes/gui.cpp.o
 
 .PHONY : srcs/classes/gui.o
@@ -484,6 +511,9 @@ help:
 	@echo "... srcs/classes/canonball_t.o"
 	@echo "... srcs/classes/canonball_t.i"
 	@echo "... srcs/classes/canonball_t.s"
+	@echo "... srcs/classes/config/Config.o"
+	@echo "... srcs/classes/config/Config.i"
+	@echo "... srcs/classes/config/Config.s"
 	@echo "... srcs/classes/gui.o"
 	@echo "... srcs/classes/gui.i"
 	@echo "... srcs/classes/gui.s"

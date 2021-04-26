@@ -1,0 +1,52 @@
+
+#CANNON
+path:                        Tir_objects_png/Cut_cannon.png
+multiply_scale_texture:      0.15
+denominator_origin_y:        1
+
+
+#SCOPE
+path:                        Tir_objects_png/Aim.png
+multiply_scale_texture:      0.05
+denominator_origin_y:        0.5
+
+
+#CANNONBALL
+path:                        Tir_objects_png/cut_cannonball.png
+multiply_scale_texture:      0.04
+multiply_scale_speed:        1
+hp:                          1
+
+
+#BOMB
+path:                        Tir_objects_png/cutBomb.png
+multiply_scale_texture:      0.08
+multiply_scale_speed:        0.5
+hp:                          1
+
+#TARGET:SMALL_YELLOW
+path:                        Tir_objects_png/cut_target1.png
+multiply_scale_texture:      0.03
+multiply_scale_speed:        0.8
+hp:                          3
+
+#TARGET:BIG_GREEN
+path:                        Tir_objects_png/cut_target2.png
+multiply_scale_texture:      0.05
+multiply_scale_speed:        0.6
+hp:                          6
+
+#GAME
+multiply_game_sqreen:         0.7
+multiply_boom_radius:         3
+small_yellow_num:             50
+big_green_num:                20
+
+#WINDOW
+win_height:                   1000
+win_width:                    1000
+framerate:                    60
+mouse_cursor_grabbed:         1
+key_repeat_enabled:           0
+mouse_cursor_visible          0
+

@@ -78,6 +78,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/bomb.cpp.o
  ../include/SFML/Window/WindowStyle.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o
@@ -157,6 +158,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/cannon_t.cpp.o
  ../include/SFML/Window/WindowStyle.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
@@ -237,8 +239,12 @@ CMakeFiles/hello_sfml.dir/srcs/classes/canonball_t.cpp.o
  ../include/SFML/Window/WindowStyle.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
+CMakeFiles/hello_sfml.dir/srcs/classes/config/Config.cpp.o
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.cpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
 CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o
  ../include/SFML/Config.hpp
  ../include/SFML/Graphics.hpp
@@ -314,6 +320,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/gui.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
@@ -392,6 +399,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/interaction.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
@@ -475,6 +483,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/logic.cpp.o
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
@@ -560,6 +569,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/scope_t.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
@@ -639,6 +649,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/target_c1.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c1.hpp
@@ -718,6 +729,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/target_c2.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
@@ -797,6 +809,7 @@ CMakeFiles/hello_sfml.dir/srcs/classes/wrap_window.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.cpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
@@ -879,6 +892,7 @@ CMakeFiles/hello_sfml.dir/srcs/main.cpp.o
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/bomb.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/cannon_t.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
@@ -964,5 +978,6 @@ CMakeFiles/hello_sfml.dir/srcs/utils.cpp.o
  ../include/SFML/Window/Window.hpp
  ../include/SFML/Window/WindowHandle.hpp
  ../include/SFML/Window/WindowStyle.hpp
+ /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
  /Users/gdougal/Desktop/hello_sfml/srcs/utils.cpp

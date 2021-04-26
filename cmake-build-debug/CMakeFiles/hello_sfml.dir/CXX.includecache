@@ -690,13 +690,19 @@ scope_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
+unordered_map
+-
+any
+-
+fstream
+-
+istream
+-
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/gui.hpp
 ../shooting_range.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
-
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp
-interaction.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
 interaction_objects.hpp
@@ -744,6 +750,10 @@ interaction_objects.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.cpp
+wrap_window.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
@@ -763,6 +773,10 @@ cmath
 -
 iostream
 -
+memory
+-
 exception
 -
+classes/config/Config.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
 
