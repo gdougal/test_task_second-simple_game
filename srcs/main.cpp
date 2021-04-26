@@ -2,7 +2,7 @@
 #include "classes/logic.hpp"
 
 int	game_cycle() {
-	wrap_window	window;
+	wrap_window			window;
 	logic				game(window.getPubWindow().get());
 
 	while (window.getPubWindow()->isOpen()) {

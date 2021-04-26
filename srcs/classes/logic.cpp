@@ -74,6 +74,8 @@ void logic::collapse_targets() {
 
 
 void logic::collapse_cannonbals() {
+	std::vector<std::list<interacion_obj>::iterator>	for_del;
+
 	for (auto it = balls_.begin(); !balls_.empty() && it != balls_.end(); ++it) {
 		for (auto it_t = targets_.begin(); !targets_.empty() && it_t != targets_.end(); ++it_t) {
 			if (is_object<interacion_obj, cannonball_t>(it->get()) && interaction::collapse_target_with_ball(*it_t, *it)) {

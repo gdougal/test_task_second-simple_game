@@ -19,9 +19,9 @@ void bomb::move() {
 	float way = lenght_(start_pos_, getPosition());
 	if (way <= length_) {
 		float scale_f =  scale_factor(way);
-		scale_f = scale_f > 1 ? scale_f : 1;
+//		scale_f = scale_f > 1 ? scale_f : 1;
 		setScale(vector2f(start_scale_ * scale_f, start_scale_ * scale_f));
-		speed_ = start_speed_/(scale_f*HALF);
+		speed_ = start_speed_/(scale_f * HALF);
 		vector2f a(speed_ * getDirections().x, speed_ * getDirections().y);
 		setPosition(getPosition() - a);
 	}
@@ -39,7 +39,7 @@ bomb *bomb::clone(const direction &pos_and_dir) const {
 
 float bomb::scale_factor(const float way) const {
 	float factor = a_*powf(way, 2) + b_*way + c_;
-	return abs(factor);
+	return std::abs(factor);
 }
 
 bomb *bomb::clone_fo_bomb(const direction &pos_and_dir, const vector2f &bomb_dot) {
