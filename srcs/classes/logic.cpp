@@ -74,7 +74,9 @@ void logic::collapse_targets() {
 
 
 void logic::collapse_cannonbals() {
-	std::vector<std::list<interacion_obj>::iterator>	for_del;
+//	typedef std::vector<std::list< std::shared_ptr<interacion_obj>>::iterator> arr_fo_delete;
+//	arr_fo_delete	del_balls;
+//	arr_fo_delete	del_targets; /// TODO: pool for delete
 
 	for (auto it = balls_.begin(); !balls_.empty() && it != balls_.end(); ++it) {
 		for (auto it_t = targets_.begin(); !targets_.empty() && it_t != targets_.end(); ++it_t) {
