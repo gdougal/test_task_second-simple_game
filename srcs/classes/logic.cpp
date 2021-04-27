@@ -32,46 +32,46 @@ void logic::draw_game_objects() {
 }
 
 void logic::shooting() {
-	balls_.emplace_back(cannonball_t().clone(cannon_->top_dot(), resourses_->getCannonball()));
+	balls_.emplace_back(false, cannonball_t().clone(cannon_->top_dot(), resourses_->getCannonball()));
 }
 
 void logic::bomb_shooting() {
 	if  (cannon_->getScope().get_pos_scope(*session_window).y < resourses_->getBomb().getBotBorder() && !bomb_inplace) {
-		balls_.emplace_back(bomb().clone_fo_bomb(cannon_->top_dot(), cannon_->getScope().get_pos_scope(*session_window), resourses_->getBomb()));
+		balls_.emplace_back(true, bomb().clone_fo_bomb(cannon_->top_dot(), cannon_->getScope().get_pos_scope(*session_window), resourses_->getBomb()));
 			bomb_inplace = true;
 		}
 }
 
 void logic::generate_targets(int number, const sprite_balls& target_conf) {
 	for (int i = 0; i < number; ++i) {
-		targets_.emplace_back(target_c1().clone(random_pos_dir_generator(*resourses_), target_conf));
+		targets_.emplace_back(false, target_c1().clone(random_pos_dir_generator(*resourses_), target_conf));
 	}
 }
 
 void logic::moving_cannonballs() {
-	for (auto it = balls_.begin(); it != balls_.end(); ++it) {
-		(*it)->move();
-		if ((*it)->getPosition().x < 0 || (*it)->getPosition().y < 0 || (*it)->getPosition().x > resourses_->getWinResourse().getWinWidth()
-						|| (*it)->getPosition().y > resourses_->getWinResourse().getWinHeight())
+	for (auto & ball : balls_) {
+		(ball.second)->move();
+		if ((ball.second)->getPosition().x < 0 || ball.second->getPosition().y < 0 || ball.second->getPosition().x > resourses_->getWinResourse().getWinWidth()
+						|| ball.second->getPosition().y > resourses_->getWinResourse().getWinHeight())
 		{
-			del_obj.emplace_back(it);
-			if (is_object<interacion_obj, bomb>(it->get()))
+			ball.first =  true;
+			if (is_object<interacion_obj, bomb>(ball.second.get()))
 				bomb_inplace = false;
 		}
 	}
 }
 
 void logic::moving_targets() {
-	for (auto it = targets_.begin(); it != targets_.end(); ++it) {
-		interaction::collaps_targets_with_board(*(it->get()), resourses_->getTargetSmallYellow());
-		(*it)->move();
+	for (auto & target : targets_) {
+		interaction::collaps_targets_with_board(*(target.second.get()), resourses_->getTargetSmallYellow());
+		target.second->move();
 	}
 }
 
 void logic::collapse_targets() {
 	for (auto it = targets_.begin(); it != targets_.end(); ++it) {
 		for (auto it_i = it; it_i != targets_.end(); ++it_i) {
-			interaction::collapse_targets(*it, *it_i);
+			interaction::collapse_targets(it->second.get(), it_i->second.get());
 		}
 	}
 }

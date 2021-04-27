@@ -14,9 +14,9 @@
 
 
 class	logic {
-	typedef	std::shared_ptr<interacion_obj>					ptr_interact;
-	typedef	std::list<ptr_interact>									t_interact_lst; /// true/false - показатель проверки на столкновения/удаления
-	typedef std::list<t_interact_lst::iterator>			arr_fo_delete;
+	typedef	std::shared_ptr<interacion_obj>						ptr_interact;
+	typedef	std::list<std::pair<bool, ptr_interact> >	t_interact_lst; /// true/false - показатель проверки на столкновения/удаления
+//	typedef std::list<t_interact_lst::iterator>			arr_fo_delete;
 public:
 	logic(const std::string& config_path);
 	logic() = delete;
@@ -37,10 +37,9 @@ private:
 	void	collapse_cannonbals();
 	void	delete_cycle(t_interact_lst& pool);
 
-	template	<class T_Container>
-	void draw_cycle(T_Container& pool) {
+	void draw_cycle(t_interact_lst& pool) {
 		for (auto& item: pool) {
-			session_window->draw(*item);
+			session_window->draw(*item.second);
 		}
 	}
 
@@ -49,7 +48,7 @@ private:
 	t_interact_lst								balls_;
 	t_interact_lst								targets_;
 	std::shared_ptr<t_resourses>	resourses_;
-	arr_fo_delete									del_obj;
+//	arr_fo_delete									del_obj;
 
 
 	bool													bomb_inplace;
