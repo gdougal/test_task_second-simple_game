@@ -5,6 +5,7 @@ int	game_cycle() {
 	logic						game("srcs/config.txt");
 	wrap_window			window(game.getResourses().getWinResourse());
 	game.setSessionWindow(window.getPubWindow().get());
+	bool	game_reaction = true;
 	while (window.getPubWindow()->isOpen()) {
 		sf::Event e;
 		while (window.getPubWindow()->pollEvent(e)) {
@@ -21,13 +22,16 @@ int	game_cycle() {
 						game.bomb_shooting();
 					}
 					else if (e.key.code == sf::Keyboard::Escape) {
-						window.getPubWindow()->clear();
+						game_reaction = !game_reaction;
 					}
+					break;
 			}
 		}
-		game.update_game_logic();
 		window.getPubWindow()->clear();
-		game.draw_game_objects();
+		if (game_reaction) {
+			game.update_game_logic();
+			game.draw_game_objects();
+		}
 		window.getPubWindow()->display();
 	}
 	return 0;

@@ -23,15 +23,15 @@ public:
 	virtual void		set_start(const direction &startMv) = 0;
 
 	static void			swap_directions(interacion_obj& target1, interacion_obj& target2) { std::swap(target1.directions_, target2.directions_); }
-	float						getRadius()															const	{ return radius_; }
-	const vector2f	&getDirections()												const	{ return directions_; }
-	int							getHp()																	const	{ return hp_; }
-	void						minus_hp()																		{ --hp_; }
-	void						bomb_damage(const int damage)									{ hp_ = hp_ - damage; }
-	bool						is_interactable() 											const { return interactable_; }
-	void						setDirections(const vector2f &directions)			{ directions_ = directions; }
-	void						inverse_y_dir() { directions_.y *= -1; }
-	void						inverse_x_dir() { directions_.x *= -1; }
+	void						inverse_y_dir()																	{ directions_.y *= -1; }
+	void						inverse_x_dir()																	{ directions_.x *= -1; }
+	void						minus_hp()																			{ --hp_; }
+	void						bomb_damage(const int damage)										{ hp_ = hp_ - damage; }
+	bool						is_interactable() 												const { return interactable_; }
+	void						setDirections(const vector2f &directions)				{ directions_ = directions; }
+	int							getHp()																		const	{ return hp_; }
+	float						getRadius()																const	{ return radius_; }
+	const vector2f	&getDirections()													const	{ return directions_; }
 
 
 protected:

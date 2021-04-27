@@ -19,14 +19,6 @@ typedef	std::pair<vector2f, vector2f>	direction;
 #define	DEGREE_TO_RAD									180.f/M_PI
 #define	HALF													0.5f
 
-template <class T, class T1>
-bool is_object(T* ref) {
-	if (dynamic_cast<T1*>(ref))
-		return true;
-	else
-		return false;
-}
-
 class		win_resource {
 	float	multiply_game_sqreen;
 	float	multiply_boom_radius;
@@ -85,12 +77,14 @@ public:
 		: texture(new sf::Texture()),
 			explose_text(new sf::Texture())
 	{
+		float prefer_resolution = std::max(win_configure.getFloatVal("win_height"), win_configure.getFloatVal("win_width"));
+
 		float multiply_scale = configure.getFloatVal("multiply_scale_texture");
 		if (!texture->loadFromFile(configure.getStringVal("path")))
 			throw std::invalid_argument("Wrong configure file (maybe)");
 		if (!explose_text->loadFromFile(configure.getStringVal("path_explose")))
 			throw std::invalid_argument("Wrong configure file (maybe)");
-		texture_scale = (multiply_scale * win_configure.getFloatVal("win_height")) / static_cast<float>(texture->getSize().y);
+		texture_scale = (multiply_scale * prefer_resolution) / static_cast<float>(texture->getSize().y);
 		origin = vector2f(static_cast<float>(texture->getSize().x) * HALF, static_cast<float>(texture->getSize().y) * HALF);
 		radius = static_cast<float>(texture->getSize().x) * texture_scale * 0.5f;
 		speed = (win_configure.getFloatVal("framerate") * texture_scale * configure.getFloatVal("multiply_scale_speed"));
@@ -122,10 +116,12 @@ public:
 	s_resource_general(const Config::Section& configure, const Config::Section& win_configure)
 		: texture(new sf::Texture())
 	{
+		float prefer_resolution = std::max(win_configure.getFloatVal("win_height"), win_configure.getFloatVal("win_width"));
+
 		float multiply_scale = configure.getFloatVal("multiply_scale_texture");
 		if (!texture->loadFromFile(configure.getStringVal("path")))
 			throw std::invalid_argument("Wrong configure file (maybe)");
-		texture_scale = (multiply_scale * win_configure.getFloatVal("win_height")) / static_cast<float>(texture->getSize().y);
+		texture_scale = (multiply_scale * prefer_resolution) / static_cast<float>(texture->getSize().y);
 		origin = vector2f (static_cast<float>(texture->getSize().x)*HALF, static_cast<float>(texture->getSize().y)*configure.getFloatVal("denominator_origin_y"));
 	};
 
@@ -143,6 +139,7 @@ class t_managment {
 	std::shared_ptr<sf::Sprite>	background_;
 	uint												score_;
 	bool												bomb_inplace_;
+	bool												pause_;
 public:
 	t_managment(const Config::Section& win_configure):
 		font_(new sf::Font()),
@@ -196,6 +193,14 @@ public:
 	const win_resource		&getWinResourse()				const { return *win_resourse; }
 };
 
+
+template <class T, class T1>
+bool is_object(T* ref) {
+	if (dynamic_cast<T1*>(ref))
+		return true;
+	else
+		return false;
+}
 
 float			angele(vector2f v0, vector2f v1);
 float			random_float(float min, float max);
