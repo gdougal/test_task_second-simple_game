@@ -7,7 +7,6 @@
 #include "interaction_objects.hpp"
 #include "target_c1.hpp"
 
-typedef	std::shared_ptr<interacion_obj>	ptr_interact;
 
 
 class interaction {
@@ -17,10 +16,10 @@ public:
 	interaction &operator=(const interaction &ref) = delete;
 	virtual ~interaction() = delete;
 
-	static void	collapse_targets(ptr_interact& target1, ptr_interact& target2);
-	static bool	collapse_target_with_ball(ptr_interact& target, ptr_interact& ball);
-	static bool	collapse_target_with_bomb(ptr_interact& target, ptr_interact& bomb);
-	static void	bomb_detonate(ptr_interact& target, ptr_interact& bomb, const t_resourses& res);
+	static void	collapse_targets(interacion_obj& target1, interacion_obj& target2);
+	static bool	collapse_target_with_ball(interacion_obj& target, interacion_obj& ball);
+	static bool	collapse_target_with_bomb(interacion_obj& target, interacion_obj& bomb);
+	static void	bomb_detonate(interacion_obj& target, interacion_obj& bomb, const t_resourses& res);
 
 	static void	collaps_targets_with_board(interacion_obj& target, const sprite_balls& win) {
 		if (target.getPosition().x <= win.getLeftBorder() || target.getPosition().x >= win.getRightBorder()) {

@@ -4,33 +4,33 @@
 
 #include "interaction.hpp"
 
-bool interaction::collapse_target_with_ball(ptr_interact &target, ptr_interact &ball) {
-	if(is_collapse(*target, *ball)) {
-		interacion_obj::swap_directions(*target, *ball);
-		(*target).setDirections(vector2f(target->getDirections().x * -1, target->getDirections().y * -1));
-		target->minus_hp();
+bool interaction::collapse_target_with_ball(interacion_obj& target, interacion_obj& ball) {
+	if(is_collapse(target, ball)) {
+		interacion_obj::swap_directions(target, ball);
+		target.setDirections(vector2f(target.getDirections().x * -1, target.getDirections().y * -1));
+		target.minus_hp();
 		return true;
 	}
 	return false;
 }
 
-bool interaction::collapse_target_with_bomb(ptr_interact &target, ptr_interact &bomb) {
-	if(bomb->is_interactable() && is_collapse(*target, *bomb)) {
+bool interaction::collapse_target_with_bomb(interacion_obj& target, interacion_obj& bomb) {
+	if(bomb.is_interactable() && is_collapse(target, bomb)) {
 		return true;
 	}
 	return false;
 }
 
-void interaction::collapse_targets(ptr_interact& target1, ptr_interact& target2) {
-	if(co_orientation(*target1, *target2) && is_collapse(*target1, *target2)) {
-		interacion_obj::swap_directions(*target1, *target2);
+void interaction::collapse_targets(interacion_obj& target1, interacion_obj& target2) {
+	if(co_orientation(target1, target2) && is_collapse(target1, target2)) {
+		interacion_obj::swap_directions(target1, target2);
 	}
 }
 
-void interaction::bomb_detonate(ptr_interact &target, ptr_interact &bomb, const t_resourses& res) {
-	float	sum_radius = target->getRadius() + bomb->getRadius() * res.getWinResourse().getMultiplyBoomRadius();
-	if(lenght_(target->getPosition(), bomb->getPosition()) < sum_radius) {
-		target->bomb_damage(res.getTargetSmallYellow().getHp());
+void interaction::bomb_detonate(interacion_obj& target, interacion_obj& bomb, const t_resourses& res) {
+	float	sum_radius = target.getRadius() + bomb.getRadius() * res.getWinResourse().getMultiplyBoomRadius();
+	if(lenght_(target.getPosition(), bomb.getPosition()) < sum_radius) {
+		target.bomb_damage(res.getTargetSmallYellow().getHp());
 	}
 }
 

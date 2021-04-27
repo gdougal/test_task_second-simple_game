@@ -37,7 +37,7 @@ void logic::shooting() {
 
 void logic::bomb_shooting() {
 	if  (cannon_->getScope().get_pos_scope(*session_window).y < resourses_->getBomb().getBotBorder() && !bomb_inplace) {
-		balls_.emplace_back(true, bomb().clone_fo_bomb(cannon_->top_dot(), cannon_->getScope().get_pos_scope(*session_window), resourses_->getBomb()));
+		balls_.emplace_back(false, bomb().clone_fo_bomb(cannon_->top_dot(), cannon_->getScope().get_pos_scope(*session_window), resourses_->getBomb()));
 			bomb_inplace = true;
 		}
 }
@@ -69,9 +69,9 @@ void logic::moving_targets() {
 }
 
 void logic::collapse_targets() {
-	for (auto it = targets_.begin(); it != targets_.end(); ++it) {
-		for (auto it_i = it; it_i != targets_.end(); ++it_i) {
-			interaction::collapse_targets(it->second.get(), it_i->second.get());
+	for (auto& target_1 : targets_) {
+		for (auto& target_2 : targets_) {
+			interaction::collapse_targets(*target_1.second, *target_2.second);
 		}
 	}
 }
@@ -81,37 +81,43 @@ void logic::collapse_cannonbals() {
 
 	for (auto it = balls_.begin(); it != balls_.end(); ++it) {
 		for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
-			if (is_object<interacion_obj, cannonball_t>(it->get()) && interaction::collapse_target_with_ball(*it_t, *it)) {
-				if ((*it_t)->getHp() <= 0) {
-					del_obj.emplace_back(it_t);
+			if (is_object<interacion_obj, cannonball_t>(it->second.get()) && interaction::collapse_target_with_ball(*it_t->second, *it->second)) {
+				if (it_t->second->getHp() <= 0) {
+					it_t->first =  true;
 				}
-				del_obj.emplace_back(it);
+				it->first = true;
 				break;
 			}
-			if (is_object<interacion_obj, bomb>(it->get()) && interaction::collapse_target_with_bomb(*it_t, *it)) {
-				(*it)->setTexture(resourses_->getBomb().getExploseText());
+			if (is_object<interacion_obj, bomb>(it->second.get()) && interaction::collapse_target_with_bomb(*it_t->second, *it->second)) {
+	it->second->setTexture(resourses_->getBomb().getExploseText());
 				for (auto it_bomb_zone = targets_.begin(); it_bomb_zone != targets_.end(); ++it_bomb_zone) {
-					interaction::bomb_detonate(*it_bomb_zone, *it, *resourses_);
-					if ((*it_bomb_zone)->getHp() <= 0) {
-						del_obj.emplace_back(it_bomb_zone);
+					interaction::bomb_detonate(*it_bomb_zone->second, *it->second, *resourses_);
+					if ((*it_bomb_zone).second->getHp() <= 0) {
+						it_bomb_zone->first = true;
 						bomb_inplace = false;
 					}
 				}
-				it_t = targets_.begin();
-				del_obj.emplace_back(it);
+				it->first = true;
 				break;
 			}
 		}
 	}
 }
 
-void logic::delete_cycle(std::list<ptr_interact> &pool) {
-	del_obj.unique();
-	for (auto& iter: del_obj) {
-		pool.erase(iter);
+void logic::draw_cycle(logic::t_interact_lst &pool) {
+	for (auto& item: pool) {
+		session_window->draw(*item.second);
 	}
-	del_obj.clear();
 }
 
-const t_resourses &logic::getResourses() const { return *resourses_; }
-void logic::setSessionWindow(sf::RenderWindow *sessionWindow) { session_window = sessionWindow; }
+void logic::delete_cycle(t_interact_lst& pool) {
+	for (auto iter = pool.begin(); iter != pool.end(); ) {
+		if (iter->first)
+			iter = pool.erase(iter);
+		else
+			++iter;
+	}
+}
+
+const t_resourses	&logic::getResourses()																		const { return *resourses_; }
+void							logic::setSessionWindow(sf::RenderWindow *sessionWindow)				{ session_window = sessionWindow; }

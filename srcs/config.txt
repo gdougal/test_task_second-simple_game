@@ -38,18 +38,18 @@ path:                        Tir_objects_png/cut_target2.png
 path_explose:                Tir_objects_png/rsz_explose.png
 multiply_scale_texture:      0.05
 multiply_scale_speed:        0.6
-hp:                          6
+hp:                          3
 
 #GAME_WINDOW
 font:						  /Library/Fonts/Arial.ttf
 multiply_game_sqreen:         0.7
 multiply_boom_radius:         4
-small_yellow_num:             50
-big_green_num:                20
+small_yellow_num:             30
+big_green_num:                5
 win_height:                   2560
 win_width:                    1440
 framerate:                    60
 mouse_cursor_grabbed:         1
-key_repeat_enabled:           1
+key_repeat_enabled:           0
 mouse_cursor_visible:	      0
 
