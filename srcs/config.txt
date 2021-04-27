@@ -36,13 +36,11 @@ multiply_scale_texture:      0.05
 multiply_scale_speed:        0.6
 hp:                          6
 
-#GAME
+#GAME_WINDOW
 multiply_game_sqreen:         0.7
 multiply_boom_radius:         3
 small_yellow_num:             50
 big_green_num:                20
-
-#WINDOW
 win_height:                   1000
 win_width:                    1000
 framerate:                    60

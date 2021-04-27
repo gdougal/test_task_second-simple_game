@@ -5,10 +5,10 @@
 #include "cannon_t.hpp"
 
 
-cannon_t::cannon_t() {
-	setTexture(g_resourses.cannon.texture);
-	setScale(vector2f(g_resourses.cannon.texture_scale,g_resourses.cannon.texture_scale));
-	setOrigin(g_resourses.cannon.origin);
+cannon_t::cannon_t(const sprite_general& configure) {
+	setTexture(configure.texture);
+	setScale(configure.texture_scale,configure.texture_scale);
+	setOrigin(configure.origin);
 	setPosition(g_win_width * HALF, g_win_height);
 }
 

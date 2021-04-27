@@ -8,10 +8,17 @@
 
 class interacion_obj : public sf::Sprite {
 public:
-						~interacion_obj() override = default;
-
+	interacion_obj(const sprite_balls& config) {
+		setTexture(config.texture);
+		setScale(config.texture_scale, config.texture_scale);
+		setOrigin(config.origin);
+		radius_ = config.radius;
+		hp_ = config.hp;
+		speed_ = config.speed;
+	}
+	~interacion_obj() override = default;
 	virtual void		move() = 0;
-	virtual					interacion_obj* clone(const direction& pos_and_dir) const = 0;
+	virtual					interacion_obj* clone(const direction& pos_and_dir, const sprite_balls& config) const = 0;
 	virtual void		set_start(const direction &startMv) = 0;
 
 	static void			swap_directions(interacion_obj& target1, interacion_obj& target2) { std::swap(target1.directions_, target2.directions_); }

@@ -9,11 +9,7 @@
 
 class	scope_t: public sf::Sprite {
 public:
-	scope_t() {
-		setTexture(g_resourses.scope.texture);
-		setScale(g_resourses.scope.texture_scale, g_resourses.scope.texture_scale);
-		setOrigin(g_resourses.scope.origin);
-	}
+	explicit scope_t(const sprite_general& configure);
 	~scope_t() override = default;
 	sf::Vector2<float>				get_pos_scope(const win_t& window)	const;
 	void											set_scope_pos(const win_t& window);

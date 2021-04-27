@@ -10,11 +10,22 @@
 #include <fstream>
 #include <istream>
 
+class Section {
+	std::unordered_map<std::string, std::any> content;
+public:
+	Section() {}
+	const std::unordered_map<std::string, std::any> &getContent() const { return content; }
+	void setContent(const std::string& key, const std::string& value) {
+		auto a = value.find_first_not_of(' ');
+		if (a > value.size())
+			throw "atata";
+		Section::content[key] = value.substr(a);
+	}
+};
+
 class Config
 {
-	class Section;
 public:
-
 	explicit Config(const std::string& config_name) {
 		std::ifstream ifs(config_name);
 		create_config(ifs);
@@ -26,19 +37,6 @@ public:
 
 private:
 	std::unordered_map<std::string, Section> sections;
-
-	class Section {
-		std::unordered_map<std::string, std::any> content;
-	public:
-		Section() {}
-		const std::unordered_map<std::string, std::any> &getContent() const { return content; }
-		void setContent(const std::string& key, const std::string& value) {
-			auto a = value.find_first_not_of(' ');
-			if (a > value.size())
-				throw "atata";
-			Section::content[key] = value.substr(a);
-		}
-	};
 
 	void create_config(std::ifstream & ifs)
 	{

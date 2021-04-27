@@ -8,9 +8,9 @@
 
 class bomb: public interacion_obj {
 public:
-	bomb();
+	explicit bomb(const sprite_balls& config);
 	void	move() override;
-	bomb*	clone_fo_bomb(const direction &pos_and_dir, const vector2f& bomb_dot);
+	bomb*	clone_fo_bomb(const direction &pos_and_dir, const vector2f& bomb_dot, const sprite_balls& config);
 	~bomb() override = default;
 
 private:
@@ -23,7 +23,7 @@ private:
 	float			b_;
 	float			c_;
 	float			scale_factor(float way) const;
-	bomb*			clone(const direction &pos_and_dir) const override;
+	bomb*			clone(const direction &pos_and_dir, const sprite_balls& config) const override;
 	void			set_start(const direction &startMv) override;
 };
 

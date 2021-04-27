@@ -9,7 +9,7 @@
 
 class cannon_t: public sf::Sprite {
 public:
-	cannon_t();
+	cannon_t(const sprite_general& configure);
 	~cannon_t() override = default;
 
 	void						rotate_canon(const win_t& window);

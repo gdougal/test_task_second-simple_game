@@ -686,6 +686,10 @@ interaction_objects.hpp
 scope_t.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/scope_t.hpp
 
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.cpp
+canonball_t.hpp
+/Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
+
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/canonball_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
@@ -749,10 +753,6 @@ interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/target_c2.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
-
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.cpp
-wrap_window.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/wrap_window.hpp
 interaction_objects.hpp

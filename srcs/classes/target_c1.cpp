@@ -4,14 +4,8 @@
 
 #include "target_c1.hpp"
 
-target_c1::target_c1() {
+target_c1::target_c1(const sprite_balls& config): interacion_obj(config) {
 	interactable_ = true;
-	setTexture(g_resourses.target1.texture);
-	setScale(g_resourses.target1.texture_scale, g_resourses.target1.texture_scale);
-	setOrigin(g_resourses.target1.origin);
-	radius_ = g_resourses.target1.radius;
-	hp_ = g_resourses.target1.hp;
-	speed_ = g_resourses.target1.speed;
 }
 
 void target_c1::move() {
@@ -25,8 +19,8 @@ void target_c1::move() {
 	setPosition(getPosition() + step);
 }
 
-target_c1 *target_c1::clone(const direction &pos_and_dir) const {
-	auto	target1 = new target_c1();
+target_c1 *target_c1::clone(const direction &pos_and_dir, const sprite_balls& config) const {
+	auto	target1 = new target_c1(config);
 	target1->set_start(pos_and_dir);
 	return target1;
 }

@@ -8,11 +8,11 @@
 
 class	cannonball_t: public interacion_obj {
 public:
-	cannonball_t();
+	explicit cannonball_t(const sprite_balls& config);
 	~cannonball_t() override = default;
 	
 	void					move() override;
-	cannonball_t*	clone(const direction &pos_and_dir) const override;
+	cannonball_t*	clone(const direction &pos_and_dir, const sprite_balls& config) const override;
 
 private:
 	void					set_start(const direction &startMv) override;
