@@ -13,12 +13,12 @@ public:
 	explicit cannon_t(const t_resourses& res);
 	~cannon_t() override = default;
 
-	void						rotate_canon(const win_t& window);
-	direction				top_dot();
-	const scope_t&	getScope()	const;
-	static cannon_t*				clone(const t_resourses& res) { return new cannon_t(res); }
+	void							rotate_canon(const win_t& window);
+	direction					top_dot();
+	const scope_t&		getScope()	const;
+	static cannon_t*	clone(const t_resourses& res) { return new cannon_t(res); }
 private:
-	scope_t				scope_;
+	std::shared_ptr<scope_t>			scope_;
 };
 
 

@@ -14,21 +14,17 @@
 
 
 class	logic {
+	typedef	std::shared_ptr<interacion_obj>					ptr_interact;
+	typedef	std::list<ptr_interact>									t_interact_lst; /// true/false - показатель проверки на столкновения/удаления
+	typedef std::list<t_interact_lst::iterator>			arr_fo_delete;
 public:
-
 	logic(const std::string& config_path);
 	logic() = delete;
 	~logic() = default;
-
-	void		update_game_logic();
-	void		draw_game_objects();
-	void		shooting();
-	void		bomb_shooting();
-
-	void		stop() {
-
-	}
-
+	void							update_game_logic();
+	void							draw_game_objects();
+	void							shooting();
+	void							bomb_shooting();
 	const t_resourses &getResourses() const;
 
 	void setSessionWindow(sf::RenderWindow *sessionWindow);
@@ -39,37 +35,24 @@ private:
 	void	moving_targets();
 	void	collapse_targets();
 	void	collapse_cannonbals();
+	void	delete_cycle(t_interact_lst& pool);
+
 	template	<class T_Container>
 	void draw_cycle(T_Container& pool) {
 		for (auto& item: pool) {
 			session_window->draw(*item);
 		}
 	}
-	typedef	std::shared_ptr<interacion_obj>	ptr_interact;
-	typedef	std::list<ptr_interact>					t_interact_lst;
-	typedef std::list<t_interact_lst::iterator> arr_fo_delete;
 
-	void delete_cycle(std::list<ptr_interact>& pool) {
-		del_obj.unique();
-		for (auto iter = del_obj.begin(); iter != del_obj.end(); ) {
-			if (del_obj.empty())
-				break;
-			pool.erase(*iter);
-			iter = del_obj.erase(iter);
-		}
-	}
+	sf::RenderWindow							*session_window;
+	std::shared_ptr<cannon_t>			cannon_;
+	t_interact_lst								balls_;
+	t_interact_lst								targets_;
+	std::shared_ptr<t_resourses>	resourses_;
+	arr_fo_delete									del_obj;
 
 
-
-	sf::RenderWindow												*session_window;
-	std::shared_ptr<cannon_t>								cannon_;
-	t_interact_lst													balls_;
-	t_interact_lst													targets_;
-	std::shared_ptr<t_resourses>						resourses_;
-	arr_fo_delete	del_obj;
-
-
-	bool																		bomb_inplace;
+	bool													bomb_inplace;
 };
 
 

@@ -5,7 +5,7 @@
 #include "cannon_t.hpp"
 
 
-cannon_t::cannon_t(const t_resourses& res): scope_(res.getScope()) {
+cannon_t::cannon_t(const t_resourses& res): scope_(new scope_t(res.getScope())) {
 	setTexture(res.getCannon().getTexture());
 	setScale(res.getCannon().getTextureScale(), res.getCannon().getTextureScale());
 	setOrigin(res.getCannon().getOrigin());
@@ -13,8 +13,8 @@ cannon_t::cannon_t(const t_resourses& res): scope_(res.getScope()) {
 }
 
 void cannon_t::rotate_canon(const win_t &window) {
-	scope_.set_scope_pos(window);
-	setRotation(angele(scope_.getPosition(), getPosition()));
+	scope_->set_scope_pos(window);
+	setRotation(angele(scope_->getPosition(), getPosition()));
 }
 
 direction cannon_t::top_dot() {
@@ -27,4 +27,4 @@ direction cannon_t::top_dot() {
 	return (direction(curent, r_cos_sin));
 }
 
-const scope_t &cannon_t::getScope() const {return scope_;}
+const scope_t &cannon_t::getScope() const {return *scope_;}

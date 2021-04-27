@@ -79,7 +79,7 @@ void logic::collapse_targets() {
 
 void logic::collapse_cannonbals() {
 
-	for (auto it = balls_.begin(); !balls_.empty() && it != balls_.end(); ++it) {
+	for (auto it = balls_.begin(); it != balls_.end(); ++it) {
 		for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
 			if (is_object<interacion_obj, cannonball_t>(it->get()) && interaction::collapse_target_with_ball(*it_t, *it)) {
 				if ((*it_t)->getHp() <= 0) {
@@ -90,7 +90,7 @@ void logic::collapse_cannonbals() {
 			}
 			if (is_object<interacion_obj, bomb>(it->get()) && interaction::collapse_target_with_bomb(*it_t, *it)) {
 				(*it)->setTexture(resourses_->getBomb().getExploseText());
-				for (auto it_bomb_zone = targets_.begin(); !targets_.empty() && it_bomb_zone != targets_.end(); ++it_bomb_zone) {
+				for (auto it_bomb_zone = targets_.begin(); it_bomb_zone != targets_.end(); ++it_bomb_zone) {
 					interaction::bomb_detonate(*it_bomb_zone, *it, *resourses_);
 					if ((*it_bomb_zone)->getHp() <= 0) {
 						del_obj.emplace_back(it_bomb_zone);
@@ -103,6 +103,14 @@ void logic::collapse_cannonbals() {
 			}
 		}
 	}
+}
+
+void logic::delete_cycle(std::list<ptr_interact> &pool) {
+	del_obj.unique();
+	for (auto& iter: del_obj) {
+		pool.erase(iter);
+	}
+	del_obj.clear();
 }
 
 const t_resourses &logic::getResourses() const { return *resourses_; }
