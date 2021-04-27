@@ -13,6 +13,7 @@ bomb::bomb(const sprite_balls& config): interacion_obj(config) {
 	start_scale_ = getScale().y;
 	interactable_ = false;
 	speed_ = start_speed_ = config.getSpeed();
+//	bomb_cnt_++;
 }
 
 void bomb::move() {

@@ -39,6 +39,7 @@ public:
 		const std::string	getStringVal(const std::string& Key)	const { return content.find(Key)->second; }
 		const float				getFloatVal(const std::string& Key)		const { return std::stof(content.find(Key)->second); }
 		const int					getIntVal(const std::string& Key)			const { return std::stoi(content.find(Key)->second); }
+
 		const bool				getBoolVal(const std::string& Key)		const {
 			std::string str(content.find(Key)->second);
 			bool a;

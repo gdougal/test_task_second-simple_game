@@ -33,6 +33,7 @@ public:
 	void						inverse_y_dir() { directions_.y *= -1; }
 	void						inverse_x_dir() { directions_.x *= -1; }
 
+
 protected:
 	bool				interactable_;
 	vector2f		directions_;

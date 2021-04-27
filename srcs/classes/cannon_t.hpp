@@ -17,7 +17,6 @@ public:
 	direction				top_dot();
 	const scope_t&	getScope()	const;
 	static cannon_t*				clone(const t_resourses& res) { return new cannon_t(res); }
-//static cannon_t*						clone() 					{ return  new cannon_t(); }
 private:
 	scope_t				scope_;
 };

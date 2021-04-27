@@ -45,16 +45,31 @@ private:
 			session_window->draw(*item);
 		}
 	}
-
-
 	typedef	std::shared_ptr<interacion_obj>	ptr_interact;
-	typedef	std::list<ptr_interact>					t_balls_lst;
-	typedef	std::list<ptr_interact>					t_target_lst;
+	typedef	std::list<ptr_interact>					t_interact_lst;
+	typedef std::list<t_interact_lst::iterator> arr_fo_delete;
+
+	void delete_cycle(std::list<ptr_interact>& pool) {
+		del_obj.unique();
+		for (auto iter = del_obj.begin(); iter != del_obj.end(); ) {
+			if (del_obj.empty())
+				break;
+			pool.erase(*iter);
+			iter = del_obj.erase(iter);
+		}
+	}
+
+
+
 	sf::RenderWindow												*session_window;
 	std::shared_ptr<cannon_t>								cannon_;
-	t_balls_lst															balls_;
-	t_target_lst														targets_;
-	t_resourses															resourses_;
+	t_interact_lst													balls_;
+	t_interact_lst													targets_;
+	std::shared_ptr<t_resourses>						resourses_;
+	arr_fo_delete	del_obj;
+
+
+	bool																		bomb_inplace;
 };
 
 

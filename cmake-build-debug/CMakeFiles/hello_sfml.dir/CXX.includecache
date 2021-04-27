@@ -702,10 +702,6 @@ canonball_t.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.cpp
-Config.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
-
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
 unordered_map
 -
@@ -797,8 +793,4 @@ exception
 -
 classes/config/Config.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/config/Config.hpp
-
-/Users/gdougal/Desktop/hello_sfml/srcs/utils.cpp
-shooting_range.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 

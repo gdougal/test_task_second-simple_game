@@ -13,6 +13,7 @@ denominator_origin_y:        0.5
 
 #CANNONBALL
 path:                        Tir_objects_png/cut_cannonball.png
+path_explose:                 Tir_objects_png/rsz_explose.png
 multiply_scale_texture:      0.04
 multiply_scale_speed:        1
 hp:                          1
@@ -20,25 +21,28 @@ hp:                          1
 
 #BOMB
 path:                        Tir_objects_png/cutBomb.png
+path_explose:                 Tir_objects_png/rsz_explose.png
 multiply_scale_texture:      0.08
 multiply_scale_speed:        0.5
 hp:                          1
 
 #TARGET:SMALL_YELLOW
 path:                        Tir_objects_png/cut_target1.png
+path_explose:                 Tir_objects_png/rsz_explose.png
 multiply_scale_texture:      0.03
 multiply_scale_speed:        0.8
 hp:                          3
 
 #TARGET:BIG_GREEN
 path:                        Tir_objects_png/cut_target2.png
+path_explose:                 Tir_objects_png/rsz_explose.png
 multiply_scale_texture:      0.05
 multiply_scale_speed:        0.6
 hp:                          6
 
 #GAME_WINDOW
 multiply_game_sqreen:         0.7
-multiply_boom_radius:         3
+multiply_boom_radius:         4
 small_yellow_num:             50
 big_green_num:                20
 win_height:                   2560
@@ -46,5 +50,5 @@ win_width:                    1440
 framerate:                    60
 mouse_cursor_grabbed:         1
 key_repeat_enabled:           0
-mouse_cursor_visible:	         0
+mouse_cursor_visible:	      0
 

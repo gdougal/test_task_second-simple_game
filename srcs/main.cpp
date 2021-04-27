@@ -19,7 +19,6 @@ int	game_cycle() {
 						game.shooting();
 					}
 					else if (e.key.code == sf::Keyboard::W) {
-						std::cout << e.key.code << std::endl;
 						game.bomb_shooting();
 					}
 					else if (e.key.code == sf::Keyboard::Escape) {

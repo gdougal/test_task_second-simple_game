@@ -35,9 +35,9 @@ class		win_resource {
 	float	framerate;
 	int		small_yellow_num;
 	int		big_green_num;
-	bool		mouse_cursor_grabbed;
-	bool		key_repeat_enabled;
-	bool		mouse_cursor_visible;
+	bool	mouse_cursor_grabbed;
+	bool	key_repeat_enabled;
+	bool	mouse_cursor_visible;
 public:
 	win_resource(const Config::Section& configure) {
 		multiply_game_sqreen = configure.getFloatVal("multiply_game_sqreen");
@@ -79,7 +79,7 @@ class	sprite_balls {
 	float				bot_border;
 	float				left_border;
 	float				right_border;
-
+	sf::Texture			explose_text;
 public:
 	sprite_balls(const Config::Section& configure, const Config::Section& win_configure) {
 		float multiply_scale = configure.getFloatVal("multiply_scale_texture");
@@ -92,6 +92,7 @@ public:
 		hp = configure.getIntVal("hp");
 		bot_border = win_configure.getFloatVal("win_height") * win_configure.getFloatVal("multiply_game_sqreen");
 		right_border = win_configure.getFloatVal("win_width") - left_border;
+		explose_text.loadFromFile(configure.getStringVal("path_explose"));
 	};
 
 
@@ -105,6 +106,7 @@ public:
 	float							getBotBorder()		const	{ return bot_border; }
 	float							getLeftBorder()		const	{ return left_border; }
 	float							getRightBorder()	const	{ return right_border; }
+	const sf::Texture &getExploseText() const { return explose_text; }
 };
 
 typedef	class	s_resource_general {
@@ -119,9 +121,9 @@ public:
 		origin = vector2f (static_cast<float>(texture.getSize().x)*HALF, static_cast<float>(texture.getSize().y)*configure.getFloatVal("denominator_origin_y"));
 	};
 
-	const	sf::Texture &getTexture()	const { return texture; }
-	float	getTextureScale()					const { return texture_scale; }
-	const	vector2f &getOrigin()			const { return origin; }
+	const	sf::Texture	&getTexture()			const { return texture; }
+	const float				getTextureScale()	const { return texture_scale; }
+	const	vector2f		&getOrigin()			const { return origin; }
 }								sprite_general;
 
 
