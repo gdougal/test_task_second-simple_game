@@ -6,9 +6,9 @@
 
 
 scope_t::scope_t(const sprite_general &configure) {
-	setTexture(configure.texture);
-	setScale(configure.texture_scale, configure.texture_scale);
-	setOrigin(configure.origin);
+	setTexture(configure.getTexture());
+	setScale(configure.getTextureScale(), configure.getTextureScale());
+	setOrigin(configure.getOrigin());
 }
 
 sf::Vector2<float> scope_t::get_pos_scope(const win_t &window) const {return static_cast<sf::Vector2<float> >(sf::Mouse::getPosition(window));}

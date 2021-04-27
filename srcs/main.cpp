@@ -2,8 +2,9 @@
 #include "classes/logic.hpp"
 
 int	game_cycle() {
-	wrap_window			window;
-	logic						game(window.getPubWindow().get(), "srcs/config.txt");
+	logic						game("srcs/config.txt");
+	wrap_window			window(game.getResourses().getWinResourse());
+	game.setSessionWindow(window.getPubWindow().get());
 
 	while (window.getPubWindow()->isOpen()) {
 		sf::Event e;

@@ -5,7 +5,7 @@
 #ifndef HELLO_SFML_INTERACTION_HPP
 #define HELLO_SFML_INTERACTION_HPP
 #include "interaction_objects.hpp"
-#include "gui.hpp"
+#include "target_c1.hpp"
 
 typedef	std::shared_ptr<interacion_obj>	ptr_interact;
 
@@ -21,6 +21,15 @@ public:
 	static bool	collapse_target_with_ball(ptr_interact& target, ptr_interact& ball);
 	static bool	collapse_target_with_bomb(ptr_interact& target, ptr_interact& bomb);
 	static void	bomb_detonate(ptr_interact& target, ptr_interact& bomb);
+
+	static void	collaps_targets_with_board(interacion_obj& target, const sprite_balls& win) {
+		if (target.getPosition().x <= win.getLeftBorder() || target.getPosition().x >= win.getRightBorder()) {
+			target.inverse_x_dir();
+		}
+		if (target.getPosition().y <= win.getTopBorder() || target.getPosition().y >= win.getBotBorder()) {
+			target.inverse_y_dir();
+		}
+	}
 
 private:
 	static int score_;

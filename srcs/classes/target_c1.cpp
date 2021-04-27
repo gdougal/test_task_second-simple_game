@@ -9,12 +9,12 @@ target_c1::target_c1(const sprite_balls& config): interacion_obj(config) {
 }
 
 void target_c1::move() {
-	if (getPosition().x <= g_resourses.target1.left_border || getPosition().x >= g_resourses.target1.right_border) {
-		directions_.x *= -1;
-	}
-	if (getPosition().y <= g_resourses.target1.top_border || getPosition().y >= g_resourses.target1.bot_border) {
-		directions_.y *= -1;
-	}
+//	if (getPosition().x <= s_resource::getLeftBorder() || getPosition().x >= s_resource::getRightBorder()) {
+//		directions_.x *= -1;
+//	}
+//	if (getPosition().y <= s_resource::getTopBorder() || getPosition().y >= s_resource::getBotBorder()) {
+//		directions_.y *= -1;
+//	}
 	vector2f step(speed_*directions_.x, speed_*directions_.y);
 	setPosition(getPosition() + step);
 }

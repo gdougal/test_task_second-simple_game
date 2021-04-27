@@ -13,7 +13,6 @@ add_executable(${EXECUTABLE_NAME}
         srcs/utils.cpp
         srcs/classes/wrap_window.cpp
         srcs/classes/target_c1.cpp
-        srcs/classes/target_c2.cpp
         srcs/classes/interaction.cpp
 
         srcs/classes/canonball_t.hpp
@@ -23,14 +22,11 @@ add_executable(${EXECUTABLE_NAME}
         srcs/classes/wrap_window.hpp
         srcs/classes/target_c1.hpp
         srcs/classes/interaction_objects.hpp
-        srcs/classes/target_c2.hpp
         srcs/classes/interaction.hpp
         srcs/classes/bomb.cpp
         srcs/classes/bomb.hpp
         srcs/classes/logic.cpp
         srcs/classes/logic.hpp
-        srcs/classes/gui.cpp
-        srcs/classes/gui.hpp
         srcs/classes/config/Config.cpp
         srcs/classes/config/Config.hpp
         )

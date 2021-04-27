@@ -8,6 +8,7 @@
 
 class	cannonball_t: public interacion_obj {
 public:
+	cannonball_t() {};
 	explicit cannonball_t(const sprite_balls& config);
 	~cannonball_t() override = default;
 	

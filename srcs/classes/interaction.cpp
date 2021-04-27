@@ -30,7 +30,7 @@ void interaction::collapse_targets(ptr_interact& target1, ptr_interact& target2)
 void interaction::bomb_detonate(ptr_interact &target, ptr_interact &bomb) {
 	float	sum_radius = target->getRadius() + bomb->getRadius() * MULTIPLU_BOMB_RADIUS;
 	if(lenght_(target->getPosition(), bomb->getPosition()) < sum_radius) {
-		target->death_small_target();
+		target->bomb_damage(target->getHp());
 	}
 }
 

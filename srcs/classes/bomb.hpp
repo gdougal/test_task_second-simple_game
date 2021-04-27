@@ -8,6 +8,7 @@
 
 class bomb: public interacion_obj {
 public:
+	bomb() {};
 	explicit bomb(const sprite_balls& config);
 	void	move() override;
 	bomb*	clone_fo_bomb(const direction &pos_and_dir, const vector2f& bomb_dot, const sprite_balls& config);

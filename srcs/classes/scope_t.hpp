@@ -9,6 +9,7 @@
 
 class	scope_t: public sf::Sprite {
 public:
+	scope_t() = default;
 	explicit scope_t(const sprite_general& configure);
 	~scope_t() override = default;
 	sf::Vector2<float>				get_pos_scope(const win_t& window)	const;

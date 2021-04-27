@@ -9,12 +9,13 @@
 
 class wrap_window {
 private:
-	std::shared_ptr<sf::RenderWindow>	pub_window;
+	std::shared_ptr<sf::RenderWindow>			pub_window;
 public:
-	wrap_window();
+	explicit wrap_window(const win_resource& config);
 	wrap_window(const wrap_window &ref) = delete;
 	wrap_window &operator=(const wrap_window &ref) = delete;
 	const std::shared_ptr<sf::RenderWindow> &getPubWindow() const;
+
 	~wrap_window() = default;
 };
 

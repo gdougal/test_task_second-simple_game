@@ -4,12 +4,14 @@
 
 #include "wrap_window.hpp"
 
-wrap_window::wrap_window(): pub_window(new sf::RenderWindow(sf::VideoMode(g_win_width, g_win_height), "Hello SFML (its me)")) {
-	pub_window->setFramerateLimit(g_framerate);
-	pub_window->setMouseCursorVisible(false);
-	pub_window->setMouseCursorGrabbed(true);
-	pub_window->setKeyRepeatEnabled(false);
+wrap_window::wrap_window(const win_resource& config): pub_window(new sf::RenderWindow(sf::VideoMode(config.getWinWidthUint(), config.getWinHeightUint()), "Hello SFML (its me)")) {
+	pub_window->setFramerateLimit(config.getFramerateUint());
+	pub_window->setMouseCursorVisible(config.isMouseCursorVisible());
+	pub_window->setMouseCursorGrabbed(config.isMouseCursorGrabbed());
+	pub_window->setKeyRepeatEnabled(config.isKeyRepeatEnabled());
 }
 
-const std::shared_ptr<sf::RenderWindow> &wrap_window::getPubWindow() const {return pub_window;}
+const std::shared_ptr<sf::RenderWindow> &wrap_window::getPubWindow() const {
+	return pub_window;
+}
 

@@ -41,10 +41,10 @@ multiply_game_sqreen:         0.7
 multiply_boom_radius:         3
 small_yellow_num:             50
 big_green_num:                20
-win_height:                   1000
-win_width:                    1000
+win_height:                   2560
+win_width:                    1440
 framerate:                    60
 mouse_cursor_grabbed:         1
 key_repeat_enabled:           0
-mouse_cursor_visible          0
+mouse_cursor_visible:         0
 

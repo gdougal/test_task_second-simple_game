@@ -5,11 +5,11 @@
 #include "cannon_t.hpp"
 
 
-cannon_t::cannon_t(const sprite_general& configure) {
-	setTexture(configure.texture);
-	setScale(configure.texture_scale,configure.texture_scale);
-	setOrigin(configure.origin);
-	setPosition(g_win_width * HALF, g_win_height);
+cannon_t::cannon_t(const t_resourses& res): scope_(res.getScope()) {
+	setTexture(res.getCannon().getTexture());
+	setScale(res.getCannon().getTextureScale(), res.getCannon().getTextureScale());
+	setOrigin(res.getCannon().getOrigin());
+	setPosition(res.getWinResourse().getWinWidth() * HALF, res.getWinResourse().getWinHeight());
 }
 
 void cannon_t::rotate_canon(const win_t &window) {

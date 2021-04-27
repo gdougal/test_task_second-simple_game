@@ -12,33 +12,13 @@
 #include "classes/config/Config.hpp"
 
 
-static const float						g_win_height = sf::VideoMode::getDesktopMode().height * 0.8;
-static const float						g_win_width = g_win_height/16*9;
-static const float						g_framerate = 60.f;
-
-static const int						g_targets_small_num = 50;
-static const int						g_targets_big_num = 20;
-
 typedef	sf::RenderWindow							win_t;
 typedef	sf::Vector2<float>						vector2f;
 typedef	std::pair<vector2f, vector2f>	direction;
 #define	RAD_TO_DEGREE									M_PI/180.f
 #define	DEGREE_TO_RAD									180.f/M_PI
 #define	HALF													0.5f
-#define	SQREEN_GAME_ZONE							0.7f
 #define	MULTIPLU_BOMB_RADIUS					3.f
-#define	TEXTURE_SCOPE									"Tir_objects_png/Aim.png"
-#define	TEXTURE_CANNON								"Tir_objects_png/Cut_cannon.png"
-#define	TEXTURE_CANNONBALL						"Tir_objects_png/cut_cannonball.png"
-#define TEXTURE_BOMB									"Tir_objects_png/cutBomb.png"
-#define	TEXTURE_TARGET1								"Tir_objects_png/cut_target1.png"
-#define	TEXTURE_TARGET2								"Tir_objects_png/cut_target2.png"
-
-float			angele(vector2f v0, vector2f v1);
-float			random_float(float min, float max);
-vector2f	normalize(vector2f v, vector2f v1);
-float			lenght_(vector2f v0, vector2f v1);
-direction	random_pos_dir_generator();
 
 template <class T, class T1>
 bool is_object(T* ref) {
@@ -48,7 +28,47 @@ bool is_object(T* ref) {
 		return false;
 }
 
-typedef	struct	s_resource {
+class		win_resource {
+	float	multiply_game_sqreen;
+	float	multiply_boom_radius;
+	float	win_height;
+	float	win_width;
+	float	framerate;
+	int		small_yellow_num;
+	int		big_green_num;
+	bool		mouse_cursor_grabbed;
+	bool		key_repeat_enabled;
+	bool		mouse_cursor_visible;
+public:
+	win_resource(const Config::Section& configure) {
+		multiply_game_sqreen = configure.getFloatVal("multiply_game_sqreen");
+		multiply_boom_radius = configure.getFloatVal("multiply_boom_radius");
+		win_height = configure.getFloatVal("win_height");
+		win_width = configure.getFloatVal("win_width");
+		framerate = configure.getFloatVal("framerate");
+		small_yellow_num = configure.getIntVal("small_yellow_num");
+		big_green_num = configure.getIntVal("big_green_num");
+		mouse_cursor_grabbed = configure.getBoolVal("mouse_cursor_grabbed");
+		key_repeat_enabled = configure.getBoolVal("key_repeat_enabled");
+		mouse_cursor_visible = configure.getBoolVal("mouse_cursor_visible");
+	}
+	float	getMultiplyGameSqreen()	const { return multiply_game_sqreen; }
+	float	getMultiplyBoomRadius()	const { return multiply_boom_radius; }
+	float	getWinHeight()					const { return win_height; }
+	float	getWinWidth()						const { return win_width; }
+	float	getFramerate()					const { return framerate; }
+	int		getSmallYellowNum()			const { return small_yellow_num; }
+	int		getBigGreenNum()				const { return big_green_num; }
+	bool	isMouseCursorGrabbed()	const { return mouse_cursor_grabbed; }
+	bool	isKeyRepeatEnabled()		const { return key_repeat_enabled; }
+	bool	isMouseCursorVisible()	const { return mouse_cursor_visible; }
+
+	uint	getFramerateUint()			const { return static_cast<uint>(framerate); }
+	uint	getWinHeightUint()			const { return static_cast<uint>(win_height); }
+	uint	getWinWidthUint()				const { return static_cast<uint>(win_width); }
+};
+
+typedef	class	s_resource {
 	sf::Texture	texture;
 	float				texture_scale;
 	float				radius;
@@ -56,100 +76,92 @@ typedef	struct	s_resource {
 	float				speed;
 	int					hp;
 
-	static float				top_border;
-	static float				bot_border;
-	static float				left_border;
-	static float				right_border;
+	float				top_border;
+	float				bot_border;
+	float				left_border;
+	float				right_border;
 
-	s_resource(const float multiplyScale, const char* texture_path, const float multiplySpeed, const int8_t HP) {
-		float multiply_scale = multiplyScale;
-		texture.loadFromFile(texture_path);
-		texture_scale = (multiply_scale * g_win_height) / static_cast<float>(texture.getSize().y);
+public:
+	s_resource(const Config::Section& configure, const Config::Section& win_configure) {
+		float multiply_scale = configure.getFloatVal("multiply_scale_texture");
+		texture.loadFromFile(configure.getStringVal("path"));
+		texture_scale = (multiply_scale * win_configure.getFloatVal("win_height")) / static_cast<float>(texture.getSize().y);
 		origin = vector2f(static_cast<float>(texture.getSize().x) * HALF, static_cast<float>(texture.getSize().y) * HALF);
 		radius = static_cast<float>(texture.getSize().x) * texture_scale * 0.5f;
-		speed = (g_framerate * texture_scale * multiplySpeed);
-//		left_border = top_border = radius;
-//		bot_border = g_win_height * SQREEN_GAME_ZONE;
-//		right_border = g_win_width - radius;
-		hp = HP;
+		speed = (win_configure.getFloatVal("framerate") * texture_scale * configure.getFloatVal("multiply_scale_speed"));
+		left_border = top_border = radius;
+		hp = configure.getIntVal("hp");
+		bot_border = win_configure.getFloatVal("win_height") * win_configure.getFloatVal("multiply_game_sqreen");
+		right_border = win_configure.getFloatVal("win_width") - left_border;
 	};
 
-	s_resource(const std::unordered_map<std::string, std::any>& configure) {
-		float multiply_scale = std::any_cast<float>(configure.find("multiply_scale_texture"));
-		texture.loadFromFile(std::any_cast<std::string>(configure.find("path")));
-		texture_scale = (multiply_scale * g_win_height) / static_cast<float>(texture.getSize().y);
-		origin = vector2f(static_cast<float>(texture.getSize().x) * HALF, static_cast<float>(texture.getSize().y) * HALF);
-		radius = static_cast<float>(texture.getSize().x) * texture_scale * 0.5f;
-		speed = (g_framerate * texture_scale * std::any_cast<float>(configure.find("multiply_scale_speed")));
-//		left_border = top_border = radius;
-//		bot_border = win_height * game_zone;
-//		right_border = win_width - radius;
-		hp = std::any_cast<float>(configure.find("hp"));
-	};
+
+	const sf::Texture	&getTexture()			const { return texture; }
+	float							getTextureScale()	const { return texture_scale; }
+	float							getRadius()				const { return radius; }
+	const vector2f		&getOrigin()			const { return origin; }
+	float							getSpeed()				const { return speed; }
+	int								getHp()						const { return hp; }
+	float							getTopBorder()		const	{ return top_border; }
+	float							getBotBorder()		const	{ return bot_border; }
+	float							getLeftBorder()		const	{ return left_border; }
+	float							getRightBorder()	const	{ return right_border; }
 }								sprite_balls;
 
-typedef	struct	s_resource_general {
+typedef	class	s_resource_general {
 	sf::Texture	texture;
 	float				texture_scale;
 	vector2f		origin;
-	s_resource_general(const float multiplyScale, const char* texture_path, float origin_delim) {
-		float multiply_scale = multiplyScale;
-		texture.loadFromFile(texture_path);
-		texture_scale = (multiply_scale * g_win_height) / static_cast<float>(texture.getSize().y);
-		origin = vector2f (static_cast<float>(texture.getSize().x)*HALF, static_cast<float>(texture.getSize().y)*origin_delim);
+public:
+	s_resource_general(const Config::Section& configure, const Config::Section& win_configure) {
+		float multiply_scale = configure.getFloatVal("multiply_scale_texture");
+		texture.loadFromFile(configure.getStringVal("path"));
+		texture_scale = (multiply_scale * win_configure.getFloatVal("win_height")) / static_cast<float>(texture.getSize().y);
+		origin = vector2f (static_cast<float>(texture.getSize().x)*HALF, static_cast<float>(texture.getSize().y)*configure.getFloatVal("denominator_origin_y"));
 	};
 
-	s_resource_general(const std::unordered_map<std::string, std::any>& configure) {
-		float multiply_scale = std::any_cast<float>(configure.find("multiply_scale_texture"));
-		texture.loadFromFile(std::any_cast<std::string>(configure.find("path")));
-		texture_scale = (multiply_scale * g_win_height) / static_cast<float>(texture.getSize().y);
-		origin = vector2f (static_cast<float>(texture.getSize().x)*HALF, static_cast<float>(texture.getSize().y)*std::any_cast<float>(configure.find("denominator_origin_y")));
-	};
+	const	sf::Texture &getTexture()	const { return texture; }
+	float	getTextureScale()					const { return texture_scale; }
+	const	vector2f &getOrigin()			const { return origin; }
 }								sprite_general;
 
-typedef struct	s_resourses {
+
+class	t_resourses {
 private:
-	static constexpr float	cannon_texture_scale = 0.15f;
-	static constexpr float	scope_texture_scale = 0.05f;
-	static constexpr float	cannonball_texture_scale = 0.04f;
-	static constexpr float	bomb_texture_scale = 0.08f;
-	static constexpr float	target1_texture_scale = 0.03f;
-	static constexpr float	target2_texture_scale = 0.05f;
+	win_resource			win_resourse;
+	sprite_general		cannon;
+	sprite_general		scope;
+	sprite_balls			cannonball;
+	sprite_balls			bomb;
+	sprite_balls			target_small_yellow;
+	sprite_balls			target_big_green;
 
-	static constexpr float	cannonball_multiply_speed = 1.f;
-	static constexpr float	bomb_multiply_speed = 0.5f;
-	static constexpr float	target1_multiply_speed = 0.8f;
-	static constexpr float	target2_multiply_speed = 0.6f;
-
-	static constexpr float	canon_denominator_origin_y = 1.f;
-	static constexpr float	scope_denominator_origin_y = 0.5;
-	static constexpr int8_t	hp_cannonball	= 0;
-	static constexpr int8_t hp_target1		= 3;
-	static constexpr int8_t hp_target2		= 2*hp_target1;
-	float		win_height;
-	float		win_width;
-	float		game_zone;
 public:
-	sprite_general		cannon{cannon_texture_scale, TEXTURE_CANNON, canon_denominator_origin_y};
-	sprite_general		scope{scope_texture_scale, TEXTURE_SCOPE, scope_denominator_origin_y};
-	sprite_balls			cannonball{cannonball_texture_scale, TEXTURE_CANNONBALL ,cannonball_multiply_speed, hp_cannonball};
-	sprite_balls			bomb{bomb_texture_scale, TEXTURE_BOMB, bomb_multiply_speed, hp_cannonball};
-	sprite_balls			target1{target1_texture_scale, TEXTURE_TARGET1, target1_multiply_speed, hp_target1};
-	sprite_balls			target2{target2_texture_scale, TEXTURE_TARGET2, target2_multiply_speed, hp_target2};
-
-	const sprite_general	&getCannon() const { return cannon; }
-	const sprite_general	&getScope() const { return scope; }
-	const sprite_balls		&getCannonball() const { return cannonball; }
-	const sprite_balls		&getBomb() const { return bomb; }
-	const sprite_balls		&getTarget1() const { return target1; }
-	const sprite_balls		&getTarget2() const { return target2; }
-
-	s_resourses(const std::unordered_map<std::string, Section>& configs):
-
-		cannon(configs.find("CANNON")),
+	t_resourses(const Config& configs):
+		win_resourse(configs.getSection("GAME_WINDOW")),
+		cannon(configs.getSection("CANNON"), configs.getSection("GAME_WINDOW")),
+		scope(configs.getSection("SCOPE"), configs.getSection("GAME_WINDOW")),
+		cannonball(configs.getSection("CANNONBALL"), configs.getSection("GAME_WINDOW")),
+		bomb(configs.getSection("BOMB"), configs.getSection("GAME_WINDOW")),
+		target_small_yellow(configs.getSection("TARGET:SMALL_YELLOW"), configs.getSection("GAME_WINDOW")),
+		target_big_green(configs.getSection("TARGET:BIG_GREEN"), configs.getSection("GAME_WINDOW"))
 	{}
-}								t_resourses;
 
-static t_resourses			g_resourses;
+	const sprite_general	&getCannon()						const { return cannon; }
+	const sprite_general	&getScope()							const { return scope; }
+	const sprite_balls		&getCannonball()				const { return cannonball; }
+	const sprite_balls		&getBomb()							const { return bomb; }
+	const sprite_balls		&getTargetSmallYellow()	const { return target_small_yellow; }
+	const sprite_balls		&getTargetBigGreen()		const { return target_big_green; }
+	const win_resource		&getWinResourse()				const { return win_resourse; }
+};
+
+
+float			angele(vector2f v0, vector2f v1);
+float			random_float(float min, float max);
+vector2f	normalize(vector2f v, vector2f v1);
+float			lenght_(vector2f v0, vector2f v1);
+direction	random_pos_dir_generator(const t_resourses& res);
+
 
 #endif //HELLO_SFML_SHOOTING_RANGE_HPP

@@ -8,13 +8,14 @@
 
 class interacion_obj : public sf::Sprite {
 public:
+	interacion_obj() {};
 	interacion_obj(const sprite_balls& config) {
-		setTexture(config.texture);
-		setScale(config.texture_scale, config.texture_scale);
-		setOrigin(config.origin);
-		radius_ = config.radius;
-		hp_ = config.hp;
-		speed_ = config.speed;
+		setTexture(config.getTexture());
+		setScale(config.getTextureScale(), config.getTextureScale());
+		setOrigin(config.getOrigin());
+		radius_ = config.getRadius();
+		hp_ = config.getHp();
+		speed_ = config.getSpeed();
 	}
 	~interacion_obj() override = default;
 	virtual void		move() = 0;
@@ -26,9 +27,11 @@ public:
 	const vector2f	&getDirections()												const	{ return directions_; }
 	int							getHp()																	const	{ return hp_; }
 	void						minus_hp()																		{ --hp_; }
-	void						death_small_target()													{ hp_ = hp_ - g_resourses.target1.hp; }
+	void						bomb_damage(const int damage)									{ hp_ = hp_ - damage; }
 	bool						is_interactable() 											const { return interactable_; }
 	void						setDirections(const vector2f &directions)			{ directions_ = directions; }
+	void						inverse_y_dir() { directions_.y *= -1; }
+	void						inverse_x_dir() { directions_.x *= -1; }
 
 protected:
 	bool				interactable_;

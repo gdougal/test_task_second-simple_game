@@ -5,14 +5,14 @@
 #include "bomb.hpp"
 
 bomb::bomb(const sprite_balls& config): interacion_obj(config) {
-	radius_ = g_resourses.bomb.radius;
-	setTexture(g_resourses.bomb.texture);
-	setScale(g_resourses.bomb.texture_scale, g_resourses.bomb.texture_scale);
-	setOrigin(g_resourses.bomb.origin);
+	radius_ = config.getRadius();
+	setTexture(config.getTexture());
+	setScale(config.getTextureScale(), config.getTextureScale());
+	setOrigin(config.getOrigin());
 	hp_ = 0;
 	start_scale_ = getScale().y;
 	interactable_ = false;
-	speed_ = start_speed_ = g_resourses.bomb.speed;
+	speed_ = start_speed_ = config.getSpeed();
 }
 
 void bomb::move() {

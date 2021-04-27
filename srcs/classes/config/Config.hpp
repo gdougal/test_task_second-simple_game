@@ -10,31 +10,42 @@
 #include <fstream>
 #include <istream>
 
-class Section {
-	std::unordered_map<std::string, std::any> content;
-public:
-	Section() {}
-	const std::unordered_map<std::string, std::any> &getContent() const { return content; }
-	void setContent(const std::string& key, const std::string& value) {
-		auto a = value.find_first_not_of(' ');
-		if (a > value.size())
-			throw "atata";
-		Section::content[key] = value.substr(a);
-	}
-};
+
 
 class Config
 {
 public:
+	class Section;
 	explicit Config(const std::string& config_name) {
 		std::ifstream ifs(config_name);
 		create_config(ifs);
 	}
 
-	const std::unordered_map<std::string, Section>	&getSections()																																const { return sections; }
-	const std::unordered_map<std::string, std::any>	&getSection(const std::string& section_name)																	const { return sections.find(section_name)->second.getContent(); }
-	const std::any																	&getAnyValue(const std::string& section_name, const std::string& value_name)	const { return getSection(section_name).find(value_name)->second; }
+	const Section																		&getSection(const std::string& section_name)																	const { return sections.find(section_name)->second; }
 
+	class Section {
+		friend Config;
+		std::unordered_map<std::string, std::string> content;
+		void setContent(const std::string& key, const std::string& value) {
+			auto a = value.find_first_not_of(' ');
+			if (a > value.size())
+				throw "atata";
+			Section::content[key] = value.substr(a);
+		}
+	public:
+		Section() {}
+		const std::string	getStringVal(const std::string& Key)	const { return content.find(Key)->second; }
+		const float				getFloatVal(const std::string& Key)		const { return std::stof(content.find(Key)->second); }
+		const int					getIntVal(const std::string& Key)			const { return std::stoi(content.find(Key)->second); }
+		const bool				getBoolVal(const std::string& Key)		const {
+			std::string str(content.find(Key)->second);
+			bool a;
+			if ( str.size() != 1 || str.at(0) < '0' || str.at(0) > '1' )
+				return false;
+			a = ( str.at(0) == '1' );
+			return  a;
+		}
+	};
 private:
 	std::unordered_map<std::string, Section> sections;
 
