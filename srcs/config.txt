@@ -46,5 +46,5 @@ win_width:                    1440
 framerate:                    60
 mouse_cursor_grabbed:         1
 key_repeat_enabled:           0
-mouse_cursor_visible:         0
+mouse_cursor_visible:	         0
 

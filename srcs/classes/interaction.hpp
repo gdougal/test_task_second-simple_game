@@ -20,7 +20,7 @@ public:
 	static void	collapse_targets(ptr_interact& target1, ptr_interact& target2);
 	static bool	collapse_target_with_ball(ptr_interact& target, ptr_interact& ball);
 	static bool	collapse_target_with_bomb(ptr_interact& target, ptr_interact& bomb);
-	static void	bomb_detonate(ptr_interact& target, ptr_interact& bomb);
+	static void	bomb_detonate(ptr_interact& target, ptr_interact& bomb, const t_resourses& res);
 
 	static void	collaps_targets_with_board(interacion_obj& target, const sprite_balls& win) {
 		if (target.getPosition().x <= win.getLeftBorder() || target.getPosition().x >= win.getRightBorder()) {

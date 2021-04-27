@@ -27,10 +27,10 @@ void interaction::collapse_targets(ptr_interact& target1, ptr_interact& target2)
 	}
 }
 
-void interaction::bomb_detonate(ptr_interact &target, ptr_interact &bomb) {
-	float	sum_radius = target->getRadius() + bomb->getRadius() * MULTIPLU_BOMB_RADIUS;
+void interaction::bomb_detonate(ptr_interact &target, ptr_interact &bomb, const t_resourses& res) {
+	float	sum_radius = target->getRadius() + bomb->getRadius() * res.getWinResourse().getMultiplyBoomRadius();
 	if(lenght_(target->getPosition(), bomb->getPosition()) < sum_radius) {
-		target->bomb_damage(target->getHp());
+		target->bomb_damage(res.getTargetSmallYellow().getHp());
 	}
 }
 

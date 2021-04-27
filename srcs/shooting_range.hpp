@@ -18,7 +18,6 @@ typedef	std::pair<vector2f, vector2f>	direction;
 #define	RAD_TO_DEGREE									M_PI/180.f
 #define	DEGREE_TO_RAD									180.f/M_PI
 #define	HALF													0.5f
-#define	MULTIPLU_BOMB_RADIUS					3.f
 
 template <class T, class T1>
 bool is_object(T* ref) {
@@ -68,7 +67,7 @@ public:
 	uint	getWinWidthUint()				const { return static_cast<uint>(win_width); }
 };
 
-typedef	class	s_resource {
+class	sprite_balls {
 	sf::Texture	texture;
 	float				texture_scale;
 	float				radius;
@@ -82,7 +81,7 @@ typedef	class	s_resource {
 	float				right_border;
 
 public:
-	s_resource(const Config::Section& configure, const Config::Section& win_configure) {
+	sprite_balls(const Config::Section& configure, const Config::Section& win_configure) {
 		float multiply_scale = configure.getFloatVal("multiply_scale_texture");
 		texture.loadFromFile(configure.getStringVal("path"));
 		texture_scale = (multiply_scale * win_configure.getFloatVal("win_height")) / static_cast<float>(texture.getSize().y);
@@ -106,7 +105,7 @@ public:
 	float							getBotBorder()		const	{ return bot_border; }
 	float							getLeftBorder()		const	{ return left_border; }
 	float							getRightBorder()	const	{ return right_border; }
-}								sprite_balls;
+};
 
 typedef	class	s_resource_general {
 	sf::Texture	texture;

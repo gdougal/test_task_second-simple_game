@@ -9,6 +9,7 @@
 #include <any>
 #include <fstream>
 #include <istream>
+#include <exception>
 
 
 
@@ -27,10 +28,11 @@ public:
 		friend Config;
 		std::unordered_map<std::string, std::string> content;
 		void setContent(const std::string& key, const std::string& value) {
-			auto a = value.find_first_not_of(' ');
-			if (a > value.size())
-				throw "atata";
-			Section::content[key] = value.substr(a);
+			auto pos = value.find_first_not_of(" \t");
+			auto str = value.substr(pos);
+			if (pos > value.size() || str.empty())
+				throw std::length_error("Empty value field!");
+			Section::content[key] = str;
 		}
 	public:
 		Section() {}
@@ -41,7 +43,7 @@ public:
 			std::string str(content.find(Key)->second);
 			bool a;
 			if ( str.size() != 1 || str.at(0) < '0' || str.at(0) > '1' )
-				return false;
+				throw std::length_error("Empty value field!");
 			a = ( str.at(0) == '1' );
 			return  a;
 		}
@@ -60,7 +62,9 @@ private:
 			}
 			else {
 				auto delimiter_iterator = std::find(line.begin(), line.end(), ':');
-				if (delimiter_iterator == line.end())
+				if (delimiter_iterator == line.end() && !line.empty())
+					throw (std::invalid_argument("Wrong config!"));
+				else if (delimiter_iterator == line.end())
 					continue;
 				auto key = std::string(line.begin(), delimiter_iterator);
 				auto value = std::string(delimiter_iterator + 1, line.end());

@@ -88,8 +88,7 @@ void logic::collapse_cannonbals() {
 			}
 			if (is_object<interacion_obj, bomb>(it->get()) && interaction::collapse_target_with_bomb(*it_t, *it)) {
 				for (auto it_bomb_zone = targets_.begin(); !targets_.empty() && it_bomb_zone != targets_.end(); ++it_bomb_zone) {
-					interaction::bomb_detonate(*it_bomb_zone, *it);
-					std::cout << (*it_bomb_zone)->getHp() << std::endl;
+					interaction::bomb_detonate(*it_bomb_zone, *it, resourses_);
 					if ((*it_bomb_zone)->getHp() <= 0) {
 						it_bomb_zone = targets_.erase(it_bomb_zone);
 					}
