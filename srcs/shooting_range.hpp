@@ -12,6 +12,12 @@
 #include "classes/config/Config.hpp"
 
 
+enum {
+	GAME = true,
+	PAUSE = false,
+};
+
+
 typedef	sf::RenderWindow							win_t;
 typedef	sf::Vector2<float>						vector2f;
 typedef	std::pair<vector2f, vector2f>	direction;
@@ -132,39 +138,104 @@ public:
 
 
 class t_managment {
-	sf::Clock										swatch_;
-	std::shared_ptr<sf::Font>		font_;
-	std::shared_ptr<sf::Text>		score_text_;
-	std::shared_ptr<sf::Text>		time_;
-	std::shared_ptr<sf::Sprite>	background_;
-	uint												score_;
-	bool												bomb_inplace_;
-	bool												pause_;
+	sf::Clock											swatch_;
+	std::shared_ptr<sf::Font>			font_;
+	std::shared_ptr<sf::Text>			score_text_;
+	std::shared_ptr<sf::Text>			time_text_;
+	std::shared_ptr<sf::Sprite>		background_;
+	int														score_;
+
+	bool													bomb_inplace_;
+	bool													game_mode_;
+	int														bomb_damage_;
+	int														standard_damage_;
+	std::pair<sf::Time, sf::Time>	pause_time_;
+	float													all_correction_time_;
+
+	int														round_time_;
 public:
 	t_managment(const Config::Section& win_configure):
-		font_(new sf::Font()),
-		score_text_(new sf::Text),
-		time_(new sf::Text),
-		background_(new sf::Sprite()),
-		score_(0),
-		bomb_inplace_(false)
+					font_(new sf::Font()),
+					score_text_(new sf::Text),
+					time_text_(new sf::Text),
+					background_(new sf::Sprite()),
+					score_(0),
+					bomb_inplace_(false),
+					game_mode_(true),
+					all_correction_time_(0),
+					pause_time_(sf::Time::Zero,sf::Time::Zero)
 	{
+		int resolution_x = win_configure.getIntVal("win_width");
+		int resolution_y = win_configure.getIntVal("win_height");
+		round_time_ = win_configure.getIntVal("round_time_sec");
+		bomb_damage_ = win_configure.getIntVal("bomb_damage");
+		standard_damage_ = win_configure.getIntVal("standard_damage");
 		if (!font_->loadFromFile(win_configure.getStringVal("font")))
 			throw std::invalid_argument("Wrong configure file (maybe)");
-		time_->setFont(*font_);
+
 		score_text_->setFont(*font_);
-		time_->setCharacterSize(win_configure.getIntVal("win_height") / 50);
-		score_text_->setCharacterSize(win_configure.getIntVal("win_height") / 50);
-		time_->setFillColor(sf::Color(255,255,255));
+		score_text_->setCharacterSize(resolution_y / 50.f);
 		score_text_->setFillColor(sf::Color(255,255,255));
+		score_text_->setOrigin(0, score_text_->getCharacterSize());
+		score_text_->setPosition(0 + score_text_->getCharacterSize(), resolution_y - score_text_->getCharacterSize()*2);
+		time_text_->setFont(*font_);
+		time_text_->setCharacterSize(win_configure.getIntVal("win_height") / 50.f);
+		time_text_->setFillColor(sf::Color(255,255,255));
+		time_text_->setOrigin(0, time_text_->getCharacterSize());
+		time_text_->setPosition((resolution_x/4.f)*3.f, resolution_y - time_text_->getCharacterSize()*2);
 	};
+
+	const std::shared_ptr<sf::Text>		&getScoreText()			const {
+		score_text_->setString("Score: "+ std::to_string(score_));
+		return score_text_;
+	}
+
+	const std::shared_ptr<sf::Text>		&getTimeText()					const {
+		if (game_mode_ == GAME) {
+				time_text_->setString("Time: " + std::to_string(round_time_ - curent_time()));
+		}
+		return time_text_;
+	}
+
+
+
+	const sf::Clock										&getSwatch()									const { return swatch_; }
+	const std::shared_ptr<sf::Sprite>	&getBackground()							const {
+		background_->setColor(sf::Color(swatch_.getElapsedTime().asSeconds() - all_correction_time_));
+		return background_;
+	}
+
+	int																getBombDamage()								const { return bomb_damage_; }
+	int																getStandardDamage()						const { return standard_damage_; }
+	bool															isBombInplace()								const { return bomb_inplace_; }
+	int																isGameMode()									const { return game_mode_; }
+	int																isRoundEnd()									const { return round_time_ - curent_time() < 0; }
+	void															ChangeBombInplace()									{ bomb_inplace_ = !bomb_inplace_; }
+	void															ChangeGameMode()										{ game_mode_ = !game_mode_; }
+	void															addScoreBomb()											{ score_ += bomb_damage_; }
+	void															addScoreStandard()									{ score_ += standard_damage_; }
+	void															relosdScore()												{ score_ = 0; }
+	int																curent_time()									const	{ return static_cast<int>(swatch_.getElapsedTime().asSeconds() - all_correction_time_); }
+	float															deltaPause()									const	{ return pause_time_.second.asSeconds() - pause_time_.first.asSeconds(); }
+
+	void															fillPauseStart()	{
+		pause_time_.first = swatch_.getElapsedTime();
+	}
+	void															fillPauseEnd()		{
+		pause_time_.second = swatch_.getElapsedTime();
+		all_correction_time_ +=deltaPause();
+	}
+
+	void															AddAllCorrectionTime()								{ all_correction_time_ += curent_time(); }
+private:
 };
 
+
 class	t_resourses {
-private:
 	typedef std::shared_ptr<win_resource> win_resource_ptr;
 	typedef std::shared_ptr<sprite_general> sprite_general_ptr;
 	typedef std::shared_ptr<sprite_balls> sprite_balls_ptr;
+	typedef std::shared_ptr<t_managment> managment_ptr;
 	win_resource_ptr			win_resourse;
 	sprite_general_ptr		cannon;
 	sprite_general_ptr		scope;
@@ -172,6 +243,7 @@ private:
 	sprite_balls_ptr			bomb;
 	sprite_balls_ptr			target_small_yellow;
 	sprite_balls_ptr			target_big_green;
+	managment_ptr					managment;
 
 public:
 	t_resourses(const Config& configs):
@@ -181,7 +253,8 @@ public:
 		cannonball(new sprite_balls(configs.getSection("CANNONBALL"), configs.getSection("GAME_WINDOW"))),
 		bomb(new sprite_balls(configs.getSection("BOMB"), configs.getSection("GAME_WINDOW"))),
 		target_small_yellow(new sprite_balls(configs.getSection("TARGET:SMALL_YELLOW"), configs.getSection("GAME_WINDOW"))),
-		target_big_green(new sprite_balls(configs.getSection("TARGET:BIG_GREEN"), configs.getSection("GAME_WINDOW")))
+		target_big_green(new sprite_balls(configs.getSection("TARGET:BIG_GREEN"), configs.getSection("GAME_WINDOW"))),
+		managment(new t_managment(configs.getSection("GAME_WINDOW")))
 	{}
 
 	const sprite_general	&getCannon()						const { return *cannon; }
@@ -191,6 +264,7 @@ public:
 	const sprite_balls		&getTargetSmallYellow()	const { return *target_small_yellow; }
 	const sprite_balls		&getTargetBigGreen()		const { return *target_big_green; }
 	const win_resource		&getWinResourse()				const { return *win_resourse; }
+	const managment_ptr		&getManagment()					const { return managment; }
 };
 
 

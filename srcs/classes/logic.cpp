@@ -9,9 +9,8 @@
 logic::logic(const std::string& config_path): resourses_(new t_resourses(Config(config_path))) {
 	std::shared_ptr<cannon_t> tmp(cannon_t::clone(*resourses_));
 	cannon_.swap(tmp);
-	generate_targets(resourses_->getWinResourse().getSmallYellowNum(), resourses_->getTargetSmallYellow());
-	generate_targets(resourses_->getWinResourse().getBigGreenNum(), resourses_->getTargetBigGreen());
-	bomb_inplace = false;
+	generate_all_targets();
+	managment_ = resourses_->getManagment();
 }
 
 void logic::update_game_logic() {
@@ -29,6 +28,8 @@ void logic::draw_game_objects() {
 	session_window->draw(*cannon_);
 	draw_cycle(balls_);
 	session_window->draw(cannon_->getScope());
+	session_window->draw(*managment_->getScoreText());
+	session_window->draw(*managment_->getTimeText());
 }
 
 void logic::shooting() {
@@ -36,10 +37,9 @@ void logic::shooting() {
 }
 
 void logic::bomb_shooting() {
-	if  (cannon_->getScope().get_pos_scope(*session_window).y < resourses_->getBomb().getBotBorder() && !bomb_inplace) {
+	if  (cannon_->getScope().get_pos_scope(*session_window).y < resourses_->getBomb().getBotBorder()) {
 		balls_.emplace_back(false, bomb().clone_fo_bomb(cannon_->top_dot(), cannon_->getScope().get_pos_scope(*session_window), resourses_->getBomb()));
-			bomb_inplace = true;
-		}
+	}
 }
 
 void logic::generate_targets(int number, const sprite_balls& target_conf) {
@@ -56,7 +56,7 @@ void logic::moving_cannonballs() {
 		{
 			ball.first =  true;
 			if (is_object<interacion_obj, bomb>(ball.second.get()))
-				bomb_inplace = false;
+				managment_->ChangeBombInplace();
 		}
 	}
 }
@@ -78,26 +78,26 @@ void logic::collapse_targets() {
 
 
 void logic::collapse_cannonbals() {
-
-	for (auto it = balls_.begin(); it != balls_.end(); ++it) {
-		for (auto it_t = targets_.begin(); it_t != targets_.end(); ++it_t) {
-			if (is_object<interacion_obj, cannonball_t>(it->second.get()) && interaction::collapse_target_with_ball(*it_t->second, *it->second)) {
-				if (it_t->second->getHp() <= 0) {
-					it_t->first =  true;
+	for (auto& it: balls_) {
+		for (auto& it_t : targets_) {
+			if (!it_t.first && is_object<interacion_obj, cannonball_t>(it.second.get()) && interaction::collapse_target_with_ball(*it_t.second, *it.second, *resourses_)) {
+				if (it_t.second->getHp() <= 0) {
+					it_t.first =  true;
 				}
-				it->first = true;
+				managment_->addScoreStandard();
+				it.first = true;
 				break;
 			}
-			if (is_object<interacion_obj, bomb>(it->second.get()) && interaction::collapse_target_with_bomb(*it_t->second, *it->second)) {
-	it->second->setTexture(resourses_->getBomb().getExploseText());
-				for (auto it_bomb_zone = targets_.begin(); it_bomb_zone != targets_.end(); ++it_bomb_zone) {
-					interaction::bomb_detonate(*it_bomb_zone->second, *it->second, *resourses_);
-					if ((*it_bomb_zone).second->getHp() <= 0) {
-						it_bomb_zone->first = true;
-						bomb_inplace = false;
+			if (is_object<interacion_obj, bomb>(it.second.get()) && interaction::collapse_target_with_bomb(*it_t.second, *it.second)) {
+	it.second->setTexture(resourses_->getBomb().getExploseText()); /// it`s boom texture;
+				for (auto& it_bomb_zone : targets_) {
+					interaction::bomb_detonate(*it_bomb_zone.second, *it.second, *resourses_);
+					if (it_bomb_zone.second->getHp() <= 0) {
+						it_bomb_zone.first = true;
 					}
 				}
-				it->first = true;
+				it.first = true;
+				managment_->ChangeBombInplace();
 				break;
 			}
 		}

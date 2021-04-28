@@ -1,38 +1,26 @@
 #include <iostream>
 #include "classes/logic.hpp"
 
+
+
+
 int	game_cycle() {
 	logic						game("srcs/config.txt");
 	wrap_window			window(game.getResourses().getWinResourse());
 	game.setSessionWindow(window.getPubWindow().get());
-	bool	game_reaction = true;
 	while (window.getPubWindow()->isOpen()) {
 		sf::Event e;
 		while (window.getPubWindow()->pollEvent(e)) {
-
 			switch (e.type) {
 				case sf::Event::EventType::Closed:
 					window.getPubWindow()->close();
 					break;
 				case e.KeyPressed:
-					if (e.key.code == sf::Keyboard::Q) {
-						game.shooting();
-					}
-					else if (e.key.code == sf::Keyboard::W) {
-						game.bomb_shooting();
-					}
-					else if (e.key.code == sf::Keyboard::Escape) {
-						game_reaction = !game_reaction;
-					}
+					game.handler_key(e.key.code);
 					break;
 			}
 		}
-		window.getPubWindow()->clear();
-		if (game_reaction) {
-			game.update_game_logic();
-			game.draw_game_objects();
-		}
-		window.getPubWindow()->display();
+			game.game_actions();
 	}
 	return 0;
 }

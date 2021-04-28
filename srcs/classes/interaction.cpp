@@ -4,11 +4,11 @@
 
 #include "interaction.hpp"
 
-bool interaction::collapse_target_with_ball(interacion_obj& target, interacion_obj& ball) {
+bool interaction::collapse_target_with_ball(interacion_obj& target, interacion_obj& ball, const t_resourses& res) {
 	if(is_collapse(target, ball)) {
 		interacion_obj::swap_directions(target, ball);
 		target.setDirections(vector2f(target.getDirections().x * -1, target.getDirections().y * -1));
-		target.minus_hp();
+		target.minus_hp(res.getManagment()->getStandardDamage());
 		return true;
 	}
 	return false;
@@ -30,7 +30,8 @@ void interaction::collapse_targets(interacion_obj& target1, interacion_obj& targ
 void interaction::bomb_detonate(interacion_obj& target, interacion_obj& bomb, const t_resourses& res) {
 	float	sum_radius = target.getRadius() + bomb.getRadius() * res.getWinResourse().getMultiplyBoomRadius();
 	if(lenght_(target.getPosition(), bomb.getPosition()) < sum_radius) {
-		target.bomb_damage(res.getTargetSmallYellow().getHp());
+		target.bomb_damage(res.getManagment()->getBombDamage());
+		res.getManagment()->addScoreBomb();
 	}
 }
 

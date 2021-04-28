@@ -25,8 +25,8 @@ public:
 	static void			swap_directions(interacion_obj& target1, interacion_obj& target2) { std::swap(target1.directions_, target2.directions_); }
 	void						inverse_y_dir()																	{ directions_.y *= -1; }
 	void						inverse_x_dir()																	{ directions_.x *= -1; }
-	void						minus_hp()																			{ --hp_; }
-	void						bomb_damage(const int damage)										{ hp_ = hp_ - damage; }
+	void						minus_hp(const int standard_damage)							{ hp_ -= standard_damage; }
+	void						bomb_damage(const int bomb_damage)							{ hp_ = hp_ - bomb_damage; }
 	bool						is_interactable() 												const { return interactable_; }
 	void						setDirections(const vector2f &directions)				{ directions_ = directions; }
 	int							getHp()																		const	{ return hp_; }

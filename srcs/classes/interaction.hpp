@@ -17,7 +17,7 @@ public:
 	virtual ~interaction() = delete;
 
 	static void	collapse_targets(interacion_obj& target1, interacion_obj& target2);
-	static bool	collapse_target_with_ball(interacion_obj& target, interacion_obj& ball);
+	static bool	collapse_target_with_ball(interacion_obj& target, interacion_obj& ball, const t_resourses& res);
 	static bool	collapse_target_with_bomb(interacion_obj& target, interacion_obj& bomb);
 	static void	bomb_detonate(interacion_obj& target, interacion_obj& bomb, const t_resourses& res);
 
