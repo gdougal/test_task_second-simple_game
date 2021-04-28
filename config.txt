@@ -1,4 +1,3 @@
-
 #CANNON
 path:                        Tir_objects_png/Cut_cannon.png
 multiply_scale_texture:      0.15
@@ -42,17 +41,17 @@ hp:                          3
 
 #GAME_WINDOW
 font:						  /Library/Fonts/Arial.ttf
-multiply_game_sqreen:         0.7
-multiply_boom_radius:         4
+win_height:                   2560
+win_width:                    1440
 bomb_damage: 		          4
 standard_damage:			  1
 round_time_sec:				  40
 small_yellow_num:             30
 big_green_num:                5
-win_height:                   2560
-win_width:                    1440
-framerate:                    60
 mouse_cursor_grabbed:         1
-key_repeat_enabled:           0
 mouse_cursor_visible:	      0
+key_repeat_enabled:           0
+multiply_game_sqreen:         0.7
+multiply_boom_radius:         4
+framerate:                    60
 
