@@ -1,3 +1,0 @@
-/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/gdougal/Desktop/hello_sfml/cmake-build-debug/CMakeFiles/hello_sfml.dir

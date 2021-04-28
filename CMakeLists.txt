@@ -15,7 +15,6 @@ add_executable(${EXECUTABLE_NAME}
         srcs/classes/wrap_window.cpp
         srcs/classes/target_c1.cpp
         srcs/classes/interaction.cpp
-
         srcs/classes/canonball_t.hpp
         srcs/classes/scope_t.hpp
         srcs/shooting_range.hpp

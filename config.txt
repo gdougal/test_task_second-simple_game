@@ -46,7 +46,7 @@ multiply_game_sqreen:         0.7
 multiply_boom_radius:         4
 bomb_damage: 		          4
 standard_damage:			  1
-round_time_sec:				  30
+round_time_sec:				  40
 small_yellow_num:             30
 big_green_num:                5
 win_height:                   2560
