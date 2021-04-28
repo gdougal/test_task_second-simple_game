@@ -1,19 +1,19 @@
 #CANNON
 path:                        Tir_objects_png/Cut_cannon.png
 multiply_scale_texture:      0.15
-denominator_origin_y:        1
+denominator_origin_y:        1							//Not for change
 
 
 #SCOPE
 path:                        Tir_objects_png/Aim.png
 multiply_scale_texture:      0.05
-denominator_origin_y:        0.5
+denominator_origin_y:        0.5						//Not for change
 
 
 #CANNONBALL
 path:                        Tir_objects_png/cut_cannonball.png
 path_explose:                Tir_objects_png/rsz_explose.png
-multiply_scale_texture:      0.04
+multiply_scale_texture:      0.04						//Not for change
 multiply_scale_speed:        1
 hp:                          1
 
@@ -30,19 +30,19 @@ path:                        Tir_objects_png/cut_target1.png
 path_explose:                Tir_objects_png/rsz_explose.png
 multiply_scale_texture:      0.03
 multiply_scale_speed:        0.8
-hp:                          3
+hp:                          3								// can change it
 
 #TARGET:BIG_GREEN
 path:                        Tir_objects_png/cut_target2.png
 path_explose:                Tir_objects_png/rsz_explose.png
 multiply_scale_texture:      0.05
 multiply_scale_speed:        0.6
-hp:                          3
+hp:                          3								// can change it
 
 #GAME_WINDOW
 font:						  /Library/Fonts/Arial.ttf
-win_height:                   2560
-win_width:                    1440
+win_height:                   1000 							//can change it
+win_width:                    800 							//can change it
 bomb_damage: 		          4
 standard_damage:			  1
 round_time_sec:				  40
@@ -52,6 +52,6 @@ mouse_cursor_grabbed:         1
 mouse_cursor_visible:	      0
 key_repeat_enabled:           0
 multiply_game_sqreen:         0.7
-multiply_boom_radius:         4
-framerate:                    60
+multiply_boom_radius:         3
+framerate:                    60							//Not for change
 
