@@ -232,10 +232,10 @@ private:
 
 
 class	t_resourses {
-	typedef std::shared_ptr<win_resource> win_resource_ptr;
-	typedef std::shared_ptr<sprite_general> sprite_general_ptr;
-	typedef std::shared_ptr<sprite_balls> sprite_balls_ptr;
-	typedef std::shared_ptr<t_managment> managment_ptr;
+	typedef std::shared_ptr<win_resource>			win_resource_ptr;
+	typedef std::shared_ptr<sprite_general>		sprite_general_ptr;
+	typedef std::shared_ptr<sprite_balls>			sprite_balls_ptr;
+	typedef std::shared_ptr<t_managment>			managment_ptr;
 	win_resource_ptr			win_resourse;
 	sprite_general_ptr		cannon;
 	sprite_general_ptr		scope;

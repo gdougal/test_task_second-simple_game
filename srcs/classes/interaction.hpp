@@ -31,10 +31,6 @@ public:
 	}
 
 private:
-	static int score_;
-
-	static int	getScore() { return score_; }
-	static void	setScore(int counter) { interaction::score_ = counter; }
 	static const bool	co_orientation(interacion_obj& object1, interacion_obj& object2);
 	static const bool	is_collapse(interacion_obj& object1, interacion_obj& object2);
 };

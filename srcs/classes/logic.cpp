@@ -13,6 +13,64 @@ logic::logic(const std::string& config_path): resourses_(new t_resourses(Config(
 	managment_ = resourses_->getManagment();
 }
 
+void logic::game_actions() {
+	session_window->clear();
+	if (managment_->isRoundEnd()) {
+		restart_game();
+	}
+	switch (managment_->isGameMode()) {
+		case GAME:
+			update_game_logic();
+			draw_game_objects();
+			break;
+		case PAUSE:
+			draw_game_objects();
+			break;
+	}
+	session_window->display();
+}
+
+void logic::handler_concreet_key(int key) {
+	switch (key) {
+		case sf::Keyboard::Q:
+			shooting();
+			break;
+		case sf::Keyboard::W:
+			if (!managment_->isBombInplace()) {
+				bomb_shooting();
+				managment_->ChangeBombInplace();
+			}
+			break;
+		case sf::Keyboard::R:
+			restart_game();
+			break;
+	}
+}
+
+void logic::handler_key(int key) {
+	if (key == sf::Keyboard::Escape) {
+		managment_->ChangeGameMode();
+		if (managment_->isGameMode() == PAUSE) {
+			managment_->fillPauseStart();
+			session_window->setMouseCursorGrabbed(false);
+			session_window->setMouseCursorVisible(true);
+		}
+		else {
+			managment_->fillPauseEnd();
+			session_window->setMouseCursorGrabbed(resourses_->getWinResourse().isMouseCursorGrabbed());
+			session_window->setMouseCursorVisible(resourses_->getWinResourse().isMouseCursorVisible());
+		}
+		return;
+	}
+	switch (managment_->isGameMode()) {
+		case GAME:
+			handler_concreet_key(key);
+		case PAUSE:
+			break;
+	}
+}
+
+
 void logic::update_game_logic() {
 	delete_cycle(targets_);
 	delete_cycle(balls_);
@@ -121,3 +179,18 @@ void logic::delete_cycle(t_interact_lst& pool) {
 
 const t_resourses	&logic::getResourses()																		const { return *resourses_; }
 void							logic::setSessionWindow(sf::RenderWindow *sessionWindow)				{ session_window = sessionWindow; }
+
+void logic::generate_all_targets() {
+	generate_targets(resourses_->getWinResourse().getSmallYellowNum(), resourses_->getTargetSmallYellow());
+	generate_targets(resourses_->getWinResourse().getBigGreenNum(), resourses_->getTargetBigGreen());
+}
+
+
+void logic::restart_game() {
+	managment_->AddAllCorrectionTime();
+	managment_->relosdScore();
+	session_window->clear();
+	targets_.clear();
+	generate_all_targets();
+};
+
