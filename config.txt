@@ -28,26 +28,26 @@ hp:                          1
 #TARGET:SMALL_YELLOW
 path:                        Tir_objects_png/cut_target1.png
 path_explose:                Tir_objects_png/rsz_explose.png
-multiply_scale_texture:      0.03
+multiply_scale_texture:      0.02
 multiply_scale_speed:        0.8
 hp:                          3								// can change it
 
 #TARGET:BIG_GREEN
 path:                        Tir_objects_png/cut_target2.png
 path_explose:                Tir_objects_png/rsz_explose.png
-multiply_scale_texture:      0.05
+multiply_scale_texture:      0.03
 multiply_scale_speed:        0.6
 hp:                          3								// can change it
 
 #GAME_WINDOW
-font:						  /Library/Fonts/Arial.ttf
+font:			      ./Tir_objects_png/amatraca-grotesque-normal.ttf
 win_height:                   1000 							//can change it
-win_width:                    800 							//can change it
-bomb_damage: 		          4
-standard_damage:			  1
-round_time_sec:				  40
-small_yellow_num:             30
-big_green_num:                5
+win_width:                    750 							//can change it
+bomb_damage: 		        4
+standard_damage:		1
+round_time_sec:			100
+small_yellow_num:             100
+big_green_num:                50
 mouse_cursor_grabbed:         1
 mouse_cursor_visible:	      0
 key_repeat_enabled:           0
