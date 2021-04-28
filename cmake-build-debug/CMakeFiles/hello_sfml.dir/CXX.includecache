@@ -702,10 +702,6 @@ istream
 exception
 -
 
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.cpp
-interaction.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
-
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction.hpp
 interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
@@ -749,12 +745,6 @@ interaction_objects.hpp
 /Users/gdougal/Desktop/hello_sfml/srcs/classes/interaction_objects.hpp
 memory
 -
-
-/Users/gdougal/Desktop/hello_sfml/srcs/main.cpp
-iostream
--
-classes/logic.hpp
-/Users/gdougal/Desktop/hello_sfml/srcs/classes/logic.hpp
 
 /Users/gdougal/Desktop/hello_sfml/srcs/shooting_range.hpp
 SFML/Graphics.hpp

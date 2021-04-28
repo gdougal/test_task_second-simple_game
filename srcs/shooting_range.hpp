@@ -132,7 +132,7 @@ public:
 	};
 
 	const	sf::Texture	&getTexture()			const { return *texture; }
-	const float				getTextureScale()	const { return texture_scale; }
+	float				getTextureScale()	const { return texture_scale; }
 	const	vector2f		&getOrigin()			const { return origin; }
 }								sprite_general;
 
@@ -162,8 +162,8 @@ public:
 					score_(0),
 					bomb_inplace_(false),
 					game_mode_(true),
-					all_correction_time_(0),
-					pause_time_(sf::Time::Zero,sf::Time::Zero)
+					pause_time_(sf::Time::Zero,sf::Time::Zero),
+					all_correction_time_(0)
 	{
 		int resolution_x = win_configure.getIntVal("win_width");
 		int resolution_y = win_configure.getIntVal("win_height");

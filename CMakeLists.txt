@@ -3,6 +3,7 @@ project(hello_sfml)
 
 set(CMAKE_CXX_STANDARD 20)
 set(EXECUTABLE_NAME "hello_sfml")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror")
 set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/Frameworks)
 
 add_executable(${EXECUTABLE_NAME}

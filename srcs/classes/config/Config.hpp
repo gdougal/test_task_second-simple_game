@@ -32,9 +32,9 @@ public:
 	public:
 		Section() {}
 		const std::string	getStringVal(const std::string& Key)	const;
-		const float				getFloatVal(const std::string& Key)		const;
-		const int					getIntVal(const std::string& Key)			const;
-		const bool				getBoolVal(const std::string& Key)		const;
+		float				getFloatVal(const std::string& Key)		const;
+		int					getIntVal(const std::string& Key)			const;
+		bool				getBoolVal(const std::string& Key)		const;
 	};
 
 private:

@@ -32,6 +32,7 @@ void bomb::move() {
 
 bomb *bomb::clone(const direction &pos_and_dir, const sprite_balls& config) const {
 	auto bomb_n = new bomb(config);
+	bomb_n->set_start(pos_and_dir);
 	return bomb_n;
 }
 
@@ -44,7 +45,6 @@ float bomb::scale_factor(const float way) const {
 
 bomb *bomb::clone_fo_bomb(const direction &pos_and_dir, const vector2f &bomb_dot, const sprite_balls& config) {
 	auto bomb_n = clone(pos_and_dir, config);
-	bomb_n->set_start(pos_and_dir);
 	bomb_n->start_pos_ = pos_and_dir.first;
 	bomb_n->booom_dot_ = bomb_dot;
 	bomb_n->length_ = lenght_(bomb_n->start_pos_, bomb_n->booom_dot_);

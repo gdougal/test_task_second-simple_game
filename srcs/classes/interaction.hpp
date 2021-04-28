@@ -31,8 +31,8 @@ public:
 	}
 
 private:
-	static const bool	co_orientation(interacion_obj& object1, interacion_obj& object2);
-	static const bool	is_collapse(interacion_obj& object1, interacion_obj& object2);
+	static bool	co_orientation(interacion_obj& object1, interacion_obj& object2);
+	static bool	is_collapse(interacion_obj& object1, interacion_obj& object2);
 };
 
 

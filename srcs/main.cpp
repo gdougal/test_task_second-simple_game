@@ -18,6 +18,8 @@ int	game_cycle() {
 				case e.KeyPressed:
 					game.handler_key(e.key.code);
 					break;
+				default:
+					break;
 			}
 		}
 			game.game_actions();

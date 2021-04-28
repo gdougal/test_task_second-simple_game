@@ -15,7 +15,7 @@ logic::logic(const std::string& config_path): resourses_(new t_resourses(Config(
 
 void logic::game_actions() {
 	session_window->clear();
-	if (managment_->isRoundEnd()) {
+	if (managment_->isRoundEnd() || targets_.empty()) {
 		restart_game();
 	}
 	switch (managment_->isGameMode()) {

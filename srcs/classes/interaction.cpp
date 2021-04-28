@@ -36,13 +36,13 @@ void interaction::bomb_detonate(interacion_obj& target, interacion_obj& bomb, co
 }
 
 
-const bool	interaction::co_orientation(interacion_obj &object1, interacion_obj &object2) {
+bool	interaction::co_orientation(interacion_obj &object1, interacion_obj &object2) {
 	float	length_btwn_centre	= lenght_(object1.getPosition(), object2.getPosition());
 	float	length_in_move			= lenght_(object1.getPosition() + object1.getDirections(), object2.getPosition() + object2.getDirections());
 	return (length_btwn_centre >= length_in_move);
 }
 
-const bool	interaction::is_collapse(interacion_obj &object1, interacion_obj &object2) {
+bool	interaction::is_collapse(interacion_obj &object1, interacion_obj &object2) {
 	float	length_btwn_centre	= lenght_(object1.getPosition(), object2.getPosition());
 	float	sum_radius					= object1.getRadius() + object2.getRadius();
 	return (length_btwn_centre <= sum_radius);

@@ -55,7 +55,7 @@ const							std::string &Config::Section::throw_or_not(const std::string &Key) c
 	return find_res->second;
 }
 
-const bool				Config::Section::getBoolVal(const std::string &Key) const {
+bool				Config::Section::getBoolVal(const std::string &Key) const {
 	std::string str(throw_or_not(Key));
 	bool ret;
 	if ( str.size() != 1 || str.at(0) < '0' || str.at(0) > '1' )
@@ -63,6 +63,6 @@ const bool				Config::Section::getBoolVal(const std::string &Key) const {
 	ret = ( str.at(0) == '1' );
 	return  ret;
 }
-const int 				Config::Section::getIntVal(const std::string &Key) const { return std::stoi(throw_or_not(Key)); }
-const float 			Config::Section::getFloatVal(const std::string &Key) const { return std::stof( throw_or_not(Key)); }
+int 							Config::Section::getIntVal(const std::string &Key) const { return std::stoi(throw_or_not(Key)); }
+float 						Config::Section::getFloatVal(const std::string &Key) const { return std::stof( throw_or_not(Key)); }
 const std::string	Config::Section::getStringVal(const std::string &Key) const { return throw_or_not(Key); }
